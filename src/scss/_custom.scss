@@ -1,0 +1,42 @@
+// Text Styles //
+
+.x-large-text {
+  font-size: 2.5rem;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+.large-text {
+  font-size: 1rem;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+.icon-size {
+  font-size: 1.5rem;
+}
+
+// Dark background //
+
+.dark-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+// Buttons //
+
+.btn {
+  display: inline-block;
+  background: $button-color;
+  color: black;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: bold;
+
+  &:hover {
+    background: darken($color: $button-color, $amount: 15%);
+  }
+}

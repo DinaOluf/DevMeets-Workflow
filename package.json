@@ -1,0 +1,29 @@
+{
+  "name": "CSS-Framework-CA",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "sass src/scss:dist/css",
+    "watch": "sass --watch src/scss:dist/css & live-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sindre1993/CSS-Framework-CA.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Sindre1993/CSS-Framework-CA/issues"
+  },
+  "homepage": "https://github.com/Sindre1993/CSS-Framework-CA#readme",
+  "devDependencies": {
+    "live-server": "^1.2.2",
+    "sass": "^1.54.5"
+  },
+  "dependencies": {
+    "bootstrap": "^5.2.0"
+  }
+}

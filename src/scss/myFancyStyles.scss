@@ -1,0 +1,153 @@
+@import "variable";
+@import "../../node_modules/bootstrap/scss/bootstrap.scss";
+@import "custom.scss";
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Raleway", sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  background-color: #fff;
+  color: #333;
+}
+
+section {
+  background: $backgroundBody-color;
+}
+
+a {
+  text-decoration: none;
+  color: $success-color;
+}
+
+ul {
+  list-style: none;
+}
+
+.separation-line {
+  border: 1px solid $break-color;
+  opacity: 100%;
+}
+
+// Navigation Bar //
+
+.navwrap {
+  background-color: $primary-color;
+  color: $white-color;
+
+  & a {
+    color: $link-color;
+  }
+
+  & a:hover {
+    color: $button-color-dark;
+  }
+}
+
+.navbar-toggler {
+  background: $link-color;
+}
+
+// Main Content //
+
+.landing {
+  background: url(../../dist/css/img/background-login.jpg) no-repeat center center/cover;
+  height: 100vh;
+
+  & h1 {
+    color: $white-color;
+  }
+
+  & p {
+    color: $white-color;
+  }
+}
+
+.content-wrap {
+  //   width: 90%;
+}
+
+// Home Page/Profile Page - Left //
+
+.left {
+  width: auto;
+  height: auto;
+  background-color: $primary-color;
+  border: 2px solid $break-color;
+
+  & p {
+    color: $white-color;
+  }
+}
+
+.left-profile {
+  width: 600px;
+  height: 400px;
+  background-color: $primary-color;
+  border: 2px solid $break-color;
+
+  & p {
+    color: $white-color;
+  }
+}
+
+.left-profile-specific {
+  width: auto;
+  height: 690px;
+  background-color: $primary-color;
+  border: 2px solid $break-color;
+
+  & p {
+    color: $white-color;
+  }
+}
+
+.my-profile-image {
+  height: 150px;
+  width: 150px;
+}
+
+.profile-image-attributes {
+  height: 100px;
+  width: 100px;
+}
+
+.friends-image-attributes {
+  height: 100px;
+  width: 100px;
+}
+
+// Home Page - Right //
+
+.right {
+  background-color: $primary-color;
+  border: 2px solid $break-color;
+}
+// Footer //
+
+.footer-wrap {
+  background-color: $primary-color;
+
+  &li {
+    color: $button-color;
+  }
+}
+
+.copyright {
+  color: white;
+}
+
+// Form //
+
+.form-control {
+  width: 22rem;
+}
+
+.login-form-wrap {
+  background: rgba($color: #1a1d20, $alpha: 0.8);
+}
