@@ -1,1 +1,1 @@
-import * as getPosts from "./util/getPosts";
+import * as getPosts from "./util/getPosts.js";
