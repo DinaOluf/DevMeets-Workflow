@@ -36,7 +36,9 @@ async function getPosts() {
 
       // Check if content image exists, if so add it
       let postMedia;
-      if (data[i].media !== "string" || data[i].media !== undefined) {
+      if (!data[i].media || data[i].media === "string") {
+        postMedia = "";
+      } else {
         postMedia = data[i].media;
       }
 
