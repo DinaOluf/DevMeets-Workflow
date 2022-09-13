@@ -1,9 +1,6 @@
 import { options } from "./options.js";
-import { API_BASE_URL } from "./variables.js";
-import { getPostUrlParams } from "./variables.js";
-import { getPostsContainer } from "./variables.js";
+import { API_BASE_URL, getPostUrlParams, getPostsContainer, errorContainer } from "./variables.js";
 import { errorMessage } from "../components/error.js";
-import { errorContainer } from "./variables.js";
 
 async function getPosts() {
   try {
