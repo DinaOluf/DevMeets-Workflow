@@ -11,15 +11,15 @@ function handleSubmit(evt) {
   evt.preventDefault();
 
   // Assign the inputs from the form to variables
-  const [userName, email, password] = evt.target.elements;
+  const [userName, email, password, avatar, banner] = evt.target.elements;
 
   // Construct the data object which is to be sent to the API
   const dataObj = JSON.stringify({
     name: userName.value,
     email: email.value,
     password: password.value,
-    avatar: "https://img.service.com/avatar.jpg",
-    banner: "https://img.service.com/banner.jpg",
+    avatar: avatar.value,
+    banner: banner.value,
   });
 
   // Send the data object to the API
