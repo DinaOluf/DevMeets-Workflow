@@ -1,4 +1,5 @@
-import { API_BASE_URL } from "../util/variables.mjs";
+import { API_BASE_URL, errorContainer } from "../util/variables.mjs";
+import { errorMessage } from "../components/error.mjs";
 
 // Connect to the correct form later
 const form = document.querySelector(".login-form");
@@ -28,6 +29,14 @@ function handleSubmit(evt) {
     },
   })
     .then((response) => response.json())
-    .then((json) => console.log(json))
+    .then((json) => {
+      console.log(json);
+      console.log(json.message);
+      if (json.message) {
+        errorContainer.innerHTML = errorMessage(json.message);
+      } else {
+        // Local Storage code
+      }
+    })
     .catch((error) => console.log("error", error));
 }
