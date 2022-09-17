@@ -45,6 +45,14 @@
   }
 }
 
+.btn-back {
+  background: $break-color;
+
+  &:hover {
+    background: darken($color: $break-color, $amount: 15%);
+  }
+}
+
 // GAP VARIABLE, THANKS ALEXANDER
 
 @each $name, $gap in $gap {
