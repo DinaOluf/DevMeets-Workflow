@@ -99,3 +99,12 @@
     gap: $gap;
   }
 }
+
+// Error //
+
+.error {
+  padding: 1rem;
+  color: red;
+  border: 1px solid red;
+  text-align: center;
+}

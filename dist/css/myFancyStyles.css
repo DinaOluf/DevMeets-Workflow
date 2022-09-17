@@ -11023,6 +11023,13 @@ textarea.form-control-lg {
   gap: 4rem;
 }
 
+.error {
+  padding: 1rem;
+  color: red;
+  border: 1px solid red;
+  text-align: center;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
