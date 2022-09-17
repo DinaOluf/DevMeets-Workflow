@@ -4,9 +4,9 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>DevMeets | Login</title>
+    <title>DevMeets | Register</title>
     <meta name="keywords" content="DevMeets, Social Media, Bootstrap, SASS, Noroff" />
-    <meta name="description" content="Login to DevMeets!" />
+    <meta name="description" content="Register an account to DevMeets!" />
     <script src="https://kit.fontawesome.com/7b67c1dabd.js" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -63,17 +63,31 @@
         <div class="dark-overlay h-100 d-flex flex-column w-100 m-a align-items-center justify-content-center">
           <h1 class="x-large-text">Developer Meeting Place</h1>
           <p class="large-text">Share your profile & portfolio, posts and get help from others!</p>
-          <div class="login-form-wrap rounded">
+          <div class="login-form-wrap rounded mt-3">
             <form class="d-flex flex-column align-items-center px-3" action="profile.html">
               <div class="form-group mt-4 mb-1">
-                <input type="email" class="form-control" id="login-email" aria-describedby="emailHelp" placeholder="Enter email" required minlength="3" />
+                <div class="h1 registerText d-flex flex-column">
+                  <h4 class="x-large-text">Register</h4>
+                  <h5 class="">It's nice and simple!</h5>
+                </div>
+                <div class="form-group mt-3 mb-3">
+                  <input type="name" class="form-control" id="login-name" placeholder="Name" required minlength="5" />
+                </div>
+                <div>
+                  <input type="email" class="form-control" id="login-email" aria-describedby="emailHelp" placeholder="Email" required minlength="3" />
+                </div>
+                <div class="form-group mt-3 mb-3">
+                  <input type="password" class="form-control" id="login-password" placeholder="Password" required minlength="5" />
+                </div>
+                <div class="form-group mt-3 mb-3">
+                  <input type="text" class="form-control" id="login-avatar" placeholder="Avatar URL (Optional)" />
+                </div>
+                <div class="form-group mt-3 mb-3">
+                  <input type="text" class="form-control" id="login-banner" placeholder="Banner URL (Optional)" />
+                </div>
               </div>
-              <div class="form-group mt-3 mb-3">
-                <input type="password" class="form-control" id="login-password" placeholder="Password" required minlength="5" />
-              </div>
-              <button type="submit" class="btn btn-primary w-75 mt-1 mb-1">Log in</button>
-              <a href="">Forgot Password?</a>
-              <a href="register.html" class="btn btn-primary w-50 mt-4 mb-4">Sign Up</a>
+              <button type="submit" class="btn btn-primary w-75 mt-1 mb-4">Register</button>
+              <a class="btn btn-back btn-primary w-75 mt-1 mb-4" href="login.html">Back to Login</a>
             </form>
           </div>
         </div>
