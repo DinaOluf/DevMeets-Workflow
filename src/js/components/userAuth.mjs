@@ -10,18 +10,8 @@ export function getUserAuth() {
   }
 }
 
-// Set the auth token
-
-export function handleAuth(token) {
-  const currentAuth = getUserAuth();
-
-  currentAuth.push(token);
-
-  saveAuth(currentAuth);
-}
-
 // Save and parse the auth token
 
-function saveAuth(token) {
+export function saveAuth(token) {
   localStorage.setItem("jwt", JSON.stringify(token));
 }

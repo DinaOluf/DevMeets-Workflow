@@ -1,1 +1,3 @@
-import * as error from "./components/error.mjs";
+import { isUserLoggedIn } from "./user/isUserLoggedIn.mjs";
+
+isUserLoggedIn();

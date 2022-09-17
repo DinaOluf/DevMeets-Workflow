@@ -1,6 +1,6 @@
 import { API_BASE_URL, errorContainer } from "../util/variables.mjs";
 import { errorMessage } from "../components/error.mjs";
-import { handleAuth } from "../components/userAuth.mjs";
+import { saveAuth } from "../components/userAuth.mjs";
 
 // Connect to the correct form later
 const form = document.querySelector(".login-form");
@@ -37,7 +37,8 @@ function handleSubmit(evt) {
       } else {
         errorContainer.style.display = "none";
         const authToken = json.accessToken;
-        handleAuth(authToken);
+        saveAuth(authToken);
+        location.href = "/profile.html";
       }
     })
     .catch((error) => console.log("error", error));
