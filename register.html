@@ -63,17 +63,30 @@
         <div class="dark-overlay h-100 d-flex flex-column w-100 m-a align-items-center justify-content-center">
           <h1 class="x-large-text">Developer Meeting Place</h1>
           <p class="large-text">Share your profile & portfolio, posts and get help from others!</p>
-          <div class="login-form-wrap rounded">
+          <div class="login-form-wrap rounded mt-3">
             <form class="d-flex flex-column align-items-center px-3" action="profile.html">
               <div class="form-group mt-4 mb-1">
-                <input type="email" class="form-control" id="login-email" aria-describedby="emailHelp" placeholder="Enter email" required minlength="3" />
+                <div class="h1 registerText d-flex flex-column">
+                  <h4 class="x-large-text">Register</h4>
+                  <h5 class="">It's nice and simple!</h5>
+                </div>
+                <div class="form-group mt-3 mb-3">
+                  <input type="name" class="form-control" id="login-name" placeholder="Name" required minlength="5" />
+                </div>
+                <div>
+                  <input type="email" class="form-control" id="login-email" aria-describedby="emailHelp" placeholder="Email" required minlength="3" />
+                </div>
+                <div class="form-group mt-3 mb-3">
+                  <input type="password" class="form-control" id="login-password" placeholder="Password" required minlength="5" />
+                </div>
+                <div class="form-group mt-3 mb-3">
+                  <input type="text" class="form-control" id="login-avatar" placeholder="Avatar URL (Optional)" />
+                </div>
+                <div class="form-group mt-3 mb-3">
+                  <input type="text" class="form-control" id="login-banner" placeholder="Banner URL (Optional)" />
+                </div>
               </div>
-              <div class="form-group mt-3 mb-3">
-                <input type="password" class="form-control" id="login-password" placeholder="Password" required minlength="5" />
-              </div>
-              <button type="submit" class="btn btn-primary w-75 mt-1 mb-1">Log in</button>
-              <a href="">Forgot Password?</a>
-              <button type="submit" class="btn btn-primary w-50 mt-4 mb-4">Sign Up</button>
+              <button type="submit" class="btn btn-primary w-75 mt-4 mb-4">Register</button>
             </form>
           </div>
         </div>
