@@ -1,5 +1,6 @@
 import { API_BASE_URL, errorContainer } from "../util/variables.mjs";
 import { errorMessage } from "../components/error.mjs";
+import { handleAuth } from "../components/userAuth.mjs";
 
 // Connect to the correct form later
 const form = document.querySelector(".login-form");
@@ -31,11 +32,12 @@ function handleSubmit(evt) {
     .then((response) => response.json())
     .then((json) => {
       console.log(json);
-      console.log(json.message);
       if (json.message) {
         errorContainer.innerHTML = errorMessage(json.message);
       } else {
-        // Local Storage code
+        errorContainer.style.display = "none";
+        const authToken = json.accessToken;
+        handleAuth(authToken);
       }
     })
     .catch((error) => console.log("error", error));
