@@ -10938,6 +10938,10 @@ textarea.form-control-lg {
   font-size: 1.5rem;
 }
 
+.color-green {
+  color: #acd1b6;
+}
+
 .dark-overlay {
   position: absolute;
   top: 0;
@@ -10972,13 +10976,6 @@ textarea.form-control-lg {
 
 .gap-4 {
   gap: 4rem;
-}
-
-.error {
-  padding: 1rem;
-  color: red;
-  border: 1px solid red;
-  text-align: center;
 }
 
 * {

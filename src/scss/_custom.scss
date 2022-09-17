@@ -16,6 +16,10 @@
   font-size: 1.5rem;
 }
 
+.color-green {
+  color: $button-color;
+}
+
 // Dark background //
 
 .dark-overlay {
@@ -38,6 +42,14 @@
 
   &:hover {
     background: darken($color: $button-color, $amount: 15%);
+  }
+}
+
+.btn-back {
+  background: $break-color;
+
+  &:hover {
+    background: darken($color: $break-color, $amount: 15%);
   }
 }
 
