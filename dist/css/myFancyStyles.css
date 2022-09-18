@@ -10962,6 +10962,55 @@ textarea.form-control-lg {
   background: #7bb68b;
 }
 
+.card-profile {
+  width: 90%;
+  border: none;
+  border-radius: 15px;
+  padding: 8px;
+  background-color: #1a1d20;
+  position: relative;
+  height: 440px;
+}
+
+.upper img {
+  width: 100%;
+  height: 200px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.user {
+  position: relative;
+}
+
+.profile img {
+  height: 80px;
+  width: 80px;
+  margin-top: 2px;
+}
+
+.profile {
+  position: absolute;
+  top: -50px;
+  left: 46%;
+  height: 90px;
+  width: 90px;
+  border: 3px solid #fff;
+  border-radius: 50%;
+}
+
+.follow {
+  border-radius: 15px;
+  padding-left: 20px;
+  padding-right: 20px;
+  height: 35px;
+}
+
+.img-fluid {
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
 .gap-1 {
   gap: 1rem;
 }
@@ -10976,6 +11025,13 @@ textarea.form-control-lg {
 
 .gap-4 {
   gap: 4rem;
+}
+
+.error {
+  padding: 1rem;
+  color: red;
+  border: 1px solid red;
+  text-align: center;
 }
 
 * {
@@ -11036,6 +11092,16 @@ ul {
   color: #fff;
 }
 
+.profile-stats h6, .profile-stats .h6 {
+  color: #fff;
+}
+.profile-stats h4, .profile-stats .h4 {
+  color: #fff;
+}
+.profile-stats span {
+  color: #e3eecd;
+}
+
 .left {
   width: auto;
   height: auto;
@@ -11058,7 +11124,7 @@ ul {
 
 .left-profile-specific {
   width: auto;
-  height: 690px;
+  height: 412px;
   background-color: #1a1d20;
   border: 2px solid #40676e;
 }
