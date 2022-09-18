@@ -16,6 +16,10 @@
   font-size: 1.5rem;
 }
 
+.color-green {
+  color: $button-color;
+}
+
 // Dark background //
 
 .dark-overlay {
@@ -90,6 +94,13 @@
 
 .img-fluid {
   object-fit: cover;
+
+.btn-back {
+  background: $break-color;
+
+  &:hover {
+    background: darken($color: $break-color, $amount: 15%);
+  }
 }
 
 // GAP VARIABLE, THANKS ALEXANDER
@@ -100,7 +111,8 @@
   }
 }
 
-// Error //
+// ERROR
+
 
 .error {
   padding: 1rem;

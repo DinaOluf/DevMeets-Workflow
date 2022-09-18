@@ -1,7 +1,7 @@
 import { API_BASE_URL } from "../util/variables.mjs";
 
 // Connect to the correct form later
-const form = document.querySelector(".login-form");
+const form = document.querySelector(".register-form");
 
 // Eventlistener for the submit handling
 form.addEventListener("submit", handleSubmit);
