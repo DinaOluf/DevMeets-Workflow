@@ -1,4 +1,4 @@
-import { getUserAuth } from "../components/userAuth.mjs";
+import { getUserAuth } from "../user/userAuth.mjs";
 
 const jwt = getUserAuth();
 

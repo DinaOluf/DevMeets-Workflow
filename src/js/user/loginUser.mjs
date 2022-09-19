@@ -1,6 +1,7 @@
 import { API_BASE_URL, errorContainer } from "../util/variables.mjs";
 import { errorMessage } from "../components/error.mjs";
-import { saveAuth } from "../components/userAuth.mjs";
+import { saveAuth } from "./userAuth.mjs";
+import { saveUserInfo } from "./getUserInfo.mjs";
 
 // Connect to the correct form later
 const form = document.querySelector(".login-form");
@@ -31,13 +32,23 @@ function handleSubmit(evt) {
   })
     .then((response) => response.json())
     .then((json) => {
-      console.log(json);
       if (json.message) {
         errorContainer.innerHTML = errorMessage(json.message);
       } else {
         errorContainer.style.display = "none";
+
+        // Save user info
+        saveUserInfo({
+          name: json.name,
+          email: json.email,
+          avatar: json.avatar,
+        });
+
+        // Save authentication token
         const authToken = json.accessToken;
         saveAuth(authToken);
+
+        // Redirect
         location.href = "/profile.html";
       }
     })

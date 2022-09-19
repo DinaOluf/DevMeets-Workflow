@@ -1,4 +1,5 @@
-import { API_BASE_URL } from "../util/variables.mjs";
+import { API_BASE_URL, errorContainer } from "../util/variables.mjs";
+import { successMessage } from "../components/success.mjs";
 
 // Connect to the correct form later
 const form = document.querySelector(".register-form");
@@ -31,6 +32,17 @@ function handleSubmit(evt) {
     },
   })
     .then((response) => response.json)
-    .then((json) => console.log(json))
+    .then((json) => {
+      if (json.message) {
+        errorContainer.innerHTML = errorMessage(json.message);
+      } else {
+        errorContainer.innerHTML = successMessage("Registration");
+
+        setTimeout(() => {
+          location.href = "/login.html";
+        }),
+          2000;
+      }
+    })
     .catch((error) => console.log("error", error));
 }

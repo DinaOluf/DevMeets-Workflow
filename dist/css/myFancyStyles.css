@@ -11011,6 +11011,13 @@ textarea.form-control-lg {
      object-fit: cover;
 }
 
+.btn-back {
+  background: #40676e;
+}
+.btn-back:hover {
+  background: #243a3e;
+}
+
 .gap-1 {
   gap: 1rem;
 }
@@ -11031,6 +11038,13 @@ textarea.form-control-lg {
   padding: 1rem;
   color: red;
   border: 1px solid red;
+  text-align: center;
+}
+
+.success {
+  padding: 1rem;
+  color: green;
+  border: 1px solid green;
   text-align: center;
 }
 
