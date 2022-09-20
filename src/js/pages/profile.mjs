@@ -1,39 +1,9 @@
-import { getUserInfo } from "../user/getUserInfo.mjs";
 import { getPosts } from "../posts/getPosts.mjs";
+import { getUserPanelInfo } from "../user/profilePanel.mjs";
 
 // Run get posts function
 getPosts();
 
-// Get user info and display it
+// Run get user panel info function
 
-const userInfo = getUserInfo();
-
-const profileImage = document.querySelectorAll(".profile-image");
-const userName = document.querySelectorAll(".profile-info-username");
-const bannerImage = document.querySelector(".banner-image");
-
-// Check if a profile image is set for the user, if not set to default
-let userAvatar = userInfo.avatar;
-
-if (!userAvatar || userAvatar === "string" || userAvatar === "https://img.service.com/avatar.jpg") {
-  userAvatar = "/dist/img/no-user-image-icon-0.jpg";
-}
-
-// Add the image
-profileImage.forEach((image) => {
-  image.innerHTML = `<img class="profile-image-attributes rounded-circle" src="${userAvatar}" alt="User Profile Image" />`;
-});
-
-// Check if a banner image is set for the user, if not set to default
-let userBanner = userInfo.banner;
-
-if (!userBanner || userBanner === "string" || userBanner === "https://img.service.com/banner.jpg") {
-  userBanner = "/dist/img/Hero-Banner-Placeholder-Dark-1024x480-1.png";
-}
-
-bannerImage.innerHTML = `<img class="img-fluid" src="${userBanner}" alt="User Banner Image" />`;
-
-// Add the name
-userName.forEach((name) => {
-  name.innerText = `${userInfo.name}`;
-});
+getUserPanelInfo();
