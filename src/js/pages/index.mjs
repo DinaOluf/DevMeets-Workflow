@@ -1,7 +1,7 @@
 import { getPosts } from "../posts/getPosts.mjs";
 import { getUserPanelInfo } from "../user/profilePanel.mjs";
 import { createPost } from "../posts/createPost.mjs";
-import { isUserLoggedIn } from "./user/isUserLoggedIn.mjs";
+import { isUserLoggedIn } from "../user/isUserLoggedIn.mjs";
 
 // Check if user is logged in, if no, redirect
 isUserLoggedIn();
