@@ -39,8 +39,7 @@ export function createPost(evt) {
 
         setTimeout(() => {
           location.reload();
-        }),
-          2000;
+        }, 1500);
       }
     })
     .catch((error) => console.log("error", error));

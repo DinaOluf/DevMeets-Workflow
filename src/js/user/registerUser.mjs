@@ -1,14 +1,8 @@
 import { API_BASE_URL, errorContainer } from "../util/variables.mjs";
 import { successMessage } from "../components/success.mjs";
 
-// Connect to the correct form later
-const form = document.querySelector(".register-form");
-
-// Eventlistener for the submit handling
-form.addEventListener("submit", handleSubmit);
-
 // Function which initiates what to do when submitting the form
-function handleSubmit(evt) {
+export function handleRegister(evt) {
   evt.preventDefault();
 
   // Assign the inputs from the form to variables
@@ -40,8 +34,7 @@ function handleSubmit(evt) {
 
         setTimeout(() => {
           location.href = "/login.html";
-        }),
-          2000;
+        }, 1500);
       }
     })
     .catch((error) => console.log("error", error));
