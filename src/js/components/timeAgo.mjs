@@ -1,3 +1,4 @@
+// Load dayjs and dependencies
 dayjs().format();
 dayjs.extend(window.dayjs_plugin_relativeTime);
 
