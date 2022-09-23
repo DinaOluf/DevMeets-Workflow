@@ -26,7 +26,6 @@ export async function getPosts() {
       // Display Date
       const date = data[i].updated;
       const dateFix = timeAgo(date);
-      console.log(dateFix);
 
       // Filtering out some annoying test posts by other users
 

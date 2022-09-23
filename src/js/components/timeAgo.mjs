@@ -1,7 +1,9 @@
-import "/node_modules/dayjs/dayjs.min.js";
+dayjs().format();
+dayjs.extend(window.dayjs_plugin_relativeTime);
 
 // Input date and return time since
 
 export function timeAgo(date) {
-  return dayjs(date).fromNow();
+  const timeFrom = dayjs().to(dayjs(date));
+  return timeFrom;
 }
