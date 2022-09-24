@@ -42,7 +42,9 @@ export async function getPosts() {
       if (!data[i].media || data[i].media === "string") {
         postMedia = "";
       } else {
-        postMedia = data[i].media;
+        postMedia = `<p class="mt-3 mb-4 pb-2">
+        <img class="w-100" src="${data[i].media}" />
+        </p>`;
       }
 
       // Check if user has profile image, if not add placeholder
@@ -72,10 +74,7 @@ export async function getPosts() {
           ${data[i].body}
           </p>
 
-          <p class="mt-3 mb-4 pb-2">
-          <img class="w-100" src="${postMedia}" />
-          </p>
-
+          ${postMedia}
 
           <div class="small d-flex justify-content-start">
             <a href="#!" class="d-flex align-items-center me-3">
