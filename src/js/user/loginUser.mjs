@@ -3,14 +3,8 @@ import { errorMessage } from "../components/error.mjs";
 import { saveAuth } from "./userAuth.mjs";
 import { saveUserInfo } from "./getUserInfo.mjs";
 
-// Connect to the correct form later
-const form = document.querySelector(".login-form");
-
-// Eventlistener for the submit handling
-form.addEventListener("submit", handleSubmit);
-
 // Function which initiates what to do when submitting the form
-function handleSubmit(evt) {
+export function handleLogin(evt) {
   evt.preventDefault();
 
   // Assign the inputs from the form to variables
