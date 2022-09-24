@@ -1,6 +1,7 @@
 import { options } from "../util/options.mjs";
 import { API_BASE_URL, getPostUrlParams, errorContainer } from "../util/variables.mjs";
 import { errorMessage } from "../components/error.mjs";
+import { timeAgo } from "../components/timeAgo.mjs";
 
 const getPostsContainer = document.querySelector(".get-posts-container");
 
@@ -24,8 +25,7 @@ export async function getPosts() {
 
       // Display Date
       const date = data[i].updated;
-      const dateFix = date.split("T")[0];
-      const timeFix = date.split("T")[1];
+      const dateFix = timeAgo(date);
 
       // Filtering out some annoying test posts by other users
 
@@ -64,7 +64,7 @@ export async function getPosts() {
             <img class="rounded-circle shadow-1-strong me-3" src="${userProfileImage}" alt="avatar" width="60" height="60" />
             <div>
               <h6 class="fw-bold text-primary mb-1">${data[i].author.name}</h6>
-              <p class="text-muted small mb-0">Shared publicly - ${dateFix}, ${timeFix}</p>
+              <p class="text-muted small mb-0">Shared publicly - ${dateFix}</p>
             </div>
           </div>
 

@@ -20,10 +20,11 @@
   },
   "homepage": "https://github.com/Sindre1993/CSS-Framework-CA#readme",
   "devDependencies": {
-    "live-server": "^1.2.2",
+    "live-server": "^1.1.0",
     "sass": "^1.54.5"
   },
   "dependencies": {
-    "bootstrap": "^5.2.0"
+    "bootstrap": "^5.2.0",
+    "dayjs": "^1.11.5"
   }
 }
