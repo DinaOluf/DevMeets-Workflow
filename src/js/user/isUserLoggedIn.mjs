@@ -1,4 +1,4 @@
-import { getUserAuth } from "../components/userAuth.mjs";
+import { getUserAuth } from "./userAuth.mjs";
 
 export function isUserLoggedIn() {
   const checkAuth = getUserAuth();

@@ -14,7 +14,7 @@
     <script defer src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="/dist/css/myFancyStyles.css" />
     <script defer src="/src/js/script.mjs" type="module"></script>
-    <script defer src="/src/js/posts/getPosts.mjs" type="module"></script>
+    <script defer src="/src/js/pages/profile.mjs" type="module"></script>
   </head>
   <body>
     <nav class="navwrap navbar navbar-expand-lg navbar-light">
@@ -62,18 +62,18 @@
     <section>
       <div class="container d-flex justify-content-center align-items-center pt-3">
         <div class="card-profile">
-          <div class="upper">
+          <div class="upper banner-image">
             <img src="dist/img/cheese.jpg" class="img-fluid" />
           </div>
           <div class="user text-center">
-            <div class="profile">
+            <div class="profile profile-image">
               <img src="dist/img/sindre.jpg" class="rounded-circle" width="80" />
             </div>
           </div>
 
           <div class="profile-stats mt-5 text-center">
-            <h4 class="mb-0">Sindre Østby</h4>
-            <span class="d-block mb-2">Norway, Sandnes</span>
+            <h4 class="mb-0 profile-info-username">Sindre Østby</h4>
+            <span class="d-block mb-2">Sandnes, Norway</span>
 
             <button class="btn btn-primary btn-sm follow">Follow</button>
             <div class="d-flex justify-content-center gap-5 align-items-center mt-4 px-4">
@@ -132,9 +132,11 @@
               <div class="card mb-3">
                 <div class="card-body">
                   <div class="d-flex flex-start align-items-center">
-                    <img class="rounded-circle shadow-1-strong me-3" src="dist/img/sindre.jpg" alt="avatar" width="60" height="60" />
+                    <div class="profile-image">
+                      <img class="rounded-circle shadow-1-strong me-3" src="dist/img/sindre.jpg" alt="avatar" width="60" height="60" />
+                    </div>
                     <div>
-                      <h6 class="fw-bold text-primary mb-1">Sindre Østby</h6>
+                      <h6 class="fw-bold text-primary mb-1 profile-info-username">Sindre Østby</h6>
                       <p class="text-muted small mb-0">Public</p>
                     </div>
                   </div>

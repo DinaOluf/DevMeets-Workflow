@@ -4,7 +4,7 @@ import { errorMessage } from "../components/error.mjs";
 
 const getPostsContainer = document.querySelector(".get-posts-container");
 
-async function getPosts() {
+export async function getPosts() {
   try {
     // CLEAR EXISTING HTML
     errorContainer.innerHTML = "";
@@ -111,5 +111,3 @@ async function getPosts() {
     errorContainer.innerHTML = errorMessage("An error occurred when calling the API, error: " + error);
   }
 }
-
-getPosts();

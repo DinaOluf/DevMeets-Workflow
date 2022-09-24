@@ -94,6 +94,7 @@
 
 .img-fluid {
   object-fit: cover;
+}
 
 .btn-back {
   background: $break-color;
@@ -113,10 +114,18 @@
 
 // ERROR
 
-
 .error {
   padding: 1rem;
   color: red;
   border: 1px solid red;
+  text-align: center;
+}
+
+// ERROR
+
+.success {
+  padding: 1rem;
+  color: green;
+  border: 1px solid green;
   text-align: center;
 }

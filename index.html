@@ -14,7 +14,7 @@
     <script defer src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="/dist/css/myFancyStyles.css" />
     <script defer src="/src/js/script.mjs" type="module"></script>
-    <script defer src="/src/js/posts/getPosts.mjs" type="module"></script>
+    <script defer src="/src/js/pages/index.mjs" type="module"></script>
   </head>
   <body>
     <nav class="navwrap navbar navbar-expand-lg navbar-light">
@@ -69,9 +69,8 @@
                   <img class="profile-image-attributes rounded-circle" src="dist/img/sindre.jpg" alt="" />
                 </div>
                 <div class="profile-information px-2">
-                  <p class="mb-0">Sindre Østby</p>
+                  <p class="mb-0 profile-info-username">Sindre Østby</p>
                   <p class="mb-0">Developer</p>
-                  <p class="mb-0">@SinOst</p>
                 </div>
               </div>
               <div class="profile-posts d-flex justify-content-center pt-2 pb-2 mt-3">
@@ -114,9 +113,11 @@
                 <div class="card mb-3">
                   <div class="card-body">
                     <div class="d-flex flex-start align-items-center">
-                      <img class="rounded-circle shadow-1-strong me-3" src="dist/img/sindre.jpg" alt="avatar" width="60" height="60" />
+                      <div class="profile-image">
+                        <img class="rounded-circle shadow-1-strong me-3" src="dist/img/sindre.jpg" alt="avatar" width="60" height="60" />
+                      </div>
                       <div>
-                        <h6 class="fw-bold text-primary mb-1">Sindre Østby</h6>
+                        <h6 class="fw-bold text-primary mb-1 profile-info-username">Sindre Østby</h6>
                         <p class="text-muted small mb-0">Public</p>
                       </div>
                     </div>

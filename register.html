@@ -14,6 +14,7 @@
     <script defer src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="/dist/css/myFancyStyles.css" />
     <script defer src="/src/js/script.mjs" type="module"></script>
+    <script defer src="/src/js/user/registerUser.mjs" type="module"></script>
   </head>
   <body>
     <nav class="navwrap navbar navbar-expand-lg navbar-light">
@@ -64,7 +65,8 @@
           <h1 class="x-large-text">Developer Meeting Place</h1>
           <p class="large-text">Share your profile & portfolio, posts and get help from others!</p>
           <div class="login-form-wrap rounded mt-3">
-            <form class="d-flex flex-column align-items-center px-3" action="profile.html">
+            <div class="error-container"></div>
+            <form class="d-flex flex-column align-items-center px-3 register-form" action="">
               <div class="form-group mt-4 mb-1">
                 <div class="h1 registerText d-flex flex-column">
                   <h4 class="x-large-text">Register</h4>
