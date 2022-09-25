@@ -11091,6 +11091,10 @@ ul {
   color: #628a6d;
 }
 
+#book-dropdown {
+  width: 115px;
+}
+
 .navbar-toggler {
   background: #e3eecd;
 }
