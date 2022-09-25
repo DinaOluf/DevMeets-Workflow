@@ -2,6 +2,7 @@ import { options } from "../util/options.mjs";
 import { API_BASE_URL, getPostUrlParams, errorContainer } from "../util/variables.mjs";
 import { errorMessage } from "../components/error.mjs";
 import { timeAgo } from "../components/timeAgo.mjs";
+import { profileImageHandler } from "../components/imageHandlers.mjs";
 
 const getPostsContainer = document.querySelector(".get-posts-container");
 
@@ -15,8 +16,6 @@ export async function getPosts() {
 
     const response = await fetch(`${API_BASE_URL}/api/v1/social/posts${getPostUrlParams}`, options);
     const data = await response.json();
-
-    console.log(data);
 
     // LOOP THE DATA AND DISPLAY IT.
 
@@ -47,13 +46,7 @@ export async function getPosts() {
 
       // Check if user has profile image, if not add placeholder
 
-      let userProfileImage;
-
-      if (!data[i].author.avatar || data[i].author.avatar === "string") {
-        userProfileImage = "/dist/img/no-user-image-icon-0.jpg";
-      } else {
-        userProfileImage = data[i].author.avatar;
-      }
+      let userProfileImage = profileImageHandler(data[i].author.avatar);
 
       // DISPLAY POST
 
