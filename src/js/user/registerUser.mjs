@@ -13,11 +13,15 @@ export function handleRegister(evt) {
   // Check if the supplied email is a Noroff email
   let validatedEmail = "";
 
+  console.log(email.value);
+
   if (!validateEmail(email.value)) {
     errorContainer.innerHTML = errorMessage("Invalid email");
   } else {
     errorContainer.innerHTML = "";
     validatedEmail = email.value;
+
+    console.log(validatedEmail);
 
     // Construct the data object which is to be sent to the API
     const dataObj = JSON.stringify({
@@ -27,6 +31,8 @@ export function handleRegister(evt) {
       avatar: avatar.value,
       banner: banner.value,
     });
+
+    console.log(dataObj);
 
     // Send the data object to the API
     fetch(`${API_BASE_URL}/api/v1/social/auth/register`, {
