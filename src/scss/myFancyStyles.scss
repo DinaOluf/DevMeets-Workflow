@@ -49,6 +49,10 @@ ul {
   }
 }
 
+#book-dropdown {
+  width: 115px;
+}
+
 .navbar-toggler {
   background: $link-color;
 }
@@ -129,6 +133,11 @@ ul {
 .profile-image-attributes {
   height: 100px;
   width: 100px;
+}
+
+.profile-image-comment {
+  height: 50px;
+  width: 50px;
 }
 
 .friends-image-attributes {

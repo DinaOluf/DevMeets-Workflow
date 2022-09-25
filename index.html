@@ -44,20 +44,40 @@
           <li class="nav-item">
             <a class="nav-link" href="login.html">Login</a>
           </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Dropdown </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="#">Action</a>
-              <a class="dropdown-item" href="#">Another action</a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#">Something else here</a>
-            </div>
-          </li>
         </ul>
         <form class="form-inline my-2 my-lg-0 d-flex px-5">
           <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" />
           <button class="btn btn-outline-success my-2 my-sm-0 ms-2" type="submit">Search</button>
         </form>
+      </div>
+      <div class="dropdown">
+        <div class="settings-dropdown">
+          <svg
+            type="button"
+            id="settings-dropdown"
+            data-bs-toggle="dropdown"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+            xmlns="http://www.w3.org/2000/svg"
+            width="25"
+            height="25"
+            fill="currentColor"
+            class="bi bi-gear-fill me-3 ms-3"
+            viewBox="0 0 16 16"
+          >
+            <path
+              d="M9.405 1.05c-.413-1.4-2.397-1.4-2.81 0l-.1.34a1.464 1.464 0 0 1-2.105.872l-.31-.17c-1.283-.698-2.686.705-1.987 1.987l.169.311c.446.82.023 1.841-.872 2.105l-.34.1c-1.4.413-1.4 2.397 0 2.81l.34.1a1.464 1.464 0 0 1 .872 2.105l-.17.31c-.698 1.283.705 2.686 1.987 1.987l.311-.169a1.464 1.464 0 0 1 2.105.872l.1.34c.413 1.4 2.397 1.4 2.81 0l.1-.34a1.464 1.464 0 0 1 2.105-.872l.31.17c1.283.698 2.686-.705 1.987-1.987l-.169-.311a1.464 1.464 0 0 1 .872-2.105l.34-.1c1.4-.413 1.4-2.397 0-2.81l-.34-.1a1.464 1.464 0 0 1-.872-2.105l.17-.31c.698-1.283-.705-2.686-1.987-1.987l-.311.169a1.464 1.464 0 0 1-2.105-.872l-.1-.34zM8 10.93a2.929 2.929 0 1 1 0-5.86 2.929 2.929 0 0 1 0 5.858z"
+            />
+          </svg>
+          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="settings-dropdown">
+            <li class="dropdown-item">Settings</li>
+            <li class="dropdown-item">Help & Support</li>
+            <li class="dropdown-item">About</li>
+            <hr />
+            <li class="dropdown-item log-out-button">Log out</li>
+          </ul>
+        </div>
       </div>
     </nav>
     <hr class="separation-line solid mt-0 mb-0" />
@@ -114,13 +134,46 @@
               <div class="content-right-wrap p-3">
                 <div class="card mb-3">
                   <div class="card-body">
-                    <div class="d-flex flex-start align-items-center">
-                      <div class="profile-image">
-                        <img class="rounded-circle shadow-1-strong me-3" src="dist/img/sindre.jpg" alt="avatar" width="60" height="60" />
+                    <div class="d-flex flex-start align-items-center justify-content-between">
+                      <div class="d-flex align-items-center">
+                        <div class="profile-image me-1">
+                          <img class="rounded-circle shadow-1-strong me-3" src="dist/img/sindre.jpg" alt="avatar" width="60" height="60" />
+                        </div>
+                        <div>
+                          <h6 class="fw-bold text-primary mb-1 profile-info-username">Sindre Østby</h6>
+                          <p class="text-muted small mb-0">Public</p>
+                        </div>
                       </div>
                       <div class="ms-2">
                         <h6 class="fw-bold text-primary mb-1 profile-info-username">Sindre Østby</h6>
                         <p class="text-muted small mb-0">Public</p>
+                      <div>
+                        <div class="dropdown">
+                          <div class="comment-dropdown pb-5">
+                            <svg
+                              type="button"
+                              id="comment-dropdown"
+                              data-bs-toggle="dropdown"
+                              data-toggle="dropdown"
+                              aria-haspopup="true"
+                              aria-expanded="false"
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="25"
+                              height="25"
+                              fill="currentColor"
+                              class="bi bi-gear-fill me-3 ms-3"
+                              viewBox="0 0 16 16"
+                            >
+                              <path
+                                d="M9.405 1.05c-.413-1.4-2.397-1.4-2.81 0l-.1.34a1.464 1.464 0 0 1-2.105.872l-.31-.17c-1.283-.698-2.686.705-1.987 1.987l.169.311c.446.82.023 1.841-.872 2.105l-.34.1c-1.4.413-1.4 2.397 0 2.81l.34.1a1.464 1.464 0 0 1 .872 2.105l-.17.31c-.698 1.283.705 2.686 1.987 1.987l.311-.169a1.464 1.464 0 0 1 2.105.872l.1.34c.413 1.4 2.397 1.4 2.81 0l.1-.34a1.464 1.464 0 0 1 2.105-.872l.31.17c1.283.698 2.686-.705 1.987-1.987l-.169-.311a1.464 1.464 0 0 1 .872-2.105l.34-.1c1.4-.413 1.4-2.397 0-2.81l-.34-.1a1.464 1.464 0 0 1-.872-2.105l.17-.31c.698-1.283-.705-2.686-1.987-1.987l-.311.169a1.464 1.464 0 0 1-2.105-.872l-.1-.34zM8 10.93a2.929 2.929 0 1 1 0-5.86 2.929 2.929 0 0 1 0 5.858z"
+                              />
+                            </svg>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="comment-dropdown">
+                              <li class="dropdown-item">Edit Post</li>
+                              <li class="dropdown-item">Delete Post</li>
+                            </ul>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -145,6 +198,77 @@
                       </div>
                     </div>
                   </form>
+                  <div>
+                    <div class="comment-section d-flex justify-content-center">
+                      <div class="d-flex flex-start align-items-center w-75 mt-3 mb-3">
+                        <div>
+                          <img class="profile-image-comment rounded-circle shadow-1-strong me-2" src="dist/img/sindre.jpg" alt="avatar" width="60" height="60" />
+                        </div>
+                        <div>
+                          <h6 class="fw-bold text-primary mb-1 profile-info-username">Sindre Østby</h6>
+                          <p class="text-muted small mb-0">Replied: 2 hours ago</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="d-flex justify-content-center mb-3">
+                      <div class="d-flex justify-content-center flex-column">
+                        <div class="d-flex flex-start align-items-center w-75 mt-1 mb-1">
+                          <p>Hello this was a very funny comment, Pretzinger! You are hilarious, kort applaus!</p>
+                        </div>
+                        <div class="small d-flex justify-content-start">
+                          <a href="#!" class="d-flex align-items-center me-3">
+                            <i class="far fa-thumbs-up me-2"></i>
+                            <p class="mb-0">Like</p>
+                          </a>
+                          <a href="#!" class="d-flex align-items-center me-3">
+                            <i class="far fa-comment-dots me-2"></i>
+                            <p class="mb-0">Comment</p>
+                          </a>
+                          <a href="#!" class="d-flex align-items-center me-3">
+                            <p class="mb-0">&#9998; Edit</p>
+                          </a>
+                          <a href="#!" class="d-flex align-items-center me-3">
+                            <p class="mb-0">&#10006; Delete</p>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="dropdown mt-3 mb-3">
+                  <button class="btn btn-secondary dropdown-toggle" type="button" id="book-dropdown" data-bs-toggle="dropdown">Sort by:</button>
+                  <ul class="dropdown-menu" aria-labelledby="book-dropdown">
+                    <li class="dropdown-item">
+                      Title
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z" />
+                      </svg>
+                    </li>
+                    <li class="dropdown-item">
+                      Author
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z" />
+                      </svg>
+                    </li>
+                    <li class="dropdown-item">
+                      Time
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z" />
+                      </svg>
+                    </li>
+                    <li class="dropdown-item">
+                      Following
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z" />
+                      </svg>
+                    </li>
+                    <li class="dropdown-item">
+                      My Posts
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z" />
+                      </svg>
+                    </li>
+                  </ul>
                 </div>
                 <div class="error-container"></div>
                 <div class="get-posts-container d-flex flex-column gap-3"></div>
