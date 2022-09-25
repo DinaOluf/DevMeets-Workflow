@@ -114,13 +114,43 @@
               <div class="content-right-wrap p-3">
                 <div class="card mb-3">
                   <div class="card-body">
-                    <div class="d-flex flex-start align-items-center">
-                      <div class="profile-image">
-                        <img class="rounded-circle shadow-1-strong me-3" src="dist/img/sindre.jpg" alt="avatar" width="60" height="60" />
+                    <div class="d-flex flex-start align-items-center justify-content-between">
+                      <div class="d-flex align-items-center">
+                        <div class="profile-image me-1">
+                          <img class="rounded-circle shadow-1-strong me-3" src="dist/img/sindre.jpg" alt="avatar" width="60" height="60" />
+                        </div>
+                        <div>
+                          <h6 class="fw-bold text-primary mb-1 profile-info-username">Sindre Østby</h6>
+                          <p class="text-muted small mb-0">Public</p>
+                        </div>
                       </div>
                       <div>
-                        <h6 class="fw-bold text-primary mb-1 profile-info-username">Sindre Østby</h6>
-                        <p class="text-muted small mb-0">Public</p>
+                        <div class="dropdown">
+                          <div class="comment-dropdown pb-5">
+                            <svg
+                              type="button"
+                              id="comment-dropdown"
+                              data-bs-toggle="dropdown"
+                              data-toggle="dropdown"
+                              aria-haspopup="true"
+                              aria-expanded="false"
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="25"
+                              height="25"
+                              fill="currentColor"
+                              class="bi bi-gear-fill me-3 ms-3"
+                              viewBox="0 0 16 16"
+                            >
+                              <path
+                                d="M9.405 1.05c-.413-1.4-2.397-1.4-2.81 0l-.1.34a1.464 1.464 0 0 1-2.105.872l-.31-.17c-1.283-.698-2.686.705-1.987 1.987l.169.311c.446.82.023 1.841-.872 2.105l-.34.1c-1.4.413-1.4 2.397 0 2.81l.34.1a1.464 1.464 0 0 1 .872 2.105l-.17.31c-.698 1.283.705 2.686 1.987 1.987l.311-.169a1.464 1.464 0 0 1 2.105.872l.1.34c.413 1.4 2.397 1.4 2.81 0l.1-.34a1.464 1.464 0 0 1 2.105-.872l.31.17c1.283.698 2.686-.705 1.987-1.987l-.169-.311a1.464 1.464 0 0 1 .872-2.105l.34-.1c1.4-.413 1.4-2.397 0-2.81l-.34-.1a1.464 1.464 0 0 1-.872-2.105l.17-.31c.698-1.283-.705-2.686-1.987-1.987l-.311.169a1.464 1.464 0 0 1-2.105-.872l-.1-.34zM8 10.93a2.929 2.929 0 1 1 0-5.86 2.929 2.929 0 0 1 0 5.858z"
+                              />
+                            </svg>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="comment-dropdown">
+                              <li class="dropdown-item">Edit Post</li>
+                              <li class="dropdown-item">Delete Post</li>
+                            </ul>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -149,7 +179,7 @@
                     <div class="comment-section d-flex justify-content-center">
                       <div class="d-flex flex-start align-items-center w-75 mt-3 mb-3">
                         <div>
-                          <img class="profile-image-comment rounded-circle shadow-1-strong me-3" src="dist/img/sindre.jpg" alt="avatar" width="60" height="60" />
+                          <img class="profile-image-comment rounded-circle shadow-1-strong me-2" src="dist/img/sindre.jpg" alt="avatar" width="60" height="60" />
                         </div>
                         <div>
                           <h6 class="fw-bold text-primary mb-1 profile-info-username">Sindre Østby</h6>
