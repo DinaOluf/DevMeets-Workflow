@@ -1,6 +1,7 @@
 import { timeAgo } from "../components/timeAgo.mjs";
 import { profileImageHandler } from "../components/imageHandlers.mjs";
 import { getPostsContainer } from "../util/variables.mjs";
+import { isImageLink } from "../components/imageHandlers.mjs";
 
 export function postTemplate(sortedData) {
   for (let i = 0; i < sortedData.length; i++) {
@@ -22,7 +23,7 @@ export function postTemplate(sortedData) {
 
     // Check if content image exists, if so add it
     let postMedia;
-    if (!sortedData[i].media || sortedData[i].media === "string") {
+    if (!sortedData[i].media || sortedData[i].media === "string" || !isImageLink(sortedData[i].media)) {
       postMedia = "";
     } else {
       postMedia = sortedData[i].media;
