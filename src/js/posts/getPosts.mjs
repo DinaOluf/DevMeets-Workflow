@@ -19,6 +19,7 @@ import { sortTitleAsc, sortTitleDesc } from "./filters/titleFilter.mjs";
 import { sortTimeAsc, sortTimeDesc } from "./filters/timeFilter.mjs";
 import { sortToday } from "./filters/todayFilter.mjs";
 import { sortWeek } from "./filters/weekFilter.mjs";
+import { sortMonth } from "./filters/monthFilter.mjs";
 import { postTemplate } from "./postTemplate.mjs";
 
 async function getPosts(url, opt) {
@@ -63,6 +64,14 @@ export async function displayPosts() {
     filterThisWeek.addEventListener("click", () => {
       sortedData = sortWeek(data);
       let reSortedData = sortTimeAsc(sortedData);
+      getPostsContainer.innerHTML = "";
+      postTemplate(reSortedData);
+    });
+
+    filterThisMonth.addEventListener("click", () => {
+      sortedData = sortMonth(data);
+      let reSortedData = sortTimeAsc(sortedData);
+      console.log(reSortedData);
       getPostsContainer.innerHTML = "";
       postTemplate(reSortedData);
     });
