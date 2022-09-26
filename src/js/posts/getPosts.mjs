@@ -18,6 +18,7 @@ import { sortAuthorAsc, sortAuthorDesc } from "./filters/authorFilter.mjs";
 import { sortTitleAsc, sortTitleDesc } from "./filters/titleFilter.mjs";
 import { sortTimeAsc, sortTimeDesc } from "./filters/timeFilter.mjs";
 import { sortToday } from "./filters/todayFilter.mjs";
+import { sortWeek } from "./filters/weekFilter.mjs";
 import { postTemplate } from "./postTemplate.mjs";
 
 async function getPosts(url, opt) {
@@ -48,19 +49,22 @@ export async function displayPosts() {
     });
 
     filterTime.addEventListener("click", () => {
-      console.log("Time!");
       sortedData = sortTimeDesc(data);
-      console.log(sortedData);
       getPostsContainer.innerHTML = "";
       postTemplate(sortedData);
     });
 
     filterToday.addEventListener("click", () => {
-      console.log("Today!");
       sortedData = sortToday(data);
-      console.log(sortedData);
       getPostsContainer.innerHTML = "";
       postTemplate(sortedData);
+    });
+
+    filterThisWeek.addEventListener("click", () => {
+      sortedData = sortWeek(data);
+      let reSortedData = sortTimeAsc(sortedData);
+      getPostsContainer.innerHTML = "";
+      postTemplate(reSortedData);
     });
   } catch (error) {
     console.log(error);
