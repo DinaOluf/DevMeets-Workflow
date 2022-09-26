@@ -68,8 +68,9 @@ export async function displayPostsFilter() {
 
     filterToday.addEventListener("click", () => {
       sortedData = sortToday(data);
+      let reSortedData = sortTimeAsc(sortedData);
       getPostsContainer.innerHTML = "";
-      postTemplate(sortedData);
+      postTemplate(reSortedData);
     });
 
     filterThisWeek.addEventListener("click", () => {
