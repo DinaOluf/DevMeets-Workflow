@@ -48,22 +48,67 @@ export async function displayPostsFilter() {
 
     let sortedData = [];
 
+    // Set up the click counter to handle double clicks
+    let clickCounter = 0;
+
     filterTitle.addEventListener("click", () => {
-      sortedData = sortTitleDesc(data);
-      getPostsContainer.innerHTML = "";
-      postTemplate(sortedData);
+      clickCounter++;
+      if (clickCounter === 1) {
+        sortedData = sortTitleDesc(data);
+        getPostsContainer.innerHTML = "";
+        postTemplate(sortedData);
+      }
+      if (clickCounter === 2) {
+        sortedData = sortTitleAsc(data);
+        getPostsContainer.innerHTML = "";
+        postTemplate(sortedData);
+      }
+      if (clickCounter > 2) {
+        clickCounter = 1;
+        sortedData = sortTitleDesc(data);
+        getPostsContainer.innerHTML = "";
+        postTemplate(sortedData);
+      }
     });
 
     filterAuthor.addEventListener("click", () => {
-      sortedData = sortAuthorDesc(data);
-      getPostsContainer.innerHTML = "";
-      postTemplate(sortedData);
+      clickCounter++;
+      if (clickCounter === 1) {
+        sortedData = sortAuthorDesc(data);
+        getPostsContainer.innerHTML = "";
+        postTemplate(sortedData);
+      }
+      if (clickCounter === 2) {
+        sortedData = sortAuthorAsc(data);
+        getPostsContainer.innerHTML = "";
+        postTemplate(sortedData);
+      }
+      if (clickCounter > 2) {
+        clickCounter = 1;
+        sortedData = sortAuthorDesc(data);
+        getPostsContainer.innerHTML = "";
+        postTemplate(sortedData);
+      }
     });
 
     filterTime.addEventListener("click", () => {
-      sortedData = sortTimeDesc(data);
-      getPostsContainer.innerHTML = "";
-      postTemplate(sortedData);
+      clickCounter++;
+      if (clickCounter === 1) {
+        sortedData = sortTimeDesc(data);
+        getPostsContainer.innerHTML = "";
+        postTemplate(sortedData);
+      }
+      if (clickCounter === 2) {
+        sortedData = sortTimeAsc(data);
+        getPostsContainer.innerHTML = "";
+        postTemplate(sortedData);
+      }
+      if (clickCounter > 2) {
+        clickCounter = 1;
+        sortedData = sortTimeDesc(data);
+        getPostsContainer.innerHTML = "";
+        postTemplate(sortedData);
+      }
     });
 
     filterToday.addEventListener("click", () => {
