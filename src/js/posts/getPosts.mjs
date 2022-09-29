@@ -1,104 +1,150 @@
 import { options } from "../util/options.mjs";
-import { API_BASE_URL, getPostUrlParams, errorContainer } from "../util/variables.mjs";
+import {
+  API_BASE_URL,
+  getPostUrlParams,
+  getPostsContainer,
+  errorContainer,
+  filterTitle,
+  filterAuthor,
+  filterTime,
+  filterToday,
+  filterThisWeek,
+  filterThisMonth,
+  filterFollowing,
+  filterMyPosts,
+} from "../util/variables.mjs";
 import { errorMessage } from "../components/error.mjs";
-import { timeAgo } from "../components/timeAgo.mjs";
-import { profileImageHandler } from "../components/imageHandlers.mjs";
+import { sortAuthorAsc, sortAuthorDesc } from "./filters/authorFilter.mjs";
+import { sortTitleAsc, sortTitleDesc } from "./filters/titleFilter.mjs";
+import { sortTimeAsc, sortTimeDesc } from "./filters/timeFilter.mjs";
+import { sortToday } from "./filters/todayFilter.mjs";
+import { sortWeek } from "./filters/weekFilter.mjs";
+import { sortMonth } from "./filters/monthFilter.mjs";
+import { sortMyPosts } from "./filters/myPostsFilter.mjs";
+import { postTemplate } from "./postTemplate.mjs";
 
-const getPostsContainer = document.querySelector(".get-posts-container");
+// Simple API fetch which returns the fetched data
+export async function getPosts(url, opt) {
+  // GET API DATA
 
-export async function getPosts() {
+  const response = await fetch(url, opt);
+  const data = await response.json();
+  return data;
+}
+
+// Simple function to quickly display any data returned from the API. Pass in endpoint, parameters and options.
+export async function displayPosts(endpoint, params, opt) {
   try {
-    // CLEAR EXISTING HTML
-    errorContainer.innerHTML = "";
-    getPostsContainer.innerHTML = "";
+    const data = await getPosts(`${API_BASE_URL}${endpoint}${params}`, opt);
+    postTemplate(data);
+  } catch (error) {
+    console.log(error);
+    errorContainer.innerHTML = errorMessage("An error occurred when calling the API, error: " + error);
+  }
+}
 
-    // GET API DATA
+// Function to display data together with the filters used on index page
+export async function displayPostsFilter() {
+  try {
+    const data = await getPosts(`${API_BASE_URL}/api/v1/social/posts${getPostUrlParams}`, options);
+    postTemplate(data);
 
-    const response = await fetch(`${API_BASE_URL}/api/v1/social/posts${getPostUrlParams}`, options);
-    const data = await response.json();
+    let sortedData = [];
 
-    // LOOP THE DATA AND DISPLAY IT.
+    // Set up the click counter to handle double clicks
+    let clickCounter = 0;
 
-    for (let i = 0; i < data.length; i++) {
-      // DEFAULT VALUES
-
-      // Display Date
-      const date = data[i].updated;
-      const dateFix = timeAgo(date);
-
-      // Filtering out some annoying test posts by other users
-
-      if (data[i].author.name === "string") {
-        continue;
+    filterTitle.addEventListener("click", () => {
+      clickCounter++;
+      if (clickCounter === 1) {
+        sortedData = sortTitleDesc(data);
+        getPostsContainer.innerHTML = "";
+        postTemplate(sortedData);
       }
-
-      if (data[i].body === "string") {
-        continue;
+      if (clickCounter === 2) {
+        sortedData = sortTitleAsc(data);
+        getPostsContainer.innerHTML = "";
+        postTemplate(sortedData);
       }
-
-      // Check if content image exists, if so add it
-      let postMedia;
-      if (!data[i].media || data[i].media === "string") {
-        postMedia = "";
-      } else {
-        postMedia = data[i].media;
+      if (clickCounter > 2) {
+        clickCounter = 1;
+        sortedData = sortTitleDesc(data);
+        getPostsContainer.innerHTML = "";
+        postTemplate(sortedData);
       }
+    });
 
-      // Check if user has profile image, if not add placeholder
+    filterAuthor.addEventListener("click", () => {
+      clickCounter++;
+      if (clickCounter === 1) {
+        sortedData = sortAuthorDesc(data);
+        getPostsContainer.innerHTML = "";
+        postTemplate(sortedData);
+      }
+      if (clickCounter === 2) {
+        sortedData = sortAuthorAsc(data);
+        getPostsContainer.innerHTML = "";
+        postTemplate(sortedData);
+      }
+      if (clickCounter > 2) {
+        clickCounter = 1;
+        sortedData = sortAuthorDesc(data);
+        getPostsContainer.innerHTML = "";
+        postTemplate(sortedData);
+      }
+    });
 
-      let userProfileImage = profileImageHandler(data[i].author.avatar);
+    filterTime.addEventListener("click", () => {
+      clickCounter++;
+      if (clickCounter === 1) {
+        sortedData = sortTimeDesc(data);
+        getPostsContainer.innerHTML = "";
+        postTemplate(sortedData);
+      }
+      if (clickCounter === 2) {
+        sortedData = sortTimeAsc(data);
+        getPostsContainer.innerHTML = "";
+        postTemplate(sortedData);
+      }
+      if (clickCounter > 2) {
+        clickCounter = 1;
+        sortedData = sortTimeDesc(data);
+        getPostsContainer.innerHTML = "";
+        postTemplate(sortedData);
+      }
+    });
 
-      // DISPLAY POST
+    filterToday.addEventListener("click", () => {
+      sortedData = sortToday(data);
+      let reSortedData = sortTimeAsc(sortedData);
+      getPostsContainer.innerHTML = "";
+      postTemplate(reSortedData);
+    });
 
-      getPostsContainer.innerHTML += `
-      <div class="card">
-        <div class="card-body">
-          <div class="d-flex flex-start align-items-center">
-            <img class="rounded-circle shadow-1-strong me-3" src="${userProfileImage}" alt="avatar" width="60" height="60" />
-            <div>
-              <h6 class="fw-bold text-primary mb-1">${data[i].author.name}</h6>
-              <p class="text-muted small mb-0">Shared publicly - ${dateFix}</p>
-            </div>
-          </div>
+    filterThisWeek.addEventListener("click", () => {
+      sortedData = sortWeek(data);
+      let reSortedData = sortTimeAsc(sortedData);
+      getPostsContainer.innerHTML = "";
+      postTemplate(reSortedData);
+    });
 
-          <p class="mt-3 mb-4 pb-2">
-          ${data[i].body}
-          </p>
+    filterThisMonth.addEventListener("click", () => {
+      sortedData = sortMonth(data);
+      let reSortedData = sortTimeAsc(sortedData);
+      console.log(reSortedData);
+      getPostsContainer.innerHTML = "";
+      postTemplate(reSortedData);
+    });
 
-          <p class="mt-3 mb-4 pb-2">
-          <img class="w-100" src="${postMedia}" />
-          </p>
-
-
-          <div class="small d-flex justify-content-start">
-            <a href="#!" class="d-flex align-items-center me-3">
-              <i class="far fa-thumbs-up me-2"></i>
-              <p class="mb-0">Like</p>
-            </a>
-            <a href="#!" class="d-flex align-items-center me-3">
-              <i class="far fa-comment-dots me-2"></i>
-              <p class="mb-0">Comment</p>
-            </a>
-            <a href="#!" class="d-flex align-items-center me-3">
-              <i class="fas fa-share me-2"></i>
-              <p class="mb-0">Share</p>
-            </a>
-          </div>
-        </div>
-        <form class="card-footer py-3 border-0" style="background-color: #f8f9fa">
-          <div class="d-flex flex-start w-100">
-            <img class="rounded-circle shadow-1-strong me-3" src="dist/img/sindre.jpg" alt="avatar" width="40" height="40" />
-            <div class="form-outline w-100">
-              <textarea class="form-control w-100" placeholder="Write a comment.." id="textAreaExample" rows="4" style="background: #fff"></textarea>
-            </div>
-          </div>
-          <div class="float-end mt-2 pt-1">
-            <button type="submit" class="btn btn-primary btn-sm">Post comment</button>
-            <button type="button" class="btn btn-primary btn-sm">Cancel</button>
-          </div>
-        </form>
-      </div>`;
-    }
+    filterMyPosts.addEventListener("click", () => {
+      sortedData = sortMyPosts(data);
+      let reSortedData = sortTimeAsc(sortedData);
+      getPostsContainer.innerHTML = "";
+      if (reSortedData.length === 0) {
+        getPostsContainer.innerHTML = `<div class="error">You have no posts!</div>`;
+      }
+      postTemplate(reSortedData);
+    });
   } catch (error) {
     console.log(error);
     errorContainer.innerHTML = errorMessage("An error occurred when calling the API, error: " + error);

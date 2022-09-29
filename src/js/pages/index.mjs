@@ -1,4 +1,4 @@
-import { getPosts } from "../posts/getPosts.mjs";
+import { displayPostsFilter } from "../posts/getPosts.mjs";
 import { getUserPanelInfo } from "../user/profilePanel.mjs";
 import { createPost } from "../posts/createPost.mjs";
 import { isUserLoggedIn } from "../user/isUserLoggedIn.mjs";
@@ -7,7 +7,7 @@ import { isUserLoggedIn } from "../user/isUserLoggedIn.mjs";
 isUserLoggedIn();
 
 // Run get posts function
-getPosts();
+displayPostsFilter();
 
 // Run get user panel info function
 

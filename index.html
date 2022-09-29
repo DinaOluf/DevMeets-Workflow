@@ -8,6 +8,8 @@
     <meta name="keywords" content="DevMeets, Social Media, Bootstrap, SASS, Noroff" />
     <meta name="description" content="Come share your work!" />
     <script src="https://kit.fontawesome.com/7b67c1dabd.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <link rel="stylesheet" href="https://fonts.sandbox.google.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,400;0,500;0,600;1,100&display=swap" rel="stylesheet" />
@@ -235,36 +237,29 @@
                 <div class="dropdown mt-3 mb-3">
                   <button class="btn btn-secondary dropdown-toggle" type="button" id="book-dropdown" data-bs-toggle="dropdown">Sort by:</button>
                   <ul class="dropdown-menu" aria-labelledby="book-dropdown">
-                    <li class="dropdown-item">
+                    <li class="dropdown-item filter-title d-flex align-items-center justify-content-between">
                       Title
                       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
                         <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z" />
                       </svg>
                     </li>
-                    <li class="dropdown-item">
+                    <li class="dropdown-item filter-author d-flex align-items-center justify-content-between">
                       Author
                       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
                         <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z" />
                       </svg>
                     </li>
-                    <li class="dropdown-item">
+                    <li class="dropdown-item filter-time d-flex align-items-center justify-content-between">
                       Time
                       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
                         <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z" />
                       </svg>
                     </li>
-                    <li class="dropdown-item">
-                      Following
-                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
-                        <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z" />
-                      </svg>
-                    </li>
-                    <li class="dropdown-item">
-                      My Posts
-                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
-                        <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z" />
-                      </svg>
-                    </li>
+                    <li class="dropdown-item filter-today">Today</li>
+                    <li class="dropdown-item filter-this-week">This week</li>
+                    <li class="dropdown-item filter-this-month">This month</li>
+                    <li class="dropdown-item filter-following">Following</li>
+                    <li class="dropdown-item filter-my-posts">My Posts</li>
                   </ul>
                 </div>
                 <div class="error-container"></div>
