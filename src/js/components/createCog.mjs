@@ -1,4 +1,4 @@
-export function createCog(container) {
+export function createCog() {
   const cogHtml = `<div class="dropdown ms-auto">
     <div class="comment-dropdown pb-5">
       <svg
@@ -24,5 +24,5 @@ export function createCog(container) {
     </div>
   </div>`;
 
-  container.innerHTML = cogHtml;
+  return cogHtml;
 }

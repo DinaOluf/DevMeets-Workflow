@@ -24,14 +24,11 @@ export function postTemplate(sortedData) {
     }
 
     // Add cogwheel to my posts
-
     let cogContainer;
-
     const userInfo = getUserInfo();
-    const postHeader = document.querySelectorAll(".postHeader");
 
     if (sortedData[i].author.name === userInfo.name) {
-      createCog(e);
+      cogContainer = createCog();
     }
 
     // Check if content image exists, if so add it
@@ -58,7 +55,7 @@ export function postTemplate(sortedData) {
                 <p class="text-muted small mb-0">Shared publicly - ${dateFix}</p>
                 
               </div>
-              <div class="postHeader ms-auto"></div>
+              ${cogContainer}
             </div>
   
             <p class="mt-3 mb-4 pb-2">
@@ -98,11 +95,5 @@ export function postTemplate(sortedData) {
             </div>
           </form>
         </div>`;
-  }
-  const userInfo = getUserInfo();
-  const postHeader = document.querySelectorAll(".postHeader");
-
-  if (sortedData[i].author.name === userInfo.name) {
-    createCog(e);
   }
 }
