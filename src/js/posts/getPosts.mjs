@@ -24,6 +24,7 @@ import { sortMonth } from "./filters/monthFilter.mjs";
 import { sortMyPosts } from "./filters/myPostsFilter.mjs";
 import { postTemplate } from "./postTemplate.mjs";
 
+// Simple API fetch which returns the fetched data
 export async function getPosts(url, opt) {
   // GET API DATA
 
@@ -32,9 +33,10 @@ export async function getPosts(url, opt) {
   return data;
 }
 
-export async function displayPosts() {
+// Simple function to quickly display any data returned from the API. Pass in endpoint, parameters and options.
+export async function displayPosts(endpoint, params, opt) {
   try {
-    const data = await getPosts(`${API_BASE_URL}${API_POSTS_URL}${getPostUrlParams}`, options);
+    const data = await getPosts(`${API_BASE_URL}${endpoint}${params}`, opt);
     postTemplate(data);
   } catch (error) {
     console.log(error);
@@ -42,6 +44,7 @@ export async function displayPosts() {
   }
 }
 
+// Function to display data together with the filters used on index page
 export async function displayPostsFilter() {
   try {
     const data = await getPosts(`${API_BASE_URL}${API_POSTS_URL}${getPostUrlParams}`, options);
