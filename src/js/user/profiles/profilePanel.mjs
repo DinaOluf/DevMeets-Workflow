@@ -1,5 +1,5 @@
-import { getUserInfo } from "../user/getUserInfo.mjs";
-import { bannerImageHandler, profileImageHandler } from "../components/imageHandlers.mjs";
+import { getUserInfo } from "../../user/getUserInfo.mjs";
+import { bannerImageHandler, profileImageHandler } from "/src/js/components/imageHandlers.mjs";
 
 export function getUserPanelInfo() {
   // Get user info and display it

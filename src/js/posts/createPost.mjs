@@ -1,4 +1,4 @@
-import { API_BASE_URL, errorContainer } from "../util/variables.mjs";
+import { API_BASE_URL, API_POSTS_URL, errorContainer } from "../util/variables.mjs";
 import { errorMessage } from "../components/error.mjs";
 import { successMessage } from "../components/success.mjs";
 import { getUserAuth } from "../user/userAuth.mjs";
@@ -22,7 +22,7 @@ export function createPost(evt) {
   const jwt = getUserAuth();
 
   // Send the data object to the API
-  fetch(`${API_BASE_URL}/api/v1/social/posts`, {
+  fetch(`${API_BASE_URL}${API_POSTS_URL}`, {
     method: "POST",
     body: dataObj,
     headers: {

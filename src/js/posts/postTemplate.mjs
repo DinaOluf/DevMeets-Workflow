@@ -39,7 +39,9 @@ export function postTemplate(sortedData) {
         <div class="card">
           <div class="card-body">
             <div class="d-flex flex-start align-items-center">
-              <img class="rounded-circle shadow-1-strong me-3" src="${userProfileImage}" alt="avatar" width="60" height="60" />
+              <a href="/profile.html?name=${sortedData[i].author.name}">
+                <img class="rounded-circle shadow-1-strong me-3" src="${userProfileImage}" alt="${sortedData[i].author.name}'s avatar" width="60" height="60" />
+              </a>
               <div>
                 <h6 class="fw-bold text-primary mb-1">${sortedData[i].author.name}</h6>
                 <p class="text-muted small mb-0">Shared publicly - ${dateFix}</p>
