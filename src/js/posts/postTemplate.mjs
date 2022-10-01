@@ -2,11 +2,13 @@ import { timeAgo } from "../components/timeAgo.mjs";
 import { profileImageHandler } from "../components/imageHandlers.mjs";
 import { getPostsContainer } from "../util/variables.mjs";
 import { isImageLink } from "../components/imageHandlers.mjs";
+import { getUserInfo } from "../user/getUserInfo.mjs";
+import { createCog } from "../components/createCog.mjs";
 
 export function postTemplate(sortedData) {
+  getPostsContainer.innerHTML = "";
   for (let i = 0; i < sortedData.length; i++) {
     // DEFAULT VALUES
-
     // Display Date
     const date = sortedData[i].updated;
     const dateFix = timeAgo(date);
@@ -19,6 +21,14 @@ export function postTemplate(sortedData) {
 
     if (sortedData[i].body === "string") {
       continue;
+    }
+
+    // Add cogwheel to my posts
+    let cogContainer;
+    const userInfo = getUserInfo();
+
+    if (sortedData[i].author.name === userInfo.name) {
+      cogContainer = createCog();
     }
 
     // Check if content image exists, if so add it
@@ -38,12 +48,14 @@ export function postTemplate(sortedData) {
     getPostsContainer.innerHTML += `
         <div class="card">
           <div class="card-body">
-            <div class="d-flex flex-start align-items-center">
+            <div class="d-flex flex-start align-items-center" >
               <img class="rounded-circle shadow-1-strong me-3" src="${userProfileImage}" alt="avatar" width="60" height="60" />
               <div>
                 <h6 class="fw-bold text-primary mb-1">${sortedData[i].author.name}</h6>
                 <p class="text-muted small mb-0">Shared publicly - ${dateFix}</p>
+                
               </div>
+              ${cogContainer}
             </div>
   
             <p class="mt-3 mb-4 pb-2">
