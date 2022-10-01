@@ -20,25 +20,3 @@ const form = document.querySelector(".create-post-form");
 
 // Eventlistener for the submit handling
 form.addEventListener("submit", createPost);
-
-// Connect to the correct cogwheel
-
-const cogDrop = document.querySelectorAll(".cogDropdown");
-
-// Add eventlistener to cogwheel
-
-cogDrop.forEach((e) => {
-  e.addEventListener("click", () => {
-    console.log("cogclick");
-    getEditPostButton();
-  });
-});
-
-function getEditPostButton() {
-  console.log("Hello");
-  const editPost = document.querySelector(".edit-post");
-  editPost.addEventListener("click", (e) => {
-    const closestPost = e.closest(".card-body");
-    console.log(closestPost);
-  });
-}

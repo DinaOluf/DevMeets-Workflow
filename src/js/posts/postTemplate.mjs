@@ -3,7 +3,7 @@ import { profileImageHandler } from "../components/imageHandlers.mjs";
 import { getPostsContainer } from "../util/variables.mjs";
 import { isImageLink } from "../components/imageHandlers.mjs";
 import { getUserInfo } from "../user/getUserInfo.mjs";
-import { createCog } from "../components/createCog.mjs";
+import { addCogWheelEvent, createCog } from "../components/createCog.mjs";
 
 export function postTemplate(sortedData) {
   getPostsContainer.innerHTML = "";
@@ -97,4 +97,7 @@ export function postTemplate(sortedData) {
           </form>
         </div>`;
   }
+
+  // Add Cogwheel Event Listeners
+  addCogWheelEvent();
 }
