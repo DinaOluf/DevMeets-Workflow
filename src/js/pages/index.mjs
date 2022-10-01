@@ -1,5 +1,5 @@
 import { displayPostsFilter } from "../posts/getPosts.mjs";
-import { getUserPanelInfo } from "../user/profilePanel.mjs";
+import { getUserPanelInfo } from "../user/profiles/profilePanel.mjs";
 import { createPost } from "../posts/createPost.mjs";
 import { isUserLoggedIn } from "../user/isUserLoggedIn.mjs";
 

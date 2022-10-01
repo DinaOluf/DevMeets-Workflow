@@ -1,6 +1,7 @@
 import { options } from "../util/options.mjs";
 import {
   API_BASE_URL,
+  API_POSTS_URL,
   getPostUrlParams,
   getPostsContainer,
   errorContainer,
@@ -46,7 +47,7 @@ export async function displayPosts(endpoint, params, opt) {
 // Function to display data together with the filters used on index page
 export async function displayPostsFilter() {
   try {
-    const data = await getPosts(`${API_BASE_URL}/api/v1/social/posts${getPostUrlParams}`, options);
+    const data = await getPosts(`${API_BASE_URL}${API_POSTS_URL}${getPostUrlParams}`, options);
     postTemplate(data);
 
     let sortedData = [];

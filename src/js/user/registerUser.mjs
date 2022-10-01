@@ -19,13 +19,27 @@ export function handleRegister(evt) {
     errorContainer.innerHTML = "";
     validatedEmail = email.value;
 
+    let userAvatar;
+    if (avatar.value !== "" && avatar.value) {
+      userAvatar = avatar.value;
+    } else {
+      userAvatar = "https://i.imgur.com/0D99Xsk.png";
+    }
+
+    let userBanner;
+    if (banner.value !== "" && banner.value) {
+      userBanner = banner.value;
+    } else {
+      userBanner = "https://i.imgur.com/M3m9Y3W.png";
+    }
+
     // Construct the data object which is to be sent to the API
     const dataObj = JSON.stringify({
       name: userName.value,
       email: validatedEmail,
       password: password.value,
-      avatar: avatar.value,
-      banner: banner.value,
+      avatar: userAvatar,
+      banner: userBanner,
     });
 
     // Send the data object to the API
@@ -38,7 +52,7 @@ export function handleRegister(evt) {
     })
       .then((response) => response.json)
       .then((json) => {
-        if (json.message) {
+        if (json.error) {
           errorContainer.innerHTML = errorMessage(json.message);
         } else {
           errorContainer.innerHTML = successMessage("Registration");

@@ -1,7 +1,9 @@
 export const API_BASE_URL = "https://nf-api.onrender.com";
-export const postsEndpoint = "/api/v1/social/posts";
+export const API_POSTS_URL = "/api/v1/social/posts";
+export const API_PROFILE_URL = "/api/v1/social/profiles/";
 
 export const getPostUrlParams = "?_author=true&_comments=true&reactions=true";
+export const getProfileUrlParams = "?_posts=true&_following=true&_followers=true";
 
 export const errorContainer = document.querySelector(".error-container");
 
