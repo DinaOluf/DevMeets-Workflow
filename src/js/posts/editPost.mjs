@@ -4,7 +4,10 @@ import { successMessage } from "../components/success.mjs";
 import { getUserAuth } from "../user/userAuth.mjs";
 
 // Function which initiates what to do when submitting the form
-export function editPost(id, title, body, tags, media) {
+export function editPost(evt) {
+  // Assign the inputs from the form to variables
+  const [id, title, body, media, tags] = evt.children.value;
+
   // Construct the data object which is to be sent to the API
   const dataObj = JSON.stringify({
     title: `${title}`,
@@ -15,8 +18,6 @@ export function editPost(id, title, body, tags, media) {
 
   // Get the auth token
   const jwt = getUserAuth();
-
-  console.log(dataObj);
 
   // Send the data object to the API
   fetch(`${API_BASE_URL}${API_POSTS_URL}/${id}`, {
