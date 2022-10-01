@@ -59,11 +59,11 @@ export function postTemplate(sortedData) {
               ${cogContainer}
             </div>
   
-            <p class="mt-3 mb-4 pb-2">
+            <p class="mt-3 mb-4 pb-2 post-body">
             ${sortedData[i].body}
             </p>
   
-            <p class="mt-3 mb-4 pb-2">
+            <p class="mt-3 mb-4 pb-2 post-media">
             <img class="w-100" src="${postMedia}" />
             </p>
   
