@@ -24,7 +24,7 @@ export function postTemplate(sortedData) {
     }
 
     // Add cogwheel to my posts
-    let cogContainer;
+    let cogContainer = "";
     const userInfo = getUserInfo();
 
     if (sortedData[i].author.name === userInfo.name) {
