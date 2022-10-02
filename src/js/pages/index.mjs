@@ -3,6 +3,8 @@ import { getUserPanelInfo } from "../user/profiles/profilePanel.mjs";
 import { createPost } from "../posts/createPost.mjs";
 import { isUserLoggedIn } from "../user/isUserLoggedIn.mjs";
 import { updatePost } from "../posts/updatePost.mjs";
+import { deletePost } from "../posts/deletePost.mjs";
+import { getPostToDelete } from "../posts/getPostToDelete.mjs";
 import { clearAll } from "../util/clearInput.mjs";
 
 // Check if user is logged in, if no, redirect

@@ -23,7 +23,11 @@ export function getPostToEdit() {
       form.classList.add("border-0");
       closestPost.appendChild(form);
 
+      console.log(closestPost.childNodes);
+
       const editPostForm = document.querySelector(".editPostForm");
+
+      editPostForm.innerHTML += `<input type="text" class="form-control w-100 postTitle d-none" id="post-Id" aria-describedby="titleHelp" value="${postId.innerText}" />`;
 
       editPostForm.innerHTML += `<input type="text" class="form-control w-100 postTitle" id="post-title" aria-describedby="titleHelp" value="${postTitle.innerText}" />`;
 
