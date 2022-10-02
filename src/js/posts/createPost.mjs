@@ -11,12 +11,16 @@ export function createPost(evt) {
   const [title, body, tags, media] = evt.target.elements;
 
   // Construct the data object which is to be sent to the API
-  const dataObj = JSON.stringify({
+  let dataObj = JSON.stringify({
     title: `${title.value}`,
     body: `${body.value}`,
     tags: [`${tags.value}`],
     media: `${media.value}`,
   });
+
+  if (!media.value || media.value === "") {
+    delete dataObj.media;
+  }
 
   // Get the auth token
   const jwt = getUserAuth();
