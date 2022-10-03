@@ -132,7 +132,6 @@ export async function displayPostsFilter() {
     filterThisMonth.addEventListener("click", () => {
       sortedData = sortMonth(data);
       let reSortedData = sortTimeAsc(sortedData);
-      console.log(reSortedData);
       getPostsContainer.innerHTML = "";
       postTemplate(reSortedData);
     });

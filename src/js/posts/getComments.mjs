@@ -8,8 +8,6 @@ export function getComments(data) {
     const date = data[i].created;
     const dateFix = timeAgo(date);
 
-    console.log(data);
-
     html = `<div class="ps-5">
                       <div class="comment-section d-flex">
                         <div class="d-flex flex-start align-items-center w-75 mt-3 mb-3">
