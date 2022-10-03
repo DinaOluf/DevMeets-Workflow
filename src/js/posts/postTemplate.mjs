@@ -3,7 +3,7 @@ import { profileImageHandler } from "../components/imageHandlers.mjs";
 import { getPostsContainer } from "../util/variables.mjs";
 import { isImageLink } from "../components/imageHandlers.mjs";
 import { getUserInfo } from "../user/getUserInfo.mjs";
-import { createCog } from "../components/createCog.mjs";
+import { addCogWheelEvent, createCog } from "../components/createCog.mjs";
 
 export function postTemplate(sortedData) {
   getPostsContainer.innerHTML = "";
@@ -24,7 +24,7 @@ export function postTemplate(sortedData) {
     }
 
     // Add cogwheel to my posts
-    let cogContainer;
+    let cogContainer = "";
     const userInfo = getUserInfo();
 
     if (sortedData[i].author.name === userInfo.name) {
@@ -59,14 +59,21 @@ export function postTemplate(sortedData) {
               ${cogContainer}
             </div>
   
-            <p class="mt-3 mb-4 pb-2">
+            <div class="d-none">${sortedData[i].id}</div>
+
+            <div class="d-none post-title">${sortedData[i].title}</div>
+
+            <p class="mt-3 mb-4 pb-2 post-body">
             ${sortedData[i].body}
             </p>
   
-            <p class="mt-3 mb-4 pb-2">
+            <p class="mt-3 mb-4 pb-2 post-media">
             <img class="w-100" src="${postMedia}" />
             </p>
-  
+
+            <p class="mt-3 mb-4 pb-2 post-tags">
+            ${sortedData[i].tags}
+            </p>
   
             <div class="small d-flex justify-content-start">
               <a href="#!" class="d-flex align-items-center me-3">
@@ -97,4 +104,7 @@ export function postTemplate(sortedData) {
           </form>
         </div>`;
   }
+
+  // Add Cogwheel Event Listeners
+  addCogWheelEvent();
 }
