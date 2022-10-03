@@ -104,7 +104,6 @@ export function postTemplate(sortedData) {
           </form>
         </div>`;
   }
-
   // Add Cogwheel Event Listeners
   addCogWheelEvent();
 }

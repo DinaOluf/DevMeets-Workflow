@@ -1,4 +1,5 @@
 import { getPostToEdit } from "../posts/getPostToEdit.mjs";
+import { getPostToDelete } from "../posts/getPostToDelete.mjs";
 
 export function createCog() {
   const cogHtml = `<div class="dropdown ms-auto">
@@ -21,7 +22,7 @@ export function createCog() {
       </svg>
       <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="comment-dropdown">
         <li class="dropdown-item edit-post">Edit Post</li>
-        <li class="dropdown-item">Delete Post</li>
+        <li class="dropdown-item delete-post">Delete Post</li>
       </ul>
     </div>
   </div>`;
@@ -35,7 +36,7 @@ export function addCogWheelEvent() {
   // Add eventlistener to cogwheel
   cogDrop.forEach((e) => {
     e.addEventListener("click", () => {
-      getPostToEdit();
+      getPostToEdit(), getPostToDelete();
     });
   });
 }
