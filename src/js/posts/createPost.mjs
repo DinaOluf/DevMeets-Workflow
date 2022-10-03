@@ -11,12 +11,12 @@ export function createPost(evt) {
   const [title, body, tags, media] = evt.target.elements;
 
   // Construct the data object which is to be sent to the API
-  let dataObj = JSON.stringify({
+  let dataObj = {
     title: `${title.value}`,
     body: `${body.value}`,
     tags: [`${tags.value}`],
     media: `${media.value}`,
-  });
+  };
 
   if (!media.value || media.value === "") {
     delete dataObj.media;
@@ -28,7 +28,7 @@ export function createPost(evt) {
   // Send the data object to the API
   fetch(`${API_BASE_URL}${API_POSTS_URL}`, {
     method: "POST",
-    body: dataObj,
+    body: JSON.stringify(dataObj),
     headers: {
       Authorization: `Bearer ${jwt}`,
       "Content-Type": "application/json; charset=utf-8",
