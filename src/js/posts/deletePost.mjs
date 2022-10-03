@@ -23,10 +23,6 @@ export function deletePost(id) {
         errorContainer.innerHTML = errorMessage(json.message);
       } else {
         errorContainer.innerHTML = successMessage("Post deleted");
-
-        // setTimeout(() => {
-        //   location.reload();
-        // }, 1500);
       }
     })
     .catch((error) => console.log("error", error));
