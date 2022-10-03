@@ -4,6 +4,7 @@ import { getPostsContainer } from "../util/variables.mjs";
 import { isImageLink } from "../components/imageHandlers.mjs";
 import { getUserInfo } from "../user/getUserInfo.mjs";
 import { addCogWheelEvent, createCog } from "../components/createCog.mjs";
+import { getComments } from "./getComments.mjs";
 
 export function postTemplate(sortedData) {
   getPostsContainer.innerHTML = "";
@@ -43,8 +44,11 @@ export function postTemplate(sortedData) {
 
     let userProfileImage = profileImageHandler(sortedData[i].author.avatar);
 
-    // DISPLAY POST
+    // Get comments to display
 
+    const commentsData = getComments(sortedData[i].comments);
+
+    // DISPLAY POST
     getPostsContainer.innerHTML += `
         <div class="card">
           <div class="card-body">
@@ -102,6 +106,7 @@ export function postTemplate(sortedData) {
               <button type="button" class="btn btn-primary btn-sm">Cancel</button>
             </div>
           </form>
+          <div class="comment-section-wrap">${commentsData}</div>
         </div>`;
   }
   // Add Cogwheel Event Listeners
