@@ -1,4 +1,3 @@
-import { postTemplate } from "./postTemplate.mjs";
 import { timeAgo } from "../components/timeAgo.mjs";
 
 export function getComments(data) {
