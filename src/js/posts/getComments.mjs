@@ -2,7 +2,6 @@ import { timeAgo } from "../components/timeAgo.mjs";
 
 export function getComments(data) {
   let html = "";
-  console.log(data);
 
   for (let i = 0; i < data.length; i++) {
     const date = data[i].created;
