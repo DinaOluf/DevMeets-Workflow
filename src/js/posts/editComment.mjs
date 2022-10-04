@@ -1,3 +1,8 @@
+import { API_BASE_URL, API_POSTS_URL, errorContainer } from "../util/variables.mjs";
+import { errorMessage } from "../components/error.mjs";
+import { successMessage } from "../components/success.mjs";
+import { getUserAuth } from "../user/userAuth.mjs";
+
 export function editComment(id, obj) {
   // Get the auth token
   const jwt = getUserAuth();
