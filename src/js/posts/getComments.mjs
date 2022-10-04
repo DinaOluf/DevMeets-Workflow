@@ -3,12 +3,17 @@ import { timeAgo } from "../components/timeAgo.mjs";
 
 export function getComments(data) {
   let html = "";
+  console.log(data);
 
   for (let i = 0; i < data.length; i++) {
     const date = data[i].created;
     const dateFix = timeAgo(date);
 
-    html = `<div class="ps-5">
+    if (i === 3) {
+      break;
+    }
+
+    html += `<div class="ps-5">
                       <div class="comment-section d-flex">
                         <div class="d-flex flex-start align-items-center w-75 mt-3 mb-3">
                           <div>
