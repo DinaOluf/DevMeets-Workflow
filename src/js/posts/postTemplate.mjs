@@ -1,7 +1,6 @@
 import { timeAgo } from "../components/timeAgo.mjs";
 import { profileImageHandler } from "../components/imageHandlers.mjs";
 import { getPostsContainer } from "../util/variables.mjs";
-import { isImageLink } from "../components/imageHandlers.mjs";
 import { getUserInfo } from "../user/getUserInfo.mjs";
 import { addCogWheelEvent, createCog } from "../components/createCog.mjs";
 import { getComments } from "./getComments.mjs";
@@ -34,10 +33,12 @@ export function postTemplate(sortedData) {
 
     // Check if content image exists, if so add it
     let postMedia;
-    if (!sortedData[i].media || sortedData[i].media === "string" || !isImageLink(sortedData[i].media)) {
+    if (!sortedData[i].media || sortedData[i].media === "string") {
       postMedia = "";
     } else {
-      postMedia = sortedData[i].media;
+      postMedia = `<p class="mt-3 mb-4 pb-2 post-media">
+      <img class="w-100" src="${sortedData[i].media}" />
+      </p>`;
     }
 
     // Check if user has profile image, if not add placeholder
@@ -71,9 +72,7 @@ export function postTemplate(sortedData) {
             ${sortedData[i].body}
             </p>
   
-            <p class="mt-3 mb-4 pb-2 post-media">
-            <img class="w-100" src="${postMedia}" />
-            </p>
+            ${postMedia}
 
             <p class="mt-3 mb-4 pb-2 post-tags">
             ${sortedData[i].tags}
