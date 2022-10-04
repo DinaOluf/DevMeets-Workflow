@@ -1,5 +1,6 @@
 import { bannerImageHandler, profileImageHandler } from "/src/js/components/imageHandlers.mjs";
 import { getUserInfo } from "../getUserInfo.mjs";
+import { buildEditForm } from "./buildEditForm.mjs";
 
 export function buildProfile(data) {
   const profileImage = document.querySelector(".profile-image");
@@ -13,7 +14,7 @@ export function buildProfile(data) {
 
   // Add the image
   editProfileImg.innerHTML = `<img class="profile-image-attributes rounded-circle avatar-to-hover" src="${userAvatar}" alt="User Profile Image" />
-                      <a href="#!" class="align-items-center me-3 profile-edit-avatar">&#9998; Edit</a>`;
+                      <a href="" class="me-3 profile-edit-avatar">&#9998; Edit</a>`;
 
   profileImage.innerHTML = `<img class="profile-image-attributes rounded-circle" src="${userAvatar}" alt="User Profile Image" />`;
 
@@ -23,7 +24,7 @@ export function buildProfile(data) {
 
     // Add the image
     bannerImage.innerHTML = `<img class="img-fluid banner-to-hover" src="${userBanner}" alt="User Banner Image" />
-                            <a href="#!" class="align-items-center me-3 profile-edit-banner">&#9998; Edit</a>`;
+                            <a href="" class="me-3 profile-edit-banner">&#9998; Edit</a>`;
   }
 
   // Add the name
@@ -32,22 +33,6 @@ export function buildProfile(data) {
   });
 
   // Set up eventListeners for hover states
-  const avatarHover = document.querySelector(".avatar-to-hover");
-  const editAvatar = document.querySelector(".profile-edit-avatar");
-
-  console.log(avatarHover);
-  console.log(editAvatar);
-
-  avatarHover.addEventListener("mouseover", () => {
-    editAvatar.style.display = "block";
-  });
-
-  const bannerHover = document.querySelector(".banner-to-hover");
-  const editBanner = document.querySelector(".profile-edit-avatar");
-
-  bannerHover.addEventListener("mouseover", () => {
-    editBanner.style.display = "block";
-  });
 
   // Check if name matches saved name in localStorage, if so change button to be edit instead of follow
   const userInfo = getUserInfo();
@@ -70,4 +55,16 @@ export function buildProfile(data) {
       // RUN EDIT PROFILE CODE HERE LATER
     });
   }
+
+  const editAvatar = document.querySelector(".profile-edit-avatar");
+  editAvatar.addEventListener("click", (e) => {
+    e.preventDefault();
+    buildEditForm("avatar");
+  });
+
+  const editBanner = document.querySelector(".profile-edit-banner");
+  editBanner.addEventListener("click", (e) => {
+    e.preventDefault();
+    buildEditForm("banner");
+  });
 }
