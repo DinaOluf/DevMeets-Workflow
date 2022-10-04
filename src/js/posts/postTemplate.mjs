@@ -4,6 +4,7 @@ import { getPostsContainer } from "../util/variables.mjs";
 import { isImageLink } from "../components/imageHandlers.mjs";
 import { getUserInfo } from "../user/getUserInfo.mjs";
 import { addCogWheelEvent, createCog } from "../components/createCog.mjs";
+import { getComments } from "./getComments.mjs";
 
 export function postTemplate(sortedData) {
   getPostsContainer.innerHTML = "";
@@ -43,8 +44,11 @@ export function postTemplate(sortedData) {
 
     let userProfileImage = profileImageHandler(sortedData[i].author.avatar);
 
-    // DISPLAY POST
+    // Get comments to display
 
+    const commentsData = getComments(sortedData[i].comments);
+
+    // DISPLAY POST
     getPostsContainer.innerHTML += `
         <div class="card">
           <div class="card-body">
@@ -53,7 +57,7 @@ export function postTemplate(sortedData) {
                 <img class="rounded-circle shadow-1-strong me-3" src="${userProfileImage}" alt="${sortedData[i].author.name}'s avatar" width="60" height="60" />
               </a>
               <div>
-                <h6 class="fw-bold text-primary mb-1">${sortedData[i].author.name}</h6>
+              <a href="/profile.html?name=${sortedData[i].author.name}"><h6 class="fw-bold text-primary mb-1">${sortedData[i].author.name}</h6></a>
                 <p class="text-muted small mb-0">Shared publicly - ${dateFix}</p>
               </div>
               ${cogContainer}
@@ -102,6 +106,7 @@ export function postTemplate(sortedData) {
               <button type="button" class="btn btn-primary btn-sm">Cancel</button>
             </div>
           </form>
+          <div class="comment-section-wrap">${commentsData}</div>
         </div>`;
   }
   // Add Cogwheel Event Listeners

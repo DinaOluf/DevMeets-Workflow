@@ -23,14 +23,14 @@ export function handleRegister(evt) {
     if (avatar.value !== "" && avatar.value) {
       userAvatar = avatar.value;
     } else {
-      userAvatar = "https://i.imgur.com/0D99Xsk.png";
+      userAvatar = "https://cdn.discordapp.com/attachments/931268688412299274/1026475050578231376/no-user-image-icon-0.jpg";
     }
 
     let userBanner;
     if (banner.value !== "" && banner.value) {
       userBanner = banner.value;
     } else {
-      userBanner = "https://i.imgur.com/M3m9Y3W.png";
+      userBanner = "https://cdn.discordapp.com/attachments/931268688412299274/1026475078847823972/Hero-Banner-Placeholder-Dark-1024x480-1.png";
     }
 
     // Construct the data object which is to be sent to the API
