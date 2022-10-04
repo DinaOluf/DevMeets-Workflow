@@ -2,7 +2,6 @@ import { timeAgo } from "../components/timeAgo.mjs";
 
 export function getComments(data) {
   let html = "";
-
   for (let i = 0; i < data.length; i++) {
     const date = data[i].created;
     const dateFix = timeAgo(date);
@@ -11,7 +10,7 @@ export function getComments(data) {
       break;
     }
 
-    html += `<div class="ps-5">
+    html += `<div class="ps-5 edit-comment">
                       <div class="comment-section d-flex">
                         <div class="d-flex flex-start align-items-center w-75 mt-3 mb-3">
                           <div>
@@ -21,10 +20,11 @@ export function getComments(data) {
                         </div>
                       </div>
                       <div class="d-flex mb-3">
-                        <div class="d-flex flex-column">
+                        <div class="d-flex flex-column comment-text w-100">
                           <div class="d-flex flex-start align-items-center mt-1 mb-1">
                             <p>${data[i].body}</p>
                           </div>
+                          <div><p class="">${data[i].id}</p></div>
                           <div class="small d-flex justify-content-start">
                             <a href="#!" class="d-flex align-items-center me-3">
                               <i class="far fa-thumbs-up me-2"></i>
@@ -34,7 +34,7 @@ export function getComments(data) {
                               <i class="far fa-comment-dots me-2"></i>
                               <p class="mb-0">Comment</p>
                             </a>
-                            <a href="#!" class="d-flex align-items-center me-3">
+                            <a href="#!" class="d-flex align-items-center me-3 edit-comment-button">
                               <p class="mb-0">&#9998; Edit</p>
                             </a>
                             <a href="#!" class="d-flex align-items-center me-3">
@@ -45,6 +45,5 @@ export function getComments(data) {
                       </div>
                       </div>`;
   }
-
   return html;
 }

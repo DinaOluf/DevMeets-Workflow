@@ -5,6 +5,7 @@ import { isImageLink } from "../components/imageHandlers.mjs";
 import { getUserInfo } from "../user/getUserInfo.mjs";
 import { addCogWheelEvent, createCog } from "../components/createCog.mjs";
 import { getComments } from "./getComments.mjs";
+import { getCommentToEdit } from "./getCommentToEdit.mjs";
 
 export function postTemplate(sortedData) {
   getPostsContainer.innerHTML = "";
@@ -111,4 +112,5 @@ export function postTemplate(sortedData) {
   }
   // Add Cogwheel Event Listeners
   addCogWheelEvent();
+  getCommentToEdit();
 }
