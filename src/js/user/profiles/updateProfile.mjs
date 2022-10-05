@@ -12,10 +12,15 @@ export function updateProfileMedia(mediaType, media) {
   // Get user info
   const userInfo = getUserInfo();
 
+  // Construct the data object which is to be sent to the API
+  let dataObj = {
+    [mediaType]: `${media}`,
+  };
+
   // Send the data object to the API
   fetch(`${API_BASE_URL}${API_PROFILE_URL}${userInfo.name}/media`, {
     method: "PUT",
-    [mediaType]: media,
+    body: JSON.stringify(dataObj),
     headers: {
       Authorization: `Bearer ${jwt}`,
       "Content-Type": "application/json; charset=utf-8",
