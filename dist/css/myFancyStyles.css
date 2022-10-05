@@ -11158,7 +11158,10 @@ ul {
 
 .left-profile-specific {
   width: auto;
-  height: 412px;
+  min-width: 200px;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
   background-color: #1a1d20;
   border: 2px solid #40676e;
 }

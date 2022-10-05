@@ -31,7 +31,7 @@ function followHtml(array) {
       break;
     }
 
-    html += `<div class="px-2 d-flex flex-column align-items-center mt-2">
+    html += `<div class="px-3 d-flex flex-column align-items-center mt-2">
                 <img class="friends-image-attributes rounded-circle" src="${userImage}" alt="${array[i].name}'s avatar" />
                 <p class="mb-0">${array[i].name}</p>
                 <a href="profile.html?name=${array[i].name}">View profile</a>
