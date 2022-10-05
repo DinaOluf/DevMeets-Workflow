@@ -33,29 +33,6 @@ export function buildProfile(data) {
   });
 
   // Set up eventListeners for hover states
-
-  // Check if name matches saved name in localStorage, if so change button to be edit instead of follow
-  const userInfo = getUserInfo();
-
-  if (data.name === userInfo.name) {
-    follow.innerHTML = "Edit profile";
-  }
-
-  // Set eventListeners for both clicking follow and clicking edit
-  if (follow.innerHTML === "Follow") {
-    follow.addEventListener("click", () => {
-      console.log("Following mode");
-      // RUN FOLLOW CODE HERE LATER
-    });
-  }
-
-  if (follow.innerHTML === "Edit profile") {
-    follow.addEventListener("click", () => {
-      console.log("Editing mode");
-      // RUN EDIT PROFILE CODE HERE LATER
-    });
-  }
-
   const editAvatar = document.querySelector(".profile-edit-avatar");
   editAvatar.addEventListener("click", (e) => {
     e.preventDefault();
@@ -67,4 +44,19 @@ export function buildProfile(data) {
     e.preventDefault();
     buildEditForm("banner");
   });
+
+  // Check if name matches saved name in localStorage, if so change button to be edit instead of follow
+  const userInfo = getUserInfo();
+
+  if (data.name === userInfo.name) {
+    follow.style.display = "none";
+  }
+
+  // Set eventListeners for both clicking follow and clicking edit
+  if (follow.innerHTML === "Follow") {
+    follow.addEventListener("click", () => {
+      console.log("Following mode");
+      // RUN FOLLOW CODE HERE LATER
+    });
+  }
 }
