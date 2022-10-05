@@ -3,6 +3,7 @@ import { setItem, getItem, updateItem } from "../getUserInfo.mjs";
 import { buildEditForm } from "./buildEditForm.mjs";
 import { followUser } from "./follow-unfollow/follow.mjs";
 import { unfollowUser } from "./follow-unfollow/unfollow.mjs";
+import { buildFollowingList } from "./buildFollowingList.mjs";
 
 export function buildProfile(data) {
   const profileImage = document.querySelector(".profile-image");
@@ -88,4 +89,7 @@ export function buildProfile(data) {
       unfollowUser(data);
     });
   }
+
+  // Build profile sidepanel
+  buildFollowingList(data);
 }

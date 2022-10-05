@@ -1,5 +1,4 @@
 import { displayPosts } from "../posts/getPosts.mjs";
-import { getUserPanelInfo } from "../user/profiles/profilePanel.mjs";
 import { isUserLoggedIn } from "../user/isUserLoggedIn.mjs";
 import { getProfile } from "../user/profiles/getProfile.mjs";
 import { getPostUrlParams, API_POSTS_URL } from "../util/variables.mjs";
@@ -11,9 +10,6 @@ isUserLoggedIn();
 
 // Run get posts function
 displayPosts(API_POSTS_URL, getPostUrlParams, options);
-
-// Run get user panel info function
-getUserPanelInfo();
 
 // Get user info
 const userInfo = getItem("user");

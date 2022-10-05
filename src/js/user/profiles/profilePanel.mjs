@@ -1,5 +1,6 @@
 import { getItem } from "../../user/getUserInfo.mjs";
 import { bannerImageHandler, profileImageHandler } from "/src/js/components/imageHandlers.mjs";
+import { buildFollowingList } from "./buildFollowingList.mjs";
 
 export function getUserPanelInfo() {
   // Get user info and display it
@@ -30,4 +31,7 @@ export function getUserPanelInfo() {
   userName.forEach((name) => {
     name.innerText = `${userInfo.name}`;
   });
+
+  // Build profile sidepanel
+  buildFollowingList(userInfo);
 }
