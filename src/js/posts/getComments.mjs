@@ -15,7 +15,7 @@ export function getComments(data) {
                       <div class="comment-section d-flex">
                         <div class="d-flex flex-start align-items-center w-75 mt-3 mb-3">
                           <div>
-                            <h6 class="fw-bold text-primary mb-1">${data[i].owner}</h6>
+                            <a href ="/profile.html?name=${data[i].owner}"<h6 class="fw-bold text-primary mb-1 profile-info-username">${data[i].owner}</h6></a>
                             <p class="text-muted small mb-0">${dateFix}</p>
                           </div>
                         </div>
