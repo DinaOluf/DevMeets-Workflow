@@ -1,7 +1,7 @@
 import { timeAgo } from "../components/timeAgo.mjs";
 import { profileImageHandler } from "../components/imageHandlers.mjs";
 import { getPostsContainer } from "../util/variables.mjs";
-import { getUserInfo } from "../user/getUserInfo.mjs";
+import { getItem } from "../user/getUserInfo.mjs";
 import { addCogWheelEvent, createCog } from "../components/createCog.mjs";
 import { getComments } from "./getComments.mjs";
 
@@ -25,7 +25,7 @@ export function postTemplate(sortedData) {
 
     // Add cogwheel to my posts
     let cogContainer = "";
-    const userInfo = getUserInfo();
+    const userInfo = getItem("user");
 
     if (sortedData[i].author.name === userInfo.name) {
       cogContainer = createCog();

@@ -1,7 +1,7 @@
 import { API_BASE_URL, errorContainer } from "../util/variables.mjs";
 import { errorMessage } from "../components/error.mjs";
 import { saveAuth } from "./userAuth.mjs";
-import { saveUserInfo } from "./getUserInfo.mjs";
+import { setItem } from "./getUserInfo.mjs";
 
 // Function which initiates what to do when submitting the form
 export function handleLogin(evt) {
@@ -32,7 +32,7 @@ export function handleLogin(evt) {
         errorContainer.style.display = "none";
 
         // Save user info
-        saveUserInfo({
+        setItem("user", {
           name: json.name,
           email: json.email,
           avatar: json.avatar,

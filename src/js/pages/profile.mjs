@@ -4,6 +4,7 @@ import { isUserLoggedIn } from "../user/isUserLoggedIn.mjs";
 import { getProfile } from "../user/profiles/getProfile.mjs";
 import { getPostUrlParams, API_POSTS_URL } from "../util/variables.mjs";
 import { options } from "../util/options.mjs";
+import { getItem } from "../user/getUserInfo.mjs";
 
 // Check if user is logged in, if no, redirect
 isUserLoggedIn();
@@ -13,6 +14,9 @@ displayPosts(API_POSTS_URL, getPostUrlParams, options);
 
 // Run get user panel info function
 getUserPanelInfo();
+
+// Get user info
+const userInfo = getItem("user");
 
 // QUERY STRINGS
 
@@ -24,7 +28,7 @@ const name = params.get("name");
 
 // if the id is null, then redirect to the home page. If not, create the profile.
 if (!name) {
-  location.href = "/";
+  location.href = `/profile.html?name=${userInfo.name}`;
 } else {
   getProfile(name);
 }

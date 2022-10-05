@@ -1,10 +1,10 @@
-import { getUserInfo } from "../../user/getUserInfo.mjs";
+import { getItem } from "../../user/getUserInfo.mjs";
 import { bannerImageHandler, profileImageHandler } from "/src/js/components/imageHandlers.mjs";
 
 export function getUserPanelInfo() {
   // Get user info and display it
 
-  const userInfo = getUserInfo();
+  const userInfo = getItem("user");
 
   const profileImage = document.querySelectorAll(".profile-image");
   const userName = document.querySelectorAll(".profile-info-username");

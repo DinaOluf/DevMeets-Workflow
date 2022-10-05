@@ -1,5 +1,5 @@
 import { deleteStorage } from "./util/deleteStorage.mjs";
-import { getUserInfo } from "./user/getUserInfo.mjs";
+import { getItem } from "./user/getUserInfo.mjs";
 
 const logOut = document.querySelector(".log-out-button");
 
@@ -10,7 +10,7 @@ logOut.addEventListener("click", deleteStorage);
 
 const navLink = document.querySelector(".profile-nav-link");
 
-const userInfo = getUserInfo();
+const userInfo = getItem("user");
 
 if (navLink) {
   navLink.href = `/profile.html?name=${userInfo.name}`;
