@@ -17,3 +17,5 @@ export const filterFollowing = document.querySelector(".filter-following");
 export const filterMyPosts = document.querySelector(".filter-my-posts");
 
 export const getPostsContainer = document.querySelector(".get-posts-container");
+export const getPostSpecificContainer = document.querySelector(".view-post-container");
+export const getCommentsContainer = document.querySelector(".comment-section-wrap");

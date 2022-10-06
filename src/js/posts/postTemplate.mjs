@@ -5,6 +5,8 @@ import { isImageLink } from "../components/imageHandlers.mjs";
 import { getUserInfo } from "../user/getUserInfo.mjs";
 import { addCogWheelEvent, createCog } from "../components/createCog.mjs";
 import { getComments } from "./getComments.mjs";
+import { API_BASE_URL } from "../util/variables.mjs";
+import { API_POSTS_URL } from "../util/variables.mjs";
 
 export function postTemplate(sortedData) {
   getPostsContainer.innerHTML = "";
@@ -47,6 +49,11 @@ export function postTemplate(sortedData) {
     // Get comments to display
 
     const commentsData = getComments(sortedData[i].comments);
+
+    // ???
+    const commentId = sortedData[i].id;
+    const api = API_BASE_URL;
+    const post = API_POSTS_URL;
 
     // DISPLAY POST
     getPostsContainer.innerHTML += `
@@ -91,6 +98,9 @@ export function postTemplate(sortedData) {
               <a href="#!" class="d-flex align-items-center me-3">
                 <i class="fas fa-share me-2"></i>
                 <p class="mb-0">Share</p>
+              </a>
+              <a href="viewComments.html" class="d-flex align-items-center me-3">
+                <p class="mb-0">&#128172; View Comments (${sortedData[i].comments.length})</p>
               </a>
             </div>
           </div>
