@@ -1,8 +1,7 @@
 import { bannerImageHandler, profileImageHandler } from "/src/js/components/imageHandlers.mjs";
-import { setItem, getItem, updateItem } from "../getUserInfo.mjs";
+import { setItem, getItem } from "../getUserInfo.mjs";
 import { buildEditForm } from "./buildEditForm.mjs";
-import { followUser } from "./follow-unfollow/follow.mjs";
-import { unfollowUser } from "./follow-unfollow/unfollow.mjs";
+import { handleFollow } from "./follow-unfollow/follow.mjs";
 import { buildFollowingList } from "./buildFollowingList.mjs";
 
 export function buildProfile(data) {
@@ -68,28 +67,35 @@ export function buildProfile(data) {
     setItem("follow", JSON.stringify(following));
   }
 
-  // Set eventListeners for both clicking follow/unfollow
-  if (follow.innerHTML === "Follow") {
-    follow.addEventListener("click", (e) => {
-      e.preventDefault();
-      console.log("Following mode");
-      follow.innerHTML === "Unfollow";
-      followUser({
-        name: data.name,
-        avatar: data.avatar,
-      });
-    });
+  // Set initial follow/unfollow state for button
+  let followHtml = "Follow";
+
+  // Get the localStorage list of followers
+  const followList = JSON.parse(getItem("follow"));
+
+  // Check if the profile being viewed is already being followed
+  const doesObjectExist = followList.find(function (fol) {
+    return fol.name === data.name;
+  });
+
+  // Set button HTML if profile is already being followed
+  if (doesObjectExist) {
+    followHtml = "Unfollow";
   }
 
-  if (follow.innerHTML === "Unfollow") {
-    follow.addEventListener("click", (e) => {
-      e.preventDefault();
-      console.log("Unfollowing mode");
-      follow.innerHTML === "Follow";
-      unfollowUser(data);
-    });
-  }
+  follow.innerHTML = followHtml;
 
-  // Build profile sidepanel
+  // Build the user object
+  const user = {
+    name: data.name,
+    avatar: data.avatar,
+  };
+
+  // Set eventListeners for both clicking follow/unfollow and pass in which state button is being pressed as well as the user to build
+  follow.addEventListener("click", (e) => {
+    handleFollow(e.target, user);
+  });
+
+  // Build profile side panel
   buildFollowingList(data);
 }

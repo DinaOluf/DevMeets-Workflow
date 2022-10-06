@@ -11,7 +11,6 @@ export async function buildFollowingList(data) {
 
   // Get the API return and build it
   const user = await getAProfile(data.name);
-  console.log(user);
 
   // Build the profile side panel
   followTitle.innerText = `(${user.following.length})`;
@@ -22,8 +21,8 @@ export async function buildFollowingList(data) {
 }
 
 function followHtml(array) {
-  console.log(array);
   let html;
+
   for (let i = 0; i < array.length; i++) {
     let userImage = profileImageHandler(array[i].avatar);
 
