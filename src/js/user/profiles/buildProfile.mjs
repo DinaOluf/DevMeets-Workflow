@@ -16,7 +16,7 @@ export function buildProfile(data) {
 
   // Add the image
   editProfileImg.innerHTML = `<img class="profile-image-attributes rounded-circle avatar-to-hover" src="${userAvatar}" alt="User Profile Image" />
-                      <a href="" class="me-3 profile-edit-avatar">&#9998; Edit</a>`;
+                      <a href="" class="me-3 profile-edit-avatar justify-content-center align-items-center">&#9998; Edit</a>`;
 
   profileImage.innerHTML = `<img class="profile-image-attributes rounded-circle" src="${userAvatar}" alt="User Profile Image" />`;
 
@@ -26,7 +26,7 @@ export function buildProfile(data) {
 
     // Add the image
     bannerImage.innerHTML = `<img class="img-fluid banner-to-hover" src="${userBanner}" alt="User Banner Image" />
-                            <a href="" class="me-3 profile-edit-banner">&#9998; Edit</a>`;
+                            <a href="" class="me-3 profile-edit-banner justify-content-center align-items-center rounded">&#9998; Edit</a>`;
   }
 
   // Add the name

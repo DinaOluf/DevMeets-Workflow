@@ -2,6 +2,11 @@
 .profile-edit-banner {
   display: none;
   position: absolute;
+  height: 50px;
+  width: 100px;
+  background-color: $break-color;
+  color: white;
+  font-size: 18px;
 }
 
 .upper:hover .profile-edit-banner {

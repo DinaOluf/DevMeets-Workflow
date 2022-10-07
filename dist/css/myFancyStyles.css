@@ -10926,6 +10926,11 @@ textarea.form-control-lg {
 .profile-edit-banner {
   display: none;
   position: absolute;
+  height: 50px;
+  width: 100px;
+  background-color: #40676e;
+  color: white;
+  font-size: 18px;
 }
 
 .upper:hover .profile-edit-banner {
