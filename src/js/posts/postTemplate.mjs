@@ -53,7 +53,7 @@ export function postTemplate(sortedData) {
 
     // DISPLAY POST
     getPostsContainer.innerHTML += `
-        <div class="card">
+        <div class="card w-100">
           <div class="card-body">
             <div class="d-flex flex-start align-items-center">
               <a href="/profile.html?name=${sortedData[i].author.name}">
@@ -74,8 +74,8 @@ export function postTemplate(sortedData) {
             ${sortedData[i].body}
             </p>
   
-            <p class="mt-3 mb-4 pb-2 post-media">
-            <img class="w-100" src="${postMedia}" />
+            <p class="d-flex justify-content-center mt-3 mb-4 pb-2 post-media">
+            <img class="w-50" src="${postMedia}" />
             </p>
 
             <p class="mt-3 mb-4 pb-2 post-tags">
