@@ -10990,7 +10990,7 @@ textarea.form-control-lg {
   padding: 8px;
   background-color: #1a1d20;
   position: relative;
-  height: 440px;
+  height: 100%;
 }
 
 .upper img {

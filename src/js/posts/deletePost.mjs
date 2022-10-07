@@ -2,7 +2,6 @@ import { API_BASE_URL, API_POSTS_URL, errorContainer } from "../util/variables.m
 import { errorMessage } from "../components/error.mjs";
 import { successMessage } from "../components/success.mjs";
 import { getUserAuth } from "../user/userAuth.mjs";
-import { options } from "../util/options.mjs";
 
 // Function which initiates what to do when submitting the form
 export function deletePost(id) {

@@ -43,6 +43,34 @@ export async function displayPosts(endpoint, params, opt) {
   }
 }
 
+// Get all posts (or atleast the first 1000) and push them to a new array which can be used
+export async function getAllPosts() {
+  try {
+    // Initialize an empty array to push to
+    let completeArray = [];
+
+    // Create the loop to loop to the first 1000 posts ( increase 10 to get more )
+
+    for (let i = 0; i < 10; i++) {
+      // Set up the offset push which the API requires, increase by 100 for every loop iteration
+      let offset = i * 100;
+
+      // Fetch the data
+
+      const response = await fetch(`${API_BASE_URL}${API_POSTS_URL}${getPostUrlParams}&offset=${offset}`, options);
+      const data = await response.json();
+
+      // Push the data to the new array
+      completeArray.push(...data);
+    }
+    // Return the array so it can be used later
+    return completeArray;
+  } catch (error) {
+    console.log(error);
+    errorContainer.innerHTML = errorMessage("An error occurred when calling the API, error: " + error);
+  }
+}
+
 // Function to display data together with the filters used on index page
 export async function displayPostsFilter() {
   try {

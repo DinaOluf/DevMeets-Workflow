@@ -15,46 +15,29 @@ export function buildProfile(data) {
   let userAvatar = profileImageHandler(data.avatar);
 
   // Add the image
-  editProfileImg.innerHTML = `<img class="profile-image-attributes rounded-circle avatar-to-hover" src="${userAvatar}" alt="User Profile Image" />
-                      <a href="" class="me-3 profile-edit-avatar justify-content-center align-items-center">&#9998; Edit</a>`;
+  editProfileImg.innerHTML = `<img class="profile-image-attributes rounded-circle avatar-to-hover" src="${userAvatar}" alt="User Profile Image" />`;
 
-  profileImage.innerHTML = `<img class="profile-image-attributes rounded-circle" src="${userAvatar}" alt="User Profile Image" />`;
+  profileImage.innerHTML = `<img class="profile-image-attributes rounded-circle me-2" src="${userAvatar}" alt="User Profile Image" />`;
 
-  if (data.banner) {
-    // Check if a banner image is set for the user, if not set to default
-    let userBanner = bannerImageHandler(data.banner);
+  // Check if a banner image is set for the user, if not set to default
+  let userBanner = bannerImageHandler(data.banner);
 
-    // Add the image
-    bannerImage.innerHTML = `<img class="img-fluid banner-to-hover" src="${userBanner}" alt="User Banner Image" />
-                            <a href="" class="me-3 profile-edit-banner justify-content-center align-items-center rounded">&#9998; Edit</a>`;
-  }
+  // Add the image
+  bannerImage.innerHTML = `<img class="img-fluid banner-to-hover" src="${userBanner}" alt="User Banner Image" />`;
 
   // Add the name
   userName.forEach((name) => {
     name.innerText = `${data.name}`;
   });
 
-  // Set up eventListeners for hover states
-  const editAvatar = document.querySelector(".profile-edit-avatar");
-  if (editAvatar) {
-    editAvatar.addEventListener("click", (e) => {
-      e.preventDefault();
-      buildEditForm("avatar");
-    });
-  }
-
-  const editBanner = document.querySelector(".profile-edit-banner");
-  if (editBanner) {
-    editBanner.addEventListener("click", (e) => {
-      e.preventDefault();
-      buildEditForm("banner");
-    });
-  }
-
   // Check if name matches saved name in localStorage, if so change button to be edit instead of follow and recheck current follower information
   const userInfo = getItem("user");
 
   if (data.name === userInfo.name) {
+    editProfileImg.innerHTML += `<a href="#!" class="me-3 profile-edit-avatar justify-content-center align-items-center">&#9998; Edit</a>`;
+
+    bannerImage.innerHTML += `<a href="#!" class="me-3 profile-edit-banner justify-content-center align-items-center rounded">&#9998; Edit</a>`;
+
     follow.style.display = "none";
 
     let following = [];
@@ -98,4 +81,23 @@ export function buildProfile(data) {
 
   // Build profile side panel
   buildFollowingList(data);
+
+  // Set up eventListeners for hover states
+  const editAvatar = document.querySelector(".profile-edit-avatar");
+  if (editAvatar) {
+    editAvatar.addEventListener("click", (e) => {
+      e.preventDefault();
+      buildEditForm("avatar");
+      editAvatar.classList = "d-none";
+    });
+  }
+
+  const editBanner = document.querySelector(".profile-edit-banner");
+  if (editBanner) {
+    editBanner.addEventListener("click", (e) => {
+      e.preventDefault();
+      buildEditForm("banner");
+      editBanner.classList = "d-none";
+    });
+  }
 }
