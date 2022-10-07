@@ -17,7 +17,7 @@ export function buildProfile(data) {
   // Add the image
   editProfileImg.innerHTML = `<img class="profile-image-attributes rounded-circle avatar-to-hover" src="${userAvatar}" alt="User Profile Image" />`;
 
-  profileImage.innerHTML = `<img class="profile-image-attributes rounded-circle" src="${userAvatar}" alt="User Profile Image" />`;
+  profileImage.innerHTML = `<img class="profile-image-attributes rounded-circle me-2" src="${userAvatar}" alt="User Profile Image" />`;
 
   // Check if a banner image is set for the user, if not set to default
   let userBanner = bannerImageHandler(data.banner);
