@@ -27,7 +27,6 @@ import { postTemplate } from "./postTemplate.mjs";
 // Simple API fetch which returns the fetched data
 export async function getPosts(url, opt) {
   // GET API DATA
-
   const response = await fetch(url, opt);
   const data = await response.json();
   return data;

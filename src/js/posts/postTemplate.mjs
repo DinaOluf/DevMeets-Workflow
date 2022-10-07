@@ -4,6 +4,8 @@ import { getPostsContainer } from "../util/variables.mjs";
 import { getItem } from "../user/getUserInfo.mjs";
 import { addCogWheelEvent, createCog } from "../components/createCog.mjs";
 import { getComments } from "./getComments.mjs";
+import { API_BASE_URL } from "../util/variables.mjs";
+import { API_POSTS_URL } from "../util/variables.mjs";
 
 export function postTemplate(sortedData) {
   getPostsContainer.innerHTML = "";
@@ -37,7 +39,7 @@ export function postTemplate(sortedData) {
       postMedia = "";
     } else {
       postMedia = `<p class="mt-3 mb-4 pb-2 post-media">
-      <img class="w-100" src="${sortedData[i].media}" />
+      <img class="w-50" src="${sortedData[i].media}" />
       </p>`;
     }
 
@@ -48,10 +50,11 @@ export function postTemplate(sortedData) {
     // Get comments to display
 
     const commentsData = getComments(sortedData[i].comments);
+    const commentId = sortedData[i].id;
 
     // DISPLAY POST
     getPostsContainer.innerHTML += `
-        <div class="card">
+        <div class="card w-100">
           <div class="card-body">
             <div class="d-flex flex-start align-items-center">
               <a href="/profile.html?name=${sortedData[i].author.name}">
@@ -90,6 +93,9 @@ export function postTemplate(sortedData) {
               <a href="#!" class="d-flex align-items-center me-3">
                 <i class="fas fa-share me-2"></i>
                 <p class="mb-0">Share</p>
+              </a>
+              <a href="/post.html?id=${commentId}" class="d-flex align-items-center me-3">
+                <p class="mb-0">&#128172; View Comments (${sortedData[i].comments.length})</p>
               </a>
             </div>
           </div>
