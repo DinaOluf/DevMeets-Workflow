@@ -4,8 +4,6 @@ import { getPostsContainer } from "../util/variables.mjs";
 import { getItem } from "../user/getUserInfo.mjs";
 import { addCogWheelEvent, createCog } from "../components/createCog.mjs";
 import { getComments } from "./getComments.mjs";
-import { API_BASE_URL } from "../util/variables.mjs";
-import { API_POSTS_URL } from "../util/variables.mjs";
 
 export function postTemplate(sortedData) {
   getPostsContainer.innerHTML = "";

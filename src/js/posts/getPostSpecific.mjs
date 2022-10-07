@@ -1,6 +1,5 @@
 import { API_BASE_URL, API_POSTS_URL } from "../util/variables.mjs";
-import { getComments } from "./getComments.mjs";
-import { displayPosts, getPosts } from "./getPosts.mjs";
+import { getPosts } from "./getPosts.mjs";
 import { getPostUrlParams } from "../util/variables.mjs";
 import { options } from "../util/options.mjs";
 import { postTemplate } from "./postTemplate.mjs";

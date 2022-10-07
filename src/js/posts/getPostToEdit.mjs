@@ -9,7 +9,6 @@ export function getPostToEdit() {
     e.addEventListener("click", (i) => {
       // Target the closest card to the clicked cogwheel
       const closestPost = i.target.closest(".card-body");
-      console.log(closestPost.childNodes);
 
       // Get all of the necessary elements from the post
       const postId = closestPost.childNodes[3].innerText;
