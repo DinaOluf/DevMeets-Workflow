@@ -17,3 +17,5 @@ export const filterFollowing = document.querySelector(".filter-following");
 export const filterMyPosts = document.querySelector(".filter-my-posts");
 
 export const getPostsContainer = document.querySelector(".get-posts-container");
+
+export const profileHeader = document.querySelector(".profile-header");

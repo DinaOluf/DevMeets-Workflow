@@ -1,5 +1,6 @@
 @import "variable";
 @import "../../node_modules/bootstrap/scss/bootstrap.scss";
+@import "profile.scss";
 @import "custom.scss";
 
 * {
@@ -70,10 +71,6 @@ ul {
   & p {
     color: $white-color;
   }
-}
-
-.content-wrap {
-  //   width: 90%;
 }
 
 // Home Page/Profile Page - Left //
