@@ -1,6 +1,6 @@
-import { getUserInfo } from "../../user/getUserInfo.mjs";
+import { getItem } from "../../user/getUserInfo.mjs";
 
-const userInfo = getUserInfo();
+const userInfo = getItem("user");
 
 // Sort passed in array if it was posted by currently logged in user
 export function sortMyPosts(array) {

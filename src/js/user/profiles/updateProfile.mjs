@@ -2,7 +2,7 @@ import { API_BASE_URL, API_PROFILE_URL, errorContainer } from "../../util/variab
 import { errorMessage } from "../../components/error.mjs";
 import { successMessage } from "../../components/success.mjs";
 import { getUserAuth } from "../userAuth.mjs";
-import { getUserInfo } from "../getUserInfo.mjs";
+import { getItem } from "../getUserInfo.mjs";
 
 // Function which initiates what to do when submitting the form
 export function updateProfileMedia(mediaType, media) {
@@ -10,7 +10,7 @@ export function updateProfileMedia(mediaType, media) {
   const jwt = getUserAuth();
 
   // Get user info
-  const userInfo = getUserInfo();
+  const userInfo = getItem("user");
 
   // Construct the data object which is to be sent to the API
   let dataObj = {

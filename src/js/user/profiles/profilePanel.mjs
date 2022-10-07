@@ -1,10 +1,11 @@
-import { getUserInfo } from "../../user/getUserInfo.mjs";
+import { getItem } from "../../user/getUserInfo.mjs";
 import { bannerImageHandler, profileImageHandler } from "/src/js/components/imageHandlers.mjs";
+import { buildFollowingList } from "./buildFollowingList.mjs";
 
 export function getUserPanelInfo() {
   // Get user info and display it
 
-  const userInfo = getUserInfo();
+  const userInfo = getItem("user");
 
   const profileImage = document.querySelectorAll(".profile-image");
   const userName = document.querySelectorAll(".profile-info-username");
@@ -30,4 +31,7 @@ export function getUserPanelInfo() {
   userName.forEach((name) => {
     name.innerText = `${userInfo.name}`;
   });
+
+  // Build profile sidepanel
+  buildFollowingList(userInfo);
 }

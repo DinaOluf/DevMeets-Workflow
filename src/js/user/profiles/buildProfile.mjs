@@ -1,6 +1,8 @@
 import { bannerImageHandler, profileImageHandler } from "/src/js/components/imageHandlers.mjs";
-import { getUserInfo } from "../getUserInfo.mjs";
+import { setItem, getItem } from "../getUserInfo.mjs";
 import { buildEditForm } from "./buildEditForm.mjs";
+import { handleFollow } from "./follow-unfollow/follow.mjs";
+import { buildFollowingList } from "./buildFollowingList.mjs";
 
 export function buildProfile(data) {
   const profileImage = document.querySelector(".profile-image");
@@ -34,29 +36,66 @@ export function buildProfile(data) {
 
   // Set up eventListeners for hover states
   const editAvatar = document.querySelector(".profile-edit-avatar");
-  editAvatar.addEventListener("click", (e) => {
-    e.preventDefault();
-    buildEditForm("avatar");
-  });
+  if (editAvatar) {
+    editAvatar.addEventListener("click", (e) => {
+      e.preventDefault();
+      buildEditForm("avatar");
+    });
+  }
 
   const editBanner = document.querySelector(".profile-edit-banner");
-  editBanner.addEventListener("click", (e) => {
-    e.preventDefault();
-    buildEditForm("banner");
-  });
+  if (editBanner) {
+    editBanner.addEventListener("click", (e) => {
+      e.preventDefault();
+      buildEditForm("banner");
+    });
+  }
 
-  // Check if name matches saved name in localStorage, if so change button to be edit instead of follow
-  const userInfo = getUserInfo();
+  // Check if name matches saved name in localStorage, if so change button to be edit instead of follow and recheck current follower information
+  const userInfo = getItem("user");
 
   if (data.name === userInfo.name) {
     follow.style.display = "none";
+
+    let following = [];
+
+    for (let i = 0; i < data.following.length; i++) {
+      following.push(data.following[i]);
+    }
+
+    getItem("follow");
+    setItem("follow", JSON.stringify(following));
   }
 
-  // Set eventListeners for both clicking follow and clicking edit
-  if (follow.innerHTML === "Follow") {
-    follow.addEventListener("click", () => {
-      console.log("Following mode");
-      // RUN FOLLOW CODE HERE LATER
-    });
+  // Set initial follow/unfollow state for button
+  let followHtml = "Follow";
+
+  // Get the localStorage list of followers
+  const followList = JSON.parse(getItem("follow"));
+
+  // Check if the profile being viewed is already being followed
+  const doesObjectExist = followList.find(function (fol) {
+    return fol.name === data.name;
+  });
+
+  // Set button HTML if profile is already being followed
+  if (doesObjectExist) {
+    followHtml = "Unfollow";
   }
+
+  follow.innerHTML = followHtml;
+
+  // Build the user object
+  const user = {
+    name: data.name,
+    avatar: data.avatar,
+  };
+
+  // Set eventListeners for both clicking follow/unfollow and pass in which state button is being pressed as well as the user to build
+  follow.addEventListener("click", (e) => {
+    handleFollow(e.target, user);
+  });
+
+  // Build profile side panel
+  buildFollowingList(data);
 }

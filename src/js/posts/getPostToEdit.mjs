@@ -9,6 +9,7 @@ export function getPostToEdit() {
     e.addEventListener("click", (i) => {
       // Target the closest card to the clicked cogwheel
       const closestPost = i.target.closest(".card-body");
+      console.log(closestPost.childNodes);
 
       // Get all of the necessary elements from the post
       const postId = closestPost.childNodes[3].innerText;
@@ -39,7 +40,9 @@ export function getPostToEdit() {
       editPostForm.innerHTML += `<input type="text" class="form-control d-none w-100 mt-3 mb-4 pb-2 postId" id="post-id" aria-describedby="idHelp" value="${postId}" />`;
       editPostForm.innerHTML += `<input type="text" class="form-control w-100 mt-3 mb-4 pb-2 postTitle" id="post-title" aria-describedby="titleHelp" value="${postTitle.innerText.trim()}" />`;
       editPostForm.innerHTML += `<input type="text" class="form-control w-100 mt-3 mb-4 pb-2 postBody" id="post-body" aria-describedby="bodyHelp" value="${postBody.innerText.trim()}" />`;
-      editPostForm.innerHTML += `<input type="text" class="form-control w-100 mt-3 mb-4 pb-2 postMedia" id="post-media" aria-describedby="mediaHelp" value="${postMedia.childNodes[1].src}" />`;
+      if (postMedia.childNodes[1]) {
+        editPostForm.innerHTML += `<input type="text" class="form-control w-100 mt-3 mb-4 pb-2 postMedia" id="post-media" aria-describedby="mediaHelp" value="${postMedia.childNodes[1].src}" />`;
+      }
       editPostForm.innerHTML += `<input type="text" class="form-control w-100 mt-3 mb-4 pb-2 postTags" id="post-tags" aria-describedby="tagsHelp" value="${postTags.innerText.trim()}" />`;
 
       // Creates button upon clicking edit

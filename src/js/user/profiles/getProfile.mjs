@@ -8,3 +8,10 @@ export async function getProfile(name) {
 
   buildProfile(data);
 }
+
+export async function getAProfile(name) {
+  const response = await fetch(`${API_BASE_URL}${API_PROFILE_URL}${name}${getProfileUrlParams}`, options);
+  const data = await response.json();
+
+  return data;
+}
