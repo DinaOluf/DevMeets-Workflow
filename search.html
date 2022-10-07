@@ -4,17 +4,19 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>DevMeets | Login</title>
+    <title>DevMeets | Search</title>
     <meta name="keywords" content="DevMeets, Social Media, Bootstrap, SASS, Noroff" />
-    <meta name="description" content="Login to DevMeets!" />
+    <meta name="description" content="Come share your work!" />
     <script src="https://kit.fontawesome.com/7b67c1dabd.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <link rel="stylesheet" href="https://fonts.sandbox.google.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,400;0,500;0,600;1,100&display=swap" rel="stylesheet" />
     <script defer src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="/dist/css/myFancyStyles.css" />
     <script defer src="/src/js/script.mjs" type="module"></script>
-    <script defer src="/src/js/pages/login.mjs" type="module"></script>
+    <script defer src="/src/js/pages/search.mjs" type="module"></script>
     <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/dayjs@1/plugin/relativeTime.js"></script>
   </head>
@@ -36,13 +38,13 @@
       <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
-            <a class="nav-link nav-active" href="index.html">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-link nav-active" href="index.html" style="color: #71a596">Home <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
             <a class="nav-link profile-nav-link" href="profile.html">My Profile</a>
           </li>
           <li class="nav-item">
-            <a style="color: #71a596" class="nav-link" href="login.html">Login</a>
+            <a class="nav-link" href="login.html">Login</a>
           </li>
         </ul>
         <form class="form-inline my-2 my-lg-0 d-flex px-5 search-bar-form">
@@ -81,24 +83,61 @@
       </div>
     </nav>
     <hr class="separation-line solid mt-0 mb-0" />
-    <section class="landing position-relative">
-      <div class="landing-inner h-100">
-        <div class="dark-overlay h-100 d-flex flex-column w-100 m-a align-items-center justify-content-center">
-          <h1 class="x-large-text">Developer Meeting Place</h1>
-          <p class="large-text">Share your profile & portfolio, posts and get help from others!</p>
-          <div class="login-form-wrap rounded">
-            <div class="error-container"></div>
-            <form class="d-flex flex-column align-items-center px-3 login-form">
-              <div class="form-group mt-4 mb-1">
-                <input type="email" class="form-control" id="login-email" aria-describedby="emailHelp" placeholder="Enter email" required minlength="3" />
+    <section class="min-vh-100">
+      <div class="container">
+        <div class="row">
+          <div class="content-wrap col-md-12 col-lg-4">
+            <div class="left rounded mt-3 me-3 ms-3">
+              <div class="profile-wrap d-flex align-items-center justify-content-center px-3 pt-3">
+                <div class="profile-image">
+                  <img class="profile-image-attributes rounded-circle" src="dist/img/sindre.jpg" alt="" />
+                </div>
+                <div class="profile-information px-2">
+                  <p class="mb-0 profile-info-username">Sindre Østby</p>
+                  <p class="mb-0">Developer</p>
+                </div>
               </div>
-              <div class="form-group mt-3 mb-3">
-                <input type="password" class="form-control" id="login-password" placeholder="Password" required minlength="5" />
+              <div class="profile-posts d-flex justify-content-center pt-2 pb-2 mt-3">
+                <div class="px-3">
+                  <p class="mb-0">Posts</p>
+                  <p class="mb-1 post-count">15</p>
+                </div>
+                <div class="px-3">
+                  <p class="mb-0">Following</p>
+                  <p class="mb-1 following-count">24</p>
+                </div>
+                <div class="px-3">
+                  <p class="mb-0">Followers</p>
+                  <p class="mb-1 follower-count">13</p>
+                </div>
               </div>
-              <button type="submit" class="btn btn-primary w-75 mt-1 mb-1">Log in</button>
-              <a href="">Forgot Password?</a>
-              <a href="register.html" class="btn btn-primary w-50 mt-4 mb-4">Sign Up</a>
-            </form>
+              <p class="px-2 d-flex justify-content-center mt-2">Following<a href="profile.html" class="following-list-title">(113)</a></p>
+              <div class="friends d-flex pb-2 flex-column following-list-content">
+                <div class="px-2 d-flex flex-column align-items-center mt-2">
+                  <img class="friends-image-attributes rounded-circle" src="dist/img/Jonatan.jpg" alt="" />
+                  <p class="mb-0">Jonatan Dam</p>
+                  <a href="profile.html">View profile</a>
+                </div>
+                <div class="px-2 d-flex flex-column align-items-center mt-2">
+                  <img class="friends-image-attributes rounded-circle" src="dist/img/Trevor.jpg" alt="" />
+                  <p class="mb-0">Trevor Smith</p>
+                  <a href="profile.html">View profile</a>
+                </div>
+                <div class="px-2 d-flex flex-column align-items-center mt-2">
+                  <img class="friends-image-attributes rounded-circle" src="dist/img/sindre.jpg" alt="" />
+                  <p class="mb-0">Eric Bøe</p>
+                  <a href="profile.html">View profile</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-12 col-lg-8">
+            <div class="right rounded mt-3 mb-3">
+              <div class="content-right-wrap p-3">
+                <div class="error-container"></div>
+                <div class="get-posts-container d-flex flex-column gap-3"></div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
