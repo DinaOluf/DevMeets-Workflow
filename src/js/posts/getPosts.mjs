@@ -54,6 +54,7 @@ export async function displayPostsFilter() {
     // Set up the click counter to handle double clicks
     let clickCounter = 0;
 
+    // Sort by title
     filterTitle.addEventListener("click", () => {
       clickCounter++;
       if (clickCounter === 1) {
@@ -74,6 +75,7 @@ export async function displayPostsFilter() {
       }
     });
 
+    // Sort by author name
     filterAuthor.addEventListener("click", () => {
       clickCounter++;
       if (clickCounter === 1) {
@@ -94,6 +96,7 @@ export async function displayPostsFilter() {
       }
     });
 
+    // Sort by time posted
     filterTime.addEventListener("click", () => {
       clickCounter++;
       if (clickCounter === 1) {
@@ -114,6 +117,7 @@ export async function displayPostsFilter() {
       }
     });
 
+    // Show only posts from today
     filterToday.addEventListener("click", () => {
       sortedData = sortToday(data);
       let reSortedData = sortTimeAsc(sortedData);
@@ -121,6 +125,7 @@ export async function displayPostsFilter() {
       postTemplate(reSortedData);
     });
 
+    // Show only posts from this week
     filterThisWeek.addEventListener("click", () => {
       sortedData = sortWeek(data);
       let reSortedData = sortTimeAsc(sortedData);
@@ -128,6 +133,7 @@ export async function displayPostsFilter() {
       postTemplate(reSortedData);
     });
 
+    // Show only posts from this month
     filterThisMonth.addEventListener("click", () => {
       sortedData = sortMonth(data);
       let reSortedData = sortTimeAsc(sortedData);
@@ -135,6 +141,7 @@ export async function displayPostsFilter() {
       postTemplate(reSortedData);
     });
 
+    // Show only my own posts
     filterMyPosts.addEventListener("click", () => {
       sortedData = sortMyPosts(data);
       let reSortedData = sortTimeAsc(sortedData);

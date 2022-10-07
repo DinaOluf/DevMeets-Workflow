@@ -1,0 +1,20 @@
+.profile-edit-avatar,
+.profile-edit-banner {
+  display: none;
+  position: absolute;
+  height: 50px;
+  width: 100px;
+  background-color: $break-color;
+  color: white;
+  font-size: 18px;
+}
+
+.upper:hover .profile-edit-banner {
+  display: flex;
+}
+
+.editable-profile-image:hover .profile-edit-avatar {
+  display: flex;
+  align-self: flex-end;
+  justify-self: center;
+}
