@@ -23,6 +23,7 @@ import { sortWeek } from "./filters/weekFilter.mjs";
 import { sortMonth } from "./filters/monthFilter.mjs";
 import { sortMyPosts } from "./filters/myPostsFilter.mjs";
 import { postTemplate } from "./postTemplate.mjs";
+import { sortFollow } from "./filters/followFilter.mjs";
 
 // Simple API fetch which returns the fetched data
 export async function getPosts(url, opt) {
@@ -176,6 +177,18 @@ export async function displayPostsFilter() {
       getPostsContainer.innerHTML = "";
       if (reSortedData.length === 0) {
         getPostsContainer.innerHTML = `<div class="error">You have no posts!</div>`;
+      }
+      postTemplate(reSortedData);
+    });
+
+    // Show only my own posts
+    filterFollowing.addEventListener("click", () => {
+      sortedData = sortFollow(data);
+      let reSortedData = sortTimeAsc(sortedData);
+      console.log(reSortedData);
+      getPostsContainer.innerHTML = "";
+      if (reSortedData.length === 0) {
+        getPostsContainer.innerHTML = `<div class="error">Your followers have no posts!</div>`;
       }
       postTemplate(reSortedData);
     });
