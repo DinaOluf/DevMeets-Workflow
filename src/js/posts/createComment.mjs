@@ -8,7 +8,7 @@ import { options } from "../util/options.mjs";
 export function createComment(evt) {
   evt.preventDefault();
   // Assign the inputs from the form to variables
-  const [body, id] = evt.target.elements;
+  const [id, body] = evt.target.elements;
 
   // Construct the data object which is to be sent to the API
   let dataObj = {
@@ -19,7 +19,7 @@ export function createComment(evt) {
   const jwt = getUserAuth();
 
   // Send the data object to the API
-  fetch(`${API_BASE_URL}${API_POSTS_URL}/${id}/comment`, options, {
+  fetch(`${API_BASE_URL}${API_POSTS_URL}/${id.value}/comment`, {
     method: "POST",
     body: JSON.stringify(dataObj),
     headers: {
