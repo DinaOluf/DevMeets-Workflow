@@ -4,9 +4,11 @@ import { getPostsContainer } from "../util/variables.mjs";
 import { getItem } from "../user/getUserInfo.mjs";
 import { addCogWheelEvent, createCog } from "../components/createCog.mjs";
 import { getComments } from "./getComments.mjs";
+import { createComment } from "./createComment.mjs";
 
 export function postTemplate(sortedData) {
   getPostsContainer.innerHTML = "";
+
   for (let i = 0; i < sortedData.length; i++) {
     // DEFAULT VALUES
     // Display Date
@@ -65,7 +67,7 @@ export function postTemplate(sortedData) {
               ${cogContainer}
             </div>
   
-            <div class="d-none">${sortedData[i].id}</div>
+            <div class="d-none post-id">${sortedData[i].id}</div>
 
             <div class="d-none post-title">${sortedData[i].title}</div>
 
@@ -97,21 +99,29 @@ export function postTemplate(sortedData) {
               </a>
             </div>
           </div>
-          <form class="card-footer py-3 border-0" style="background-color: #f8f9fa">
+          <form class="card-footer py-3 border-0 create-comment-form" style="background-color: #f8f9fa">
             <div class="d-flex flex-start w-100">
-              <img class="rounded-circle shadow-1-strong me-3" src="dist/img/sindre.jpg" alt="avatar" width="40" height="40" />
+              <img class="rounded-circle shadow-1-strong me-3" src=${userInfo.avatar} alt="avatar" width="40" height="40" />
+              <div class="form-outline w-100 d-none">
+                <input class="form-control w-100" value=${sortedData[i].id} id="textAreaExample" rows="4" style="background: #fff"></input>
+              </div>
               <div class="form-outline w-100">
                 <textarea class="form-control w-100" placeholder="Write a comment.." id="textAreaExample" rows="4" style="background: #fff"></textarea>
               </div>
             </div>
             <div class="float-end mt-2 pt-1">
-              <button type="submit" class="btn btn-primary btn-sm">Post comment</button>
+              <button type="submit" class="btn btn-primary btn-sm post-comment">Post comment</button>
               <button type="button" class="btn btn-primary btn-sm">Cancel</button>
             </div>
           </form>
           <div class="comment-section-wrap">${commentsData}</div>
         </div>`;
+
+    const commentForm = document.querySelector(".create-comment-form");
+
+    commentForm.addEventListener("submit", createComment);
   }
+
   // Add Cogwheel Event Listeners
   addCogWheelEvent();
 }

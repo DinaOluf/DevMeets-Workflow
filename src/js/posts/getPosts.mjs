@@ -23,6 +23,7 @@ import { sortWeek } from "./filters/weekFilter.mjs";
 import { sortMonth } from "./filters/monthFilter.mjs";
 import { sortMyPosts } from "./filters/myPostsFilter.mjs";
 import { postTemplate } from "./postTemplate.mjs";
+import { createComment } from "./createComment.mjs";
 import { sortFollow } from "./filters/followFilter.mjs";
 
 // Simple API fetch which returns the fetched data
@@ -56,6 +57,13 @@ export async function getAllPosts() {
       // Set up the offset push which the API requires, increase by 100 for every loop iteration
       let offset = i * 100;
 
+      // Connect to the correct form
+      const commentForm = document.querySelector(".create-comment-form");
+
+      // Eventlistener for the submit handling
+      commentForm.addEventListener("submit", createComment);
+
+      console.log(commentForm);
       // Fetch the data
 
       const response = await fetch(`${API_BASE_URL}${API_POSTS_URL}${getPostUrlParams}&offset=${offset}`, options);
