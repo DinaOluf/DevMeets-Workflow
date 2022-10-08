@@ -5,6 +5,7 @@ import { getItem } from "../user/getUserInfo.mjs";
 import { addCogWheelEvent, createCog } from "../components/createCog.mjs";
 import { getComments } from "./getComments.mjs";
 import { createComment } from "./createComment.mjs";
+// import { addReaction } from "./reactions/createReaction.mjs";
 
 export function postTemplate(sortedData) {
   getPostsContainer.innerHTML = "";
@@ -83,8 +84,8 @@ export function postTemplate(sortedData) {
   
             <div class="small d-flex justify-content-start">
               <a href="#!" class="d-flex align-items-center me-3">
-                <i class="far fa-thumbs-up me-2"></i>
-                <p class="mb-0">Like</p>
+                <i class="far fa-thumbs-up me-2 like-button"></i>
+                <p class="mb-0">Like (${sortedData[i]._count.reactions})</p>
               </a>
               <a href="#!" class="d-flex align-items-center me-3">
                 <i class="far fa-comment-dots me-2"></i>
@@ -117,9 +118,17 @@ export function postTemplate(sortedData) {
           <div class="comment-section-wrap">${commentsData}</div>
         </div>`;
 
+    // Target form for comments
     const commentForm = document.querySelector(".create-comment-form");
 
+    // Trigger eventlistener for createComment on submit
     commentForm.addEventListener("submit", createComment);
+
+    // // Target like button
+    // const reactionButton = document.querySelector(".like-button");
+
+    // // Trigger eventlistener for AddReaction on like button click
+    // reactionButton.addEventListener("click", addReaction);
   }
 
   // Add Cogwheel Event Listeners
