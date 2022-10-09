@@ -83,8 +83,8 @@ export function postTemplate(sortedData) {
             </p>
   
             <div class="small d-flex justify-content-start">
-              <a href="#!" class="d-flex align-items-center me-3">
-                <i class="far fa-thumbs-up me-2 like-button"></i>
+              <a href="#!" class="d-flex align-items-center me-3 reaction-list">
+                <i class="far fa-thumbs-up me-2"></i>
                 <p class="mb-0">Like (${sortedData[i]._count.reactions})</p>
               </a>
               <a href="#!" class="d-flex align-items-center me-3">
@@ -118,18 +118,23 @@ export function postTemplate(sortedData) {
           <div class="comment-section-wrap">${commentsData}</div>
         </div>`;
 
-    // // Target form for comments
-    // const commentForm = document.querySelector(".create-comment-form");
+    // // Target like button
+    // const reactionButton = document.querySelector(".like-button");
 
-    // // Trigger eventlistener for createComment on submit
-    // commentForm.addEventListener("submit", createComment);
-
-    // Target like button
-    const reactionButton = document.querySelector(".like-button");
-
-    // Trigger eventlistener for AddReaction on like button click
-    reactionButton.addEventListener("click", addReaction);
+    // // Trigger eventlistener for AddReaction on like button click
+    // reactionButton.addEventListener("click", addReaction);
   }
+
+  const reactionList = document.querySelectorAll(".reaction-list");
+
+  reactionList.forEach((e) => {
+    e.addEventListener("click", (i) => {
+      const closestId = i.target.closest(".card-body");
+      const id = closestId.childNodes[3].innerText;
+
+      addReaction(id);
+    });
+  });
 
   // Target form for comment-form and button
 

@@ -15,7 +15,6 @@ export function addReaction(id) {
     method: "PUT",
     headers: {
       Authorization: `Bearer ${jwt}`,
-      "Content-Type": "application/json; charset=utf-8",
     },
   })
     .then((response) => response.json())
