@@ -5,7 +5,7 @@ import { getItem } from "../user/getUserInfo.mjs";
 import { addCogWheelEvent, createCog } from "../components/createCog.mjs";
 import { getComments } from "./getComments.mjs";
 import { createComment } from "./createComment.mjs";
-// import { addReaction } from "./reactions/createReaction.mjs";
+import { addReaction } from "./createReactions.mjs";
 
 export function postTemplate(sortedData) {
   getPostsContainer.innerHTML = "";
@@ -118,18 +118,30 @@ export function postTemplate(sortedData) {
           <div class="comment-section-wrap">${commentsData}</div>
         </div>`;
 
-    // Target form for comments
-    const commentForm = document.querySelector(".create-comment-form");
+    // // Target form for comments
+    // const commentForm = document.querySelector(".create-comment-form");
 
-    // Trigger eventlistener for createComment on submit
-    commentForm.addEventListener("submit", createComment);
+    // // Trigger eventlistener for createComment on submit
+    // commentForm.addEventListener("submit", createComment);
 
-    // // Target like button
-    // const reactionButton = document.querySelector(".like-button");
+    // Target like button
+    const reactionButton = document.querySelector(".like-button");
 
-    // // Trigger eventlistener for AddReaction on like button click
-    // reactionButton.addEventListener("click", addReaction);
+    // Trigger eventlistener for AddReaction on like button click
+    reactionButton.addEventListener("click", addReaction);
   }
+
+  // Target form for comment-form and button
+
+  const commentForm = document.querySelectorAll(".create-comment-form");
+  const commentButton = document.querySelector(".post-comment");
+
+  // Loop through all the forms and add eventlistener to button
+  commentForm.forEach((commentButton) => {
+    commentButton.addEventListener("submit", createComment);
+  });
+
+  // Trigger eventlistener for createComment on submit
 
   // Add Cogwheel Event Listeners
   addCogWheelEvent();

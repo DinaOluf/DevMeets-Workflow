@@ -19,9 +19,3 @@ const form = document.querySelector(".create-post-form");
 
 // Eventlistener for the submit handling
 form.addEventListener("submit", createPost);
-
-// // Connect to the correct form
-// const commentForm = document.querySelector(".create-comment-form");
-
-// // Eventlistener for the submit handling
-// commentForm.addEventListener("submit", createComment);

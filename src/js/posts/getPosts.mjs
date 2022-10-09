@@ -57,13 +57,6 @@ export async function getAllPosts() {
       // Set up the offset push which the API requires, increase by 100 for every loop iteration
       let offset = i * 100;
 
-      // Connect to the correct form
-      const commentForm = document.querySelector(".create-comment-form");
-
-      // Eventlistener for the submit handling
-      commentForm.addEventListener("submit", createComment);
-
-      console.log(commentForm);
       // Fetch the data
 
       const response = await fetch(`${API_BASE_URL}${API_POSTS_URL}${getPostUrlParams}&offset=${offset}`, options);
@@ -185,18 +178,6 @@ export async function displayPostsFilter() {
       getPostsContainer.innerHTML = "";
       if (reSortedData.length === 0) {
         getPostsContainer.innerHTML = `<div class="error">You have no posts!</div>`;
-      }
-      postTemplate(reSortedData);
-    });
-
-    // Show only my own posts
-    filterFollowing.addEventListener("click", () => {
-      sortedData = sortFollow(data);
-      let reSortedData = sortTimeAsc(sortedData);
-      console.log(reSortedData);
-      getPostsContainer.innerHTML = "";
-      if (reSortedData.length === 0) {
-        getPostsContainer.innerHTML = `<div class="error">Your followers have no posts!</div>`;
       }
       postTemplate(reSortedData);
     });
