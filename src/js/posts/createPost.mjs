@@ -10,11 +10,14 @@ export function createPost(evt) {
   // Assign the inputs from the form to variables
   const [title, body, tags, media] = evt.target.elements;
 
+  // Remove whitespace from tags input and split them at commas
+  const pushedTags = tags.value.replace(/\s+/g, "").split(",");
+
   // Construct the data object which is to be sent to the API
   let dataObj = {
     title: `${title.value}`,
     body: `${body.value}`,
-    tags: [`${tags.value}`],
+    tags: pushedTags,
     media: `${media.value}`,
   };
 

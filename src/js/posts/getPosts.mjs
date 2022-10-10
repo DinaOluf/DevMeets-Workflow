@@ -181,6 +181,18 @@ export async function displayPostsFilter() {
       }
       postTemplate(reSortedData);
     });
+
+    // Show only my followers' posts
+    filterFollowing.addEventListener("click", () => {
+      sortedData = sortFollow(data);
+      let reSortedData = sortTimeAsc(sortedData);
+      console.log(reSortedData);
+      getPostsContainer.innerHTML = "";
+      if (reSortedData.length === 0) {
+        getPostsContainer.innerHTML = `<div class="error">Your followers have no posts!</div>`;
+      }
+      postTemplate(reSortedData);
+    });
   } catch (error) {
     console.log(error);
     errorContainer.innerHTML = errorMessage("An error occurred when calling the API, error: " + error);
