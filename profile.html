@@ -85,11 +85,11 @@
       <div class="container d-flex justify-content-center align-items-center pt-3">
         <div class="card-profile">
           <div class="upper banner-image d-flex">
-            <img src="dist/img/cheese.jpg" class="img-fluid" />
+            <div class="img-fluid skeleton skeleton-media w-100"></div>
           </div>
           <div class="user text-center">
             <div class="profile editable-profile-image d-flex justify-content-center">
-              <img src="dist/img/sindre.jpg" class="rounded-circle" width="80" />
+              <div class="rounded-circle skeleton skeleton-image-medium"></div>
             </div>
           </div>
 
@@ -101,17 +101,17 @@
             <div class="d-flex justify-content-center gap-5 align-items-center mt-4 mb-4 px-4">
               <div class="stats">
                 <h6 class="mb-0">Followers</h6>
-                <span class="follower-count">8,797</span>
+                <span class="follower-count"><p class="skeleton skeleton-text-long"></p></span>
               </div>
 
               <div class="stats">
                 <h6 class="mb-0">Following</h6>
-                <span class="following-count">142</span>
+                <span class="following-count"><p class="skeleton skeleton-text-long"></p></span>
               </div>
 
               <div class="stats">
                 <h6 class="mb-0">Posts</h6>
-                <span class="post-count">129</span>
+                <span class="post-count"><p class="skeleton skeleton-text-long"></p></span>
               </div>
             </div>
           </div>
@@ -124,27 +124,29 @@
           <div class="left-profile-specific rounded mt-3 mx-3 px-3 col-md-12 col-lg-4">
             <div class="content-wrap">
               <div class="friends d-flex justify-content-center pb-2 flex-column">
-                <p class="px-2 mt-3">Following<a href="profile.html" class="following-list-title">(113)</a></p>
+                <p class="px-2 mt-3">
+                  Following<a href="profile.html" class="following-list-title"><div class="skeleton skeleton-text-long"></div></a>
+                </p>
                 <div class="following-list-content">
-                  <div class="px-3 d-flex flex-row align-items-center pb-3">
-                    <img class="friends-image-attributes rounded-circle" src="dist/img/Jonatan.jpg" alt="" />
-                    <div class="px-2">
-                      <p class="mb-0">Jonatan Dam</p>
-                      <a href="profile.html">View profile</a>
+                  <div class="px-3 d-flex flex-row align-items-center pb-3 w-100">
+                    <div class="friends-image-attributes rounded-circle skeleton mb-1"></div>
+                    <div class="px-2 w-25">
+                      <p class="skeleton skeleton-text-long"></p>
+                      <p class="skeleton skeleton-text-short"></p>
                     </div>
                   </div>
-                  <div class="px-3 d-flex flex-row align-items-center pb-3">
-                    <img class="friends-image-attributes rounded-circle" src="dist/img/Trevor.jpg" alt="" />
-                    <div class="px-2">
-                      <p class="mb-0">Trevor Smith</p>
-                      <a href="profile.html">View profile</a>
+                  <div class="px-3 d-flex flex-row align-items-center pb-3 w-100">
+                    <div class="friends-image-attributes rounded-circle skeleton mb-1"></div>
+                    <div class="px-2 w-25">
+                      <p class="skeleton skeleton-text-long"></p>
+                      <p class="skeleton skeleton-text-short"></p>
                     </div>
                   </div>
-                  <div class="px-3 d-flex flex-row align-items-center pb-3">
-                    <img class="friends-image-attributes rounded-circle" src="dist/img/sindre.jpg" alt="" />
-                    <div class="px-2">
-                      <p class="mb-0">Eric Bøe</p>
-                      <a href="profile.html">View profile</a>
+                  <div class="px-3 d-flex flex-row align-items-center pb-3 w-100">
+                    <div class="friends-image-attributes rounded-circle skeleton mb-1"></div>
+                    <div class="px-2 w-25">
+                      <p class="skeleton skeleton-text-long"></p>
+                      <p class="skeleton skeleton-text-short"></p>
                     </div>
                   </div>
                 </div>
@@ -157,10 +159,10 @@
                 <div class="card-body">
                   <div class="d-flex flex-start align-items-center">
                     <div class="profile-image">
-                      <img class="rounded-circle shadow-1-strong me-3" src="dist/img/sindre.jpg" alt="avatar" width="60" height="60" />
+                      <div class="rounded-circle shadow-1-strong me-3 skeleton skeleton-image-large"></div>
                     </div>
                     <div>
-                      <h6 class="fw-bold text-primary mb-1 profile-info-username"></h6>
+                      <h6 class="fw-bold text-primary mb-1 profile-info-username"><p class="skeleton skeleton-text-long"></p></h6>
                       <p class="text-muted small mb-0">Public</p>
                     </div>
                   </div>
@@ -182,7 +184,72 @@
                 </form>
               </div>
               <div class="error-container"></div>
-              <div class="get-posts-container d-flex flex-column gap-3"></div>
+              <div class="get-posts-container d-flex flex-column gap-3">
+                <div class="card w-100">
+                  <div class="card-body">
+                    <div class="d-flex flex-start align-items-center">
+                      <div class="rounded-circle shadow-1-strong me-3 skeleton skeleton-image-icon"></div>
+                      <div class="w-100">
+                        <p class="mb-1 skeleton skeleton-text-half"></p>
+                        <p class="mb-0 skeleton skeleton-text-short"></p>
+                      </div>
+                    </div>
+
+                    <p class="my-1 skeleton skeleton-text-long"></p>
+
+                    <div class="skeleton skeleton-media"></div>
+
+                    <p class="mt-1 pb-2 skeleton skeleton-text-half"></p>
+                    <p class="mt-1 pb-2 skeleton skeleton-text-short"></p>
+
+                    <div class="small d-flex justify-content-start skeleton w-60"></div>
+                  </div>
+                  <form class="card-footer py-3 border-0 create-comment-form" style="background-color: #f8f9fa">
+                    <div class="d-flex flex-start w-100">
+                      <div class="rounded-circle shadow-1-strong me-3 skeleton skeleton-image-icon"></div>
+                      <div class="form-outline w-100">
+                        <div class="skeleton skeleton-text-long"></div>
+                      </div>
+                    </div>
+                    <div class="d-flex float-end mt-2 pt-1 gap-3">
+                      <div class="skeleton skeleton-btn"></div>
+                      <div class="skeleton skeleton-btn"></div>
+                    </div>
+                  </form>
+                </div>
+                <div class="card w-100">
+                  <div class="card-body">
+                    <div class="d-flex flex-start align-items-center">
+                      <div class="rounded-circle shadow-1-strong me-3 skeleton skeleton-image-icon"></div>
+                      <div class="w-100">
+                        <p class="mb-1 skeleton skeleton-text-half"></p>
+                        <p class="mb-0 skeleton skeleton-text-short"></p>
+                      </div>
+                    </div>
+
+                    <p class="my-1 skeleton skeleton-text-long"></p>
+
+                    <div class="skeleton skeleton-media"></div>
+
+                    <p class="mt-1 pb-2 skeleton skeleton-text-half"></p>
+                    <p class="mt-1 pb-2 skeleton skeleton-text-short"></p>
+
+                    <div class="small d-flex justify-content-start skeleton w-60"></div>
+                  </div>
+                  <form class="card-footer py-3 border-0 create-comment-form" style="background-color: #f8f9fa">
+                    <div class="d-flex flex-start w-100">
+                      <div class="rounded-circle shadow-1-strong me-3 skeleton skeleton-image-icon"></div>
+                      <div class="form-outline w-100">
+                        <div class="skeleton skeleton-text-long"></div>
+                      </div>
+                    </div>
+                    <div class="d-flex float-end mt-2 pt-1 gap-3">
+                      <div class="skeleton skeleton-btn"></div>
+                      <div class="skeleton skeleton-btn"></div>
+                    </div>
+                  </form>
+                </div>
+              </div>
             </div>
           </div>
         </div>

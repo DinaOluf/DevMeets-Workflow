@@ -29,7 +29,7 @@ export function getUserPanelInfo() {
 
   // Add the name
   userName.forEach((name) => {
-    name.innerText = `${userInfo.name}`;
+    name.innerHTML = `${userInfo.name}`;
   });
 
   // Build profile sidepanel
