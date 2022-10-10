@@ -13,11 +13,11 @@ export async function buildFollowingList(data) {
   const user = await getAProfile(data.name);
 
   // Build the profile side panel
-  followTitle.innerText = `(${user.following.length})`;
+  followTitle.innerHTML = `(${user.following.length})`;
   followContent.innerHTML = followHtml(user.following);
-  postCount.innerText = `${user.posts.length}`;
-  followerCount.innerText = `${user.followers.length}`;
-  followingCount.innerText = `${user.following.length}`;
+  postCount.innerHTML = `${user.posts.length}`;
+  followerCount.innerHTML = `${user.followers.length}`;
+  followingCount.innerHTML = `${user.following.length}`;
 }
 
 function followHtml(array) {

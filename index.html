@@ -15,8 +15,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,400;0,500;0,600;1,100&display=swap" rel="stylesheet" />
     <script defer src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="/dist/css/myFancyStyles.css" />
-    <script defer src="/src/js/script.mjs" type="module"></script>
     <script defer src="/src/js/pages/index.mjs" type="module"></script>
+    <script defer src="/src/js/script.mjs" type="module"></script>
     <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/dayjs@1/plugin/relativeTime.js"></script>
   </head>
@@ -90,43 +90,51 @@
             <div class="left rounded mt-3 me-3 ms-3">
               <div class="profile-wrap d-flex align-items-center justify-content-center px-3 pt-3">
                 <div class="profile-image">
-                  <img class="profile-image-attributes rounded-circle" src="dist/img/sindre.jpg" alt="" />
+                  <div class="profile-image-attributes rounded-circle skeleton"></div>
                 </div>
                 <div class="profile-information px-2">
-                  <p class="mb-0 profile-info-username">Sindre Østby</p>
+                  <p class="mb-0 profile-info-username"></p>
                   <p class="mb-0">Developer</p>
                 </div>
               </div>
               <div class="profile-posts d-flex justify-content-center pt-2 pb-2 mt-3">
                 <div class="px-3">
                   <p class="mb-0">Posts</p>
-                  <p class="mb-1 post-count">15</p>
+                  <p class="mb-1 post-count"></p>
                 </div>
                 <div class="px-3">
                   <p class="mb-0">Following</p>
-                  <p class="mb-1 following-count">24</p>
+                  <p class="mb-1 following-count"></p>
                 </div>
                 <div class="px-3">
                   <p class="mb-0">Followers</p>
-                  <p class="mb-1 follower-count">13</p>
+                  <p class="mb-1 follower-count"></p>
                 </div>
               </div>
-              <p class="px-2 d-flex justify-content-center mt-2">Following<a href="profile.html" class="following-list-title">(113)</a></p>
+              <p class="px-2 d-flex justify-content-center mt-2">
+                Following<a href="profile.html" class="following-list-title"><span class="skeleton skeleton-text-half"></span></a>
+              </p>
               <div class="friends d-flex pb-2 flex-column following-list-content">
-                <div class="px-2 d-flex flex-column align-items-center mt-2">
-                  <img class="friends-image-attributes rounded-circle" src="dist/img/Jonatan.jpg" alt="" />
-                  <p class="mb-0">Jonatan Dam</p>
-                  <a href="profile.html">View profile</a>
+                <div class="px-3 d-flex flex-row align-items-center pb-3 w-100">
+                  <div class="friends-image-attributes rounded-circle skeleton mb-1"></div>
+                  <div class="px-2 w-25">
+                    <p class="skeleton skeleton-text-long"></p>
+                    <p class="skeleton skeleton-text-short"></p>
+                  </div>
                 </div>
-                <div class="px-2 d-flex flex-column align-items-center mt-2">
-                  <img class="friends-image-attributes rounded-circle" src="dist/img/Trevor.jpg" alt="" />
-                  <p class="mb-0">Trevor Smith</p>
-                  <a href="profile.html">View profile</a>
+                <div class="px-3 d-flex flex-row align-items-center pb-3 w-100">
+                  <div class="friends-image-attributes rounded-circle skeleton mb-1"></div>
+                  <div class="px-2 w-25">
+                    <p class="skeleton skeleton-text-long"></p>
+                    <p class="skeleton skeleton-text-short"></p>
+                  </div>
                 </div>
-                <div class="px-2 d-flex flex-column align-items-center mt-2">
-                  <img class="friends-image-attributes rounded-circle" src="dist/img/sindre.jpg" alt="" />
-                  <p class="mb-0">Eric Bøe</p>
-                  <a href="profile.html">View profile</a>
+                <div class="px-3 d-flex flex-row align-items-center pb-3 w-100">
+                  <div class="friends-image-attributes rounded-circle skeleton mb-1"></div>
+                  <div class="px-2 w-25">
+                    <p class="skeleton skeleton-text-long"></p>
+                    <p class="skeleton skeleton-text-short"></p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -139,10 +147,10 @@
                     <div class="d-flex flex-start align-items-center justify-content-between">
                       <div class="d-flex align-items-center">
                         <div class="profile-image me-1">
-                          <img class="rounded-circle shadow-1-strong me-3" src="dist/img/sindre.jpg" alt="avatar" width="60" height="60" />
+                          <div class="rounded-circle shadow-1-strong me-3 skeleton skeleton-image-icon"></div>
                         </div>
-                        <div>
-                          <h6 class="fw-bold text-primary mb-1 profile-info-username"></h6>
+                        <div class="w-100">
+                          <h6 class="fw-bold text-primary mb-1 profile-info-username"><span class="skeleton skeleton-text-long"></span></h6>
                           <p class="text-muted small mb-0">Public</p>
                         </div>
                       </div>
@@ -198,7 +206,72 @@
                   </ul>
                 </div>
                 <div class="error-container"></div>
-                <div class="get-posts-container d-flex flex-column gap-3"></div>
+                <div class="get-posts-container d-flex flex-column gap-3">
+                  <div class="card w-100">
+                    <div class="card-body">
+                      <div class="d-flex flex-start align-items-center">
+                        <div class="rounded-circle shadow-1-strong me-3 skeleton skeleton-image-icon"></div>
+                        <div class="w-100">
+                          <p class="mb-1 skeleton skeleton-text-half"></p>
+                          <p class="mb-0 skeleton skeleton-text-short"></p>
+                        </div>
+                      </div>
+
+                      <p class="my-1 skeleton skeleton-text-long"></p>
+
+                      <div class="skeleton skeleton-media"></div>
+
+                      <p class="mt-1 pb-2 skeleton skeleton-text-half"></p>
+                      <p class="mt-1 pb-2 skeleton skeleton-text-short"></p>
+
+                      <div class="small d-flex justify-content-start skeleton w-60"></div>
+                    </div>
+                    <form class="card-footer py-3 border-0 create-comment-form" style="background-color: #f8f9fa">
+                      <div class="d-flex flex-start w-100">
+                        <div class="rounded-circle shadow-1-strong me-3 skeleton skeleton-image-icon"></div>
+                        <div class="form-outline w-100">
+                          <div class="skeleton skeleton-text-long"></div>
+                        </div>
+                      </div>
+                      <div class="d-flex float-end mt-2 pt-1 gap-3">
+                        <div class="skeleton skeleton-btn"></div>
+                        <div class="skeleton skeleton-btn"></div>
+                      </div>
+                    </form>
+                  </div>
+                  <div class="card w-100">
+                    <div class="card-body">
+                      <div class="d-flex flex-start align-items-center">
+                        <div class="rounded-circle shadow-1-strong me-3 skeleton skeleton-image-icon"></div>
+                        <div class="w-100">
+                          <p class="mb-1 skeleton skeleton-text-half"></p>
+                          <p class="mb-0 skeleton skeleton-text-short"></p>
+                        </div>
+                      </div>
+
+                      <p class="my-1 skeleton skeleton-text-long"></p>
+
+                      <div class="skeleton skeleton-media"></div>
+
+                      <p class="mt-1 pb-2 skeleton skeleton-text-half"></p>
+                      <p class="mt-1 pb-2 skeleton skeleton-text-short"></p>
+
+                      <div class="small d-flex justify-content-start skeleton w-60"></div>
+                    </div>
+                    <form class="card-footer py-3 border-0 create-comment-form" style="background-color: #f8f9fa">
+                      <div class="d-flex flex-start w-100">
+                        <div class="rounded-circle shadow-1-strong me-3 skeleton skeleton-image-icon"></div>
+                        <div class="form-outline w-100">
+                          <div class="skeleton skeleton-text-long"></div>
+                        </div>
+                      </div>
+                      <div class="d-flex float-end mt-2 pt-1 gap-3">
+                        <div class="skeleton skeleton-btn"></div>
+                        <div class="skeleton skeleton-btn"></div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
