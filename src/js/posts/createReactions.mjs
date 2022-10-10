@@ -3,8 +3,6 @@ import { errorMessage } from "../components/error.mjs";
 import { successMessage } from "../components/success.mjs";
 import { getUserAuth } from "../user/userAuth.mjs";
 
-// Fetch request : PUT /api/v1/social/posts/<id>/react/<symbol>, where symbol HAS to be a thumbs up!
-
 // Function which initiates what to do when submitting the form
 export function addReaction(id) {
   // Get the auth token
@@ -22,7 +20,7 @@ export function addReaction(id) {
       if (json.message) {
         errorContainer.innerHTML = errorMessage(json.message);
       } else {
-        errorContainer.innerHTML = successMessage("Post creation");
+        errorContainer.innerHTML = successMessage("Like");
 
         setTimeout(() => {
           location.reload();
@@ -31,9 +29,3 @@ export function addReaction(id) {
     })
     .catch((error) => console.log("error", error));
 }
-
-// Function arguments (id, 👍).
-
-// Add reaction.length to display amount of reactions besides like button.
-
-// postTemple add querySelector for button and add eventlistener "click" for createReaction function.
