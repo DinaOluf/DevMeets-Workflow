@@ -5,6 +5,7 @@ import { getItem } from "../user/getUserInfo.mjs";
 import { addCogWheelEvent, createCog } from "../components/createCog.mjs";
 import { getComments } from "./getComments.mjs";
 import { createComment } from "./createComment.mjs";
+import { addReaction } from "./createReactions.mjs";
 
 export function postTemplate(sortedData) {
   getPostsContainer.innerHTML = "";
@@ -52,6 +53,17 @@ export function postTemplate(sortedData) {
     const commentsData = getComments(sortedData[i].comments);
     const commentId = sortedData[i].id;
 
+    // React Counter
+
+    const reactionsArray = sortedData[i].reactions;
+
+    let reactCounter = 0;
+
+    // Loops through all reaction arrays and summarizes each reaction count to get total
+    for (let y = 0; y < reactionsArray.length; y++) {
+      reactCounter += reactionsArray[y].count;
+    }
+
     // DISPLAY POST
     getPostsContainer.innerHTML += `
         <div class="card w-100">
@@ -82,9 +94,9 @@ export function postTemplate(sortedData) {
             </p>
   
             <div class="small d-flex justify-content-start">
-              <a href="#!" class="d-flex align-items-center me-3">
+              <a href="#!" class="d-flex align-items-center me-3 reaction-list">
                 <i class="far fa-thumbs-up me-2"></i>
-                <p class="mb-0">Like</p>
+                <p class="mb-0">Like (${reactCounter})</p>
               </a>
               <a href="#!" class="d-flex align-items-center me-3">
                 <i class="far fa-comment-dots me-2"></i>
@@ -116,11 +128,29 @@ export function postTemplate(sortedData) {
           </form>
           <div class="comment-section-wrap">${commentsData}</div>
         </div>`;
-
-    const commentForm = document.querySelector(".create-comment-form");
-
-    commentForm.addEventListener("submit", createComment);
   }
+
+  const reactionList = document.querySelectorAll(".reaction-list");
+
+  // Loops through all like buttons and passes ID to AddReaction function when sending API request.
+  reactionList.forEach((e) => {
+    e.addEventListener("click", (i) => {
+      const closestId = i.target.closest(".card-body");
+      const id = closestId.childNodes[3].innerText;
+
+      addReaction(id);
+    });
+  });
+
+  // Target form for comment-form and button
+
+  const commentForm = document.querySelectorAll(".create-comment-form");
+
+  // Loop through all the forms and add eventlistener to button
+  commentForm.forEach((commentButton) => {
+    // Trigger eventlistener for createComment on submit
+    commentButton.addEventListener("submit", createComment);
+  });
 
   // Add Cogwheel Event Listeners
   addCogWheelEvent();
