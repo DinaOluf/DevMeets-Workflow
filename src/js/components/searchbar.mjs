@@ -5,7 +5,11 @@ export async function handleSearch(value) {
   const data = await getAllPosts();
 
   const filtered = data.filter((post) => {
-    return post.author.name.toLowerCase().includes(value) || post.title.toLowerCase().includes(value) || post.body.toLowerCase().includes(value);
+    return (
+      post.author.name.toLowerCase().includes(value.toLowerCase()) ||
+      post.title.toLowerCase().includes(value.toLowerCase()) ||
+      post.body.toLowerCase().includes(value.toLowerCase())
+    );
   });
   postTemplate(filtered);
 }

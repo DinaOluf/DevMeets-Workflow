@@ -186,7 +186,6 @@ export async function displayPostsFilter() {
     filterFollowing.addEventListener("click", () => {
       sortedData = sortFollow(data);
       let reSortedData = sortTimeAsc(sortedData);
-      console.log(reSortedData);
       getPostsContainer.innerHTML = "";
       if (reSortedData.length === 0) {
         getPostsContainer.innerHTML = `<div class="error">Your followers have no posts!</div>`;
