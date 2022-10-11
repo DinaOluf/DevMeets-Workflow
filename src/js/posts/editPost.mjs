@@ -22,7 +22,7 @@ export function editPost(id, obj) {
       if (json.message) {
         errorContainer.innerHTML = errorMessage(json.message);
       } else {
-        errorContainer.innerHTML = successMessage("Post creation");
+        errorContainer.innerHTML = successMessage("Post edit");
 
         setTimeout(() => {
           location.reload();
