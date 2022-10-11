@@ -1,6 +1,6 @@
 import { getItem } from "../../user/getUserInfo.mjs";
 
-const follow = JSON.parse(getItem("follow"));
+const follow = getItem("follow");
 
 // Sort passed in array if it includes posts by people user is following
 export function sortFollow(posts) {
