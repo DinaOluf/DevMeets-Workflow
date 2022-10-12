@@ -163,28 +163,35 @@
               <div class="error-container"></div>
               <div class="card mb-3">
                 <div class="card-body">
-                  <div class="d-flex flex-start align-items-center">
-                    <div class="profile-image">
-                      <div class="rounded-circle shadow-1-strong me-3 skeleton skeleton-image-large"></div>
-                    </div>
-                    <div>
-                      <h6 class="fw-bold text-primary mb-1 profile-info-username"><p class="skeleton skeleton-text-long"></p></h6>
-                      <p class="text-muted small mb-0">Public</p>
+                  <div class="d-flex flex-start align-items-center justify-content-between">
+                    <div class="d-flex align-items-center">
+                      <div class="profile-image me-1">
+                        <div class="rounded-circle shadow-1-strong me-3 skeleton skeleton-image-icon"></div>
+                      </div>
+                      <div class="w-100">
+                        <h6 class="fw-bold text-primary mb-1 profile-info-username"><span class="skeleton skeleton-text-long"></span></h6>
+                        <p class="text-muted small mb-0">Public</p>
+                      </div>
                     </div>
                   </div>
                 </div>
-                <form class="card-footer py-3 border-0" style="background-color: #f8f9fa">
+                <form class="card-footer py-2 border-0 create-post-form" style="background-color: #f8f9fa">
+                  <div class="form-group mt-1 mb-2">
+                    <input type="text" class="form-control w-100" id="post-title" aria-describedby="titleHelp" placeholder="Enter a title" required minlength="3" />
+                  </div>
                   <div class="textarea">
-                    <textarea class="w-100 rounded px-2" placeholder="Share your thoughts, ideas or anything that comes to mind" id="" rows="4"></textarea>
+                    <textarea class="w-100 rounded px-2" placeholder="Share your thoughts, ideas or anything that comes to mind" id="post-content" rows="4"></textarea>
+                  </div>
+                  <div class="form-group mt-1 mb-1">
+                    <input type="text" class="form-control w-100" id="post-tags" aria-describedby="tagsHelp" placeholder="Enter tags, separate by comma" required minlength="3" />
+                  </div>
+                  <div class="mt-2 pt-1">
+                    <input type="text" class="form-control w-50" id="post-url" placeholder="Enter a image url" />
                   </div>
                   <div class="button-wrap d-flex justify-content-between align-items-center">
-                    <div class="mt-2 pt-1">
-                      <i class="icon-size fa-solid fa-camera px-2"></i>
-                      <i class="icon-size fa-solid fa-file px-2"></i>
-                    </div>
                     <div class="mt-2 pt-1 float-end">
                       <button type="submit" class="btn btn-primary btn-sm">Create Post</button>
-                      <button type="button" class="btn btn-primary btn-sm">Cancel</button>
+                      <button type="button" id="clearInput" class="btn btn-primary btn-sm">Clear</button>
                     </div>
                   </div>
                 </form>
