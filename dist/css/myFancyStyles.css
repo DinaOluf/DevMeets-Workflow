@@ -11113,7 +11113,7 @@ ul {
 }
 
 #book-dropdown {
-  width: 115px;
+  width: auto;
 }
 
 .dropdown-menu li:hover {

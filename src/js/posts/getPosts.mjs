@@ -75,6 +75,8 @@ export async function getAllPosts() {
 
 // Function to display data together with the filters used on index page
 export async function displayPostsFilter() {
+  const filterFeedback = document.querySelector("#book-dropdown");
+
   try {
     const data = await getPosts(`${API_BASE_URL}${API_POSTS_URL}${getPostUrlParams}`, options);
     postTemplate(data);
@@ -90,17 +92,20 @@ export async function displayPostsFilter() {
       if (clickCounter === 1) {
         sortedData = sortTitleDesc(data);
         getPostsContainer.innerHTML = "";
+        filterFeedback.innerText = "Title Descending";
         postTemplate(sortedData);
       }
       if (clickCounter === 2) {
         sortedData = sortTitleAsc(data);
         getPostsContainer.innerHTML = "";
+        filterFeedback.innerText = "Title Ascending";
         postTemplate(sortedData);
       }
       if (clickCounter > 2) {
         clickCounter = 1;
         sortedData = sortTitleDesc(data);
         getPostsContainer.innerHTML = "";
+        filterFeedback.innerText = "Title Descending";
         postTemplate(sortedData);
       }
     });
@@ -111,17 +116,20 @@ export async function displayPostsFilter() {
       if (clickCounter === 1) {
         sortedData = sortAuthorDesc(data);
         getPostsContainer.innerHTML = "";
+        filterFeedback.innerText = "Author Descending";
         postTemplate(sortedData);
       }
       if (clickCounter === 2) {
         sortedData = sortAuthorAsc(data);
         getPostsContainer.innerHTML = "";
+        filterFeedback.innerText = "Author Ascending";
         postTemplate(sortedData);
       }
       if (clickCounter > 2) {
         clickCounter = 1;
         sortedData = sortAuthorDesc(data);
         getPostsContainer.innerHTML = "";
+        filterFeedback.innerText = "Author Descending";
         postTemplate(sortedData);
       }
     });
@@ -132,17 +140,20 @@ export async function displayPostsFilter() {
       if (clickCounter === 1) {
         sortedData = sortTimeDesc(data);
         getPostsContainer.innerHTML = "";
+        filterFeedback.innerText = "Time Descending";
         postTemplate(sortedData);
       }
       if (clickCounter === 2) {
         sortedData = sortTimeAsc(data);
         getPostsContainer.innerHTML = "";
+        filterFeedback.innerText = "Time Ascending";
         postTemplate(sortedData);
       }
       if (clickCounter > 2) {
         clickCounter = 1;
         sortedData = sortTimeDesc(data);
         getPostsContainer.innerHTML = "";
+        filterFeedback.innerText = "Time Descending";
         postTemplate(sortedData);
       }
     });
@@ -152,6 +163,7 @@ export async function displayPostsFilter() {
       sortedData = sortToday(data);
       let reSortedData = sortTimeAsc(sortedData);
       getPostsContainer.innerHTML = "";
+      filterFeedback.innerText = "Todays posts";
       postTemplate(reSortedData);
     });
 
@@ -160,6 +172,7 @@ export async function displayPostsFilter() {
       sortedData = sortWeek(data);
       let reSortedData = sortTimeAsc(sortedData);
       getPostsContainer.innerHTML = "";
+      filterFeedback.innerText = "Posts this week";
       postTemplate(reSortedData);
     });
 
@@ -168,6 +181,7 @@ export async function displayPostsFilter() {
       sortedData = sortMonth(data);
       let reSortedData = sortTimeAsc(sortedData);
       getPostsContainer.innerHTML = "";
+      filterFeedback.innerText = "Posts this month";
       postTemplate(reSortedData);
     });
 
@@ -176,6 +190,7 @@ export async function displayPostsFilter() {
       sortedData = sortMyPosts(data);
       let reSortedData = sortTimeAsc(sortedData);
       getPostsContainer.innerHTML = "";
+      filterFeedback.innerText = "My posts";
       if (reSortedData.length === 0) {
         getPostsContainer.innerHTML = `<div class="error">You have no posts!</div>`;
       }
@@ -187,6 +202,7 @@ export async function displayPostsFilter() {
       sortedData = sortFollow(data);
       let reSortedData = sortTimeAsc(sortedData);
       getPostsContainer.innerHTML = "";
+      filterFeedback.innerText = "Follower's posts";
       if (reSortedData.length === 0) {
         getPostsContainer.innerHTML = `<div class="error">Your followers have no posts!</div>`;
       }
