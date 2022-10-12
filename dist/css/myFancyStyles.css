@@ -11013,7 +11013,6 @@ textarea.form-control-lg {
 .profile {
   position: absolute;
   top: -50px;
-  left: 46%;
   height: 90px;
   width: 90px;
   border: 3px solid #fff;
@@ -11099,6 +11098,12 @@ ul {
 .separation-line {
   border: 1px solid #40676e;
   opacity: 100%;
+}
+
+.post-image {
+  -o-object-fit: contain;
+     object-fit: contain;
+  max-height: 400px;
 }
 
 .navwrap {
