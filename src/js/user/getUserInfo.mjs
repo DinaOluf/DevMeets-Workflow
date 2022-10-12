@@ -10,7 +10,11 @@ export function getItem(key) {
   if (!get) {
     return [];
   } else {
-    return JSON.parse(get);
+    try {
+      return JSON.parse(get);
+    } catch {
+      return []
+    }
   }
 }
 
