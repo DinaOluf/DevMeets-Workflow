@@ -20,26 +20,36 @@
   </head>
   <body>
     <nav class="navwrap navbar navbar-expand-lg navbar-light">
-      <a href="index.html"> <i class="fa-solid fa-laptop-code ms-2"></i></a> DevMeets
-      <button
-        class="navbar-toggler me-2 ms-2"
-        type="button"
-        data-toggle="collapse"
-        data-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
+      <div>
+        <a href="index.html"> <i class="fa-solid fa-laptop-code ms-2"></i></a> DevMeets
+      </div>
+      <div class="dropdown d-lg-none">
+        <button class="btn btn-secondary" type="button" data-bs-toggle="dropdown" aria-expanded="false">&#9776;</button>
+        <ul class="dropdown-menu dropdown-menu-center">
+          <li>
+            <form class="form-inline my-2 d-flex search-bar-form dropdown-item">
+              <input class="form-control mr-sm-2 search-bar-input" type="search" placeholder="Search" aria-label="Search" />
+              <button class="btn btn-outline-success my-2 my-sm-0 ms-2" type="submit">Search</button>
+            </form>
+          </li>
+          <hr />
+          <li>
+            <button class="dropdown-item" type="button"><a href="index.html">Home</a></button>
+          </li>
+          <hr />
+          <li>
+            <button class="dropdown-item" type="button"><a href="profile.html">My Profile</a></button>
+          </li>
+          <hr />
+        </ul>
+      </div>
       <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
-            <a class="nav-link nav-active" href="index.html">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-link nav-active" href="index.html" style="color: #71a596">Home <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
-            <a style="color: #71a596" class="nav-link" href="profile.html">My Profile</a>
+            <a class="nav-link profile-nav-link" href="profile.html">My Profile</a>
           </li>
         </ul>
         <form class="form-inline my-2 my-lg-0 d-flex px-5 search-bar-form">
