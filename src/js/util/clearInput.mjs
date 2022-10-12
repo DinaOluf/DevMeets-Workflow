@@ -1,5 +1,3 @@
-const clearInput = document.getElementById("clearInput");
-
 export function clearAll() {
   document.getElementById("post-title").value = "";
   document.getElementById("post-content").value = "";
@@ -7,4 +5,7 @@ export function clearAll() {
   document.getElementById("post-url").value = "";
 }
 
-clearInput.addEventListener("click", clearAll);
+export function setClearAllListener() {
+  const clearInput = document.getElementById("clearInput");
+  clearInput.addEventListener("click", clearAll);
+}
