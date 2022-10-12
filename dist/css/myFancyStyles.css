@@ -11013,7 +11013,6 @@ textarea.form-control-lg {
 .profile {
   position: absolute;
   top: -50px;
-  left: 46%;
   height: 90px;
   width: 90px;
   border: 3px solid #fff;
@@ -11101,6 +11100,12 @@ ul {
   opacity: 100%;
 }
 
+.post-image {
+  -o-object-fit: contain;
+     object-fit: contain;
+  max-height: 400px;
+}
+
 .navwrap {
   background-color: #1a1d20;
   color: #fff;
@@ -11136,7 +11141,7 @@ ul {
 }
 
 .landing {
-  background: url(../../dist/img/background-login.jpg) no-repeat center center/cover;
+  background: url(../../dist/img/background-login-ps.jpg) no-repeat center center/cover;
   height: 100vh;
 }
 .landing h1, .landing .h1 {
