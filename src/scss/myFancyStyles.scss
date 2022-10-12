@@ -35,6 +35,12 @@ ul {
   opacity: 100%;
 }
 
+// Post Media //
+.post-image {
+  object-fit: contain;
+  max-height: 400px;
+}
+
 // Navigation Bar //
 
 .navwrap {

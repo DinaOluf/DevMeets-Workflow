@@ -40,7 +40,7 @@ export function postTemplate(sortedData) {
       postMedia = "";
     } else {
       postMedia = `<p class="mt-3 mb-4 pb-2 post-media">
-      <img class="w-50" src="${sortedData[i].media}" />
+      <img class="w-100 post-image" src="${sortedData[i].media}" />
       </p>`;
     }
 
