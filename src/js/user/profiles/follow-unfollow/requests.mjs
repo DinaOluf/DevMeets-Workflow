@@ -4,7 +4,7 @@ import { errorContainer } from "../../../util/variables.mjs";
 import { errorMessage } from "../../../components/error.mjs";
 import { successMessage } from "../../../components/success.mjs";
 
-export function followUnfollowRequest(user, type) {
+export async function followUnfollowRequest(user, type) {
   // Request body should be empty
   let dataObj = {};
 
@@ -12,25 +12,26 @@ export function followUnfollowRequest(user, type) {
   const jwt = getUserAuth();
 
   // Send the data object to the API
-  fetch(`${API_BASE_URL}${API_PROFILE_URL}${user}/${type}`, {
-    method: "PUT",
-    body: JSON.stringify(dataObj),
-    headers: {
-      Authorization: `Bearer ${jwt}`,
-      "Content-Type": "application/json; charset=utf-8",
-    },
-  })
-    .then((response) => response.json())
-    .then((json) => {
-      if (json.message) {
-        errorContainer.innerHTML = errorMessage(json.message);
-      } else {
-        errorContainer.innerHTML = successMessage("Post creation");
+  try {
+    const response = await fetch(`${API_BASE_URL}${API_PROFILE_URL}${user}/${type}`, {
+      method: "PUT",
+      body: JSON.stringify(dataObj),
+      headers: {
+        Authorization: `Bearer ${jwt}`,
+        "Content-Type": "application/json; charset=utf-8",
+      },
+    });
 
-        setTimeout(() => {
-          location.reload();
-        }, 1500);
-      }
-    })
-    .catch((error) => console.log("error", error));
+    const json = await response.json();
+
+    if (json.message) {
+      errorContainer.innerHTML = errorMessage(json.message);
+    } else {
+      errorContainer.innerHTML = successMessage("Post creation");
+      timeout(1000);
+    }
+  } catch (error) {
+    console.log(error);
+    errorContainer.innerHTML = errorMessage("An error occurred when calling the API, error: " + error);
+  }
 }

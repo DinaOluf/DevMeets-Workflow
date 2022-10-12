@@ -69,16 +69,20 @@ function getNewInputs(evt) {
   evt.preventDefault();
 
   // Assign the inputs from the form to variables
-  const [id, title, body, media, tags] = evt.target.elements;
+  const [id, title, body, tags, media] = evt.target.elements;
 
   // Build the new post with edited values
-  const dataObj = JSON.stringify({
+  let dataObj = {
     title: `${title.value}`,
     body: `${body.value}`,
     tags: [`${tags.value}`],
     media: `${media.value}`,
-  });
+  };
+
+  if (!media.value || media.value === "") {
+    delete dataObj.media;
+  }
 
   // Send to edit handler
-  editPost(id.value, dataObj);
+  editPost(id.value, JSON.stringify(dataObj));
 }

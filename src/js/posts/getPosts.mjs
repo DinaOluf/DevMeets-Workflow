@@ -23,7 +23,6 @@ import { sortWeek } from "./filters/weekFilter.mjs";
 import { sortMonth } from "./filters/monthFilter.mjs";
 import { sortMyPosts } from "./filters/myPostsFilter.mjs";
 import { postTemplate } from "./postTemplate.mjs";
-import { createComment } from "./createComment.mjs";
 import { sortFollow } from "./filters/followFilter.mjs";
 
 // Simple API fetch which returns the fetched data
@@ -45,7 +44,7 @@ export async function displayPosts(endpoint, params, opt) {
   }
 }
 
-// Get all posts (or atleast the first 1000) and push them to a new array which can be used
+// Get all posts (or at least the first 1000) and push them to a new array which can be used
 export async function getAllPosts() {
   try {
     // Initialize an empty array to push to

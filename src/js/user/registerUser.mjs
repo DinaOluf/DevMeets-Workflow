@@ -4,7 +4,7 @@ import { successMessage } from "../components/success.mjs";
 import { validateEmail } from "../components/validateEmail.mjs";
 
 // Function which initiates what to do when submitting the form
-export function handleRegister(evt) {
+export async function handleRegister(evt) {
   evt.preventDefault();
 
   // Assign the inputs from the form to variables
@@ -43,25 +43,27 @@ export function handleRegister(evt) {
     });
 
     // Send the data object to the API
-    fetch(`${API_BASE_URL}/api/v1/social/auth/register`, {
-      method: "POST",
-      body: dataObj,
-      headers: {
-        "Content-Type": "application/json; charset=utf-8",
-      },
-    })
-      .then((response) => response.json)
-      .then((json) => {
-        if (json.error) {
-          errorContainer.innerHTML = errorMessage(json.message);
-        } else {
-          errorContainer.innerHTML = successMessage("Registration");
+    try {
+      const response = await fetch(`${API_BASE_URL}/api/v1/social/auth/register`, {
+        method: "POST",
+        body: dataObj,
+        headers: {
+          "Content-Type": "application/json; charset=utf-8",
+        },
+      });
 
-          setTimeout(() => {
-            location.href = "/login.html";
-          }, 1500);
-        }
-      })
-      .catch((error) => console.log("error", error));
+      const json = await response.json();
+
+      if (json.error) {
+        errorContainer.innerHTML = errorMessage(json.message);
+      } else {
+        errorContainer.innerHTML = successMessage("Registration");
+        timeout(1000);
+        location.href = "/login.html";
+      }
+    } catch (error) {
+      console.log(error);
+      errorContainer.innerHTML = errorMessage("An error occurred when calling the API, error: " + error);
+    }
   }
 }
