@@ -4,9 +4,21 @@ import { getProfile } from "../user/profiles/getProfile.mjs";
 import { getPostUrlParams, API_POSTS_URL } from "../util/variables.mjs";
 import { options } from "../util/options.mjs";
 import { getItem } from "../user/getUserInfo.mjs";
+import { clearAll } from "../util/clearInput.mjs";
+import { createPost } from "../posts/createPost.mjs";
 
 // Check if user is logged in, if no, redirect
 isUserLoggedIn();
+
+// Clears inputs on post creation
+
+clearInput.addEventListener("click", clearAll);
+
+// Connect to the correct form
+const form = document.querySelector(".create-post-form");
+
+// Eventlistener for the submit handling
+form.addEventListener("submit", createPost);
 
 // Run get posts function
 displayPosts(API_POSTS_URL, getPostUrlParams, options);

@@ -35,6 +35,12 @@ ul {
   opacity: 100%;
 }
 
+// Post Media //
+.post-image {
+  object-fit: contain;
+  max-height: 400px;
+}
+
 // Navigation Bar //
 
 .navwrap {
@@ -60,6 +66,19 @@ ul {
   }
 }
 
+.dropdown-item {
+  & a {
+    color: black;
+  }
+}
+
+.dropdown-menu-center {
+  left: 50% !important;
+  right: auto !important;
+  text-align: center !important;
+  transform: translate(-50%, 0) !important;
+}
+
 .navbar-toggler {
   background: $link-color;
 }
@@ -67,7 +86,7 @@ ul {
 // Main Content //
 
 .landing {
-  background: url(../../dist/img/background-login.jpg) no-repeat center center/cover;
+  background: url(../../dist/img/background-login-ps.jpg) no-repeat center center/cover;
   height: 100vh;
 
   & h1 {

@@ -20,26 +20,36 @@
   </head>
   <body>
     <nav class="navwrap navbar navbar-expand-lg navbar-light">
-      <a href="index.html"> <i class="fa-solid fa-laptop-code ms-2"></i></a> DevMeets
-      <button
-        class="navbar-toggler me-2 ms-2"
-        type="button"
-        data-toggle="collapse"
-        data-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
+      <div>
+        <a href="index.html"> <i class="fa-solid fa-laptop-code ms-2"></i></a> DevMeets
+      </div>
+      <div class="dropdown d-lg-none">
+        <button class="btn btn-secondary" type="button" data-bs-toggle="dropdown" aria-expanded="false">&#9776;</button>
+        <ul class="dropdown-menu dropdown-menu-center">
+          <li>
+            <form class="form-inline my-2 d-flex search-bar-form dropdown-item">
+              <input class="form-control mr-sm-2 search-bar-input" type="search" placeholder="Search" aria-label="Search" />
+              <button class="btn btn-outline-success my-2 my-sm-0 ms-2" type="submit">Search</button>
+            </form>
+          </li>
+          <hr />
+          <li>
+            <button class="dropdown-item" type="button"><a href="index.html">Home</a></button>
+          </li>
+          <hr />
+          <li>
+            <button class="dropdown-item" type="button"><a href="profile.html">My Profile</a></button>
+          </li>
+          <hr />
+        </ul>
+      </div>
       <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
-            <a class="nav-link nav-active" href="index.html">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-link nav-active" href="index.html" style="color: #71a596">Home <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
-            <a style="color: #71a596" class="nav-link" href="profile.html">My Profile</a>
+            <a class="nav-link profile-nav-link" href="profile.html">My Profile</a>
           </li>
         </ul>
         <form class="form-inline my-2 my-lg-0 d-flex px-5 search-bar-form">
@@ -84,7 +94,7 @@
           <div class="upper banner-image d-flex">
             <div class="img-fluid skeleton skeleton-media w-100"></div>
           </div>
-          <div class="user text-center">
+          <div class="user text-center d-flex justify-content-center">
             <div class="profile editable-profile-image d-flex justify-content-center">
               <div class="rounded-circle skeleton skeleton-image-medium"></div>
             </div>
@@ -153,28 +163,35 @@
               <div class="error-container"></div>
               <div class="card mb-3">
                 <div class="card-body">
-                  <div class="d-flex flex-start align-items-center">
-                    <div class="profile-image">
-                      <div class="rounded-circle shadow-1-strong me-3 skeleton skeleton-image-large"></div>
-                    </div>
-                    <div>
-                      <h6 class="fw-bold text-primary mb-1 profile-info-username"><p class="skeleton skeleton-text-long"></p></h6>
-                      <p class="text-muted small mb-0">Public</p>
+                  <div class="d-flex flex-start align-items-center justify-content-between">
+                    <div class="d-flex align-items-center">
+                      <div class="profile-image me-1">
+                        <div class="rounded-circle shadow-1-strong me-3 skeleton skeleton-image-icon"></div>
+                      </div>
+                      <div class="w-100">
+                        <h6 class="fw-bold text-primary mb-1 profile-info-username"><span class="skeleton skeleton-text-long"></span></h6>
+                        <p class="text-muted small mb-0">Public</p>
+                      </div>
                     </div>
                   </div>
                 </div>
-                <form class="card-footer py-3 border-0" style="background-color: #f8f9fa">
+                <form class="card-footer py-2 border-0 create-post-form" style="background-color: #f8f9fa">
+                  <div class="form-group mt-1 mb-2">
+                    <input type="text" class="form-control w-100" id="post-title" aria-describedby="titleHelp" placeholder="Enter a title" required minlength="3" />
+                  </div>
                   <div class="textarea">
-                    <textarea class="w-100 rounded px-2" placeholder="Share your thoughts, ideas or anything that comes to mind" id="" rows="4"></textarea>
+                    <textarea class="w-100 rounded px-2" placeholder="Share your thoughts, ideas or anything that comes to mind" id="post-content" rows="4"></textarea>
+                  </div>
+                  <div class="form-group mt-1 mb-1">
+                    <input type="text" class="form-control w-100" id="post-tags" aria-describedby="tagsHelp" placeholder="Enter tags, separate by comma" required minlength="3" />
+                  </div>
+                  <div class="mt-2 pt-1">
+                    <input type="text" class="form-control w-50" id="post-url" placeholder="Enter a image url" />
                   </div>
                   <div class="button-wrap d-flex justify-content-between align-items-center">
-                    <div class="mt-2 pt-1">
-                      <i class="icon-size fa-solid fa-camera px-2"></i>
-                      <i class="icon-size fa-solid fa-file px-2"></i>
-                    </div>
                     <div class="mt-2 pt-1 float-end">
                       <button type="submit" class="btn btn-primary btn-sm">Create Post</button>
-                      <button type="button" class="btn btn-primary btn-sm">Cancel</button>
+                      <button type="button" id="clearInput" class="btn btn-primary btn-sm">Clear</button>
                     </div>
                   </div>
                 </form>
