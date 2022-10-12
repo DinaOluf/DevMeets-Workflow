@@ -23,7 +23,7 @@ export async function addReaction(id) {
       errorContainer.innerHTML = errorMessage(json.message);
     } else {
       errorContainer.innerHTML = successMessage("Like");
-      location.reload();
+      timeout(1000);
     }
   } catch (error) {
     console.log(error);

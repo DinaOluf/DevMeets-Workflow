@@ -28,7 +28,7 @@ export async function followUnfollowRequest(user, type) {
       errorContainer.innerHTML = errorMessage(json.message);
     } else {
       errorContainer.innerHTML = successMessage("Post creation");
-      location.reload();
+      timeout(1000);
     }
   } catch (error) {
     console.log(error);

@@ -1,3 +1,4 @@
+import { timeout } from "../util/timeout.mjs";
 import { deletePost } from "./deletePost.mjs";
 
 export function getPostToDelete() {
@@ -14,7 +15,7 @@ export function getPostToDelete() {
       deletePost(postId);
 
       // Reloads the website after 1 second after clicking delete.
-      setTimeout(location.reload.bind(location), 1000);
+      timeout(1000);
     });
   });
 }

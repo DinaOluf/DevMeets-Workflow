@@ -25,7 +25,7 @@ export async function editPost(id, obj) {
       errorContainer.innerHTML = errorMessage(json.message);
     } else {
       errorContainer.innerHTML = successMessage("Post edit");
-      location.reload();
+      timeout(1000);
     }
   } catch (error) {
     console.log(error);

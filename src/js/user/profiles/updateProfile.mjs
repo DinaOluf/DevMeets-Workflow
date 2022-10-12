@@ -34,7 +34,7 @@ export async function updateProfileMedia(mediaType, media) {
       errorContainer.innerHTML = errorMessage(json.message);
     } else {
       errorContainer.innerHTML = successMessage("Profile media edit");
-      location.reload();
+      timeout(1000);
     }
   } catch (error) {
     console.log(error);
