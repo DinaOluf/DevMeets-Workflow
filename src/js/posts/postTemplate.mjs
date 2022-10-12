@@ -93,7 +93,7 @@ export function postTemplate(sortedData) {
             ${sortedData[i].tags}
             </p>
   
-            <div class="small d-flex justify-content-start">
+            <div class="small d-flex justify-content-start post-social-icons">
               <a href="#!" class="d-flex align-items-center me-3 reaction-list">
                 <i class="far fa-thumbs-up me-2"></i>
                 <p class="mb-0">Like (${reactCounter})</p>
