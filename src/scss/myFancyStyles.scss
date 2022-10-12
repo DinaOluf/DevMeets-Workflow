@@ -66,6 +66,19 @@ ul {
   }
 }
 
+.dropdown-item {
+  & a {
+    color: black;
+  }
+}
+
+.dropdown-menu-center {
+  left: 50% !important;
+  right: auto !important;
+  text-align: center !important;
+  transform: translate(-50%, 0) !important;
+}
+
 .navbar-toggler {
   background: $link-color;
 }
