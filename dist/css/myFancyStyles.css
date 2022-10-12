@@ -11116,6 +11116,10 @@ ul {
   width: 115px;
 }
 
+.dropdown-menu li:hover {
+  cursor: pointer;
+}
+
 .navbar-toggler {
   background: #e3eecd;
 }
