@@ -9,7 +9,7 @@ export function getPostToDelete() {
   deletePostButton.forEach((e) => {
     e.addEventListener("click", (i) => {
       const closestPost = i.target.closest(".card-body");
-      const postId = closestPost.childNodes[3].innerText;
+      const postId = closestPost.querySelector(".post-id").innerText;
 
       deletePost(postId);
 

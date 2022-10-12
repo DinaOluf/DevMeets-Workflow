@@ -26,7 +26,7 @@ export async function updateProfileMedia(mediaType, media) {
         Authorization: `Bearer ${jwt}`,
         "Content-Type": "application/json; charset=utf-8",
       },
-    })
+    });
 
     const json = await response.json();
 
@@ -36,7 +36,8 @@ export async function updateProfileMedia(mediaType, media) {
       errorContainer.innerHTML = successMessage("Profile media edit");
       location.reload();
     }
-  } catch {
-    // Error handling
+  } catch (error) {
+    console.log(error);
+    errorContainer.innerHTML = errorMessage("An error occurred when calling the API, error: " + error);
   }
 }
