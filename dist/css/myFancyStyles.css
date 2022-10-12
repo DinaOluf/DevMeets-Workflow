@@ -11101,6 +11101,12 @@ ul {
   opacity: 100%;
 }
 
+.post-image {
+  -o-object-fit: contain;
+     object-fit: contain;
+  max-height: 400px;
+}
+
 .navwrap {
   background-color: #1a1d20;
   color: #fff;
