@@ -7,7 +7,16 @@ const last = first - curr.getDay() - 30; // getting last 30 days because that's 
 const firstDay = new Date(curr.setDate(first)).toISOString();
 const lastDay = new Date(curr.setDate(last)).toISOString();
 
-// Sort passed in array if it was posted this month
+/**
+ * Sort passed in array if post was posted this month, checks using values pre-set above the function
+ * @param {array} array
+ * @returns a sorted array
+ * @example
+ * ```js
+ * const sortedArray = sortMonth(resultsArray);
+ * // Expect array contents to now only contain posts created this month
+ * ```
+ */
 export function sortMonth(array) {
   const sortedArray = array.filter((item) => {
     if (item.updated < firstDay && item.updated > lastDay) {

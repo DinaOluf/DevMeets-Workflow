@@ -3,7 +3,15 @@ import { errorMessage } from "../components/error.mjs";
 import { successMessage } from "../components/success.mjs";
 import { getUserAuth } from "../user/userAuth.mjs";
 
-// Function which initiates what to do when submitting the form
+/**
+ * Function which initiates what to do when submitting the form
+ * @param {number} id the post ID to delete
+ * @example
+ * ```js
+ * deletePost("1234");
+ * // Expect post with ID matching "1234" to be deleted from the API
+ * ```
+ */
 export function deletePost(id) {
   // Get the auth token
   const jwt = getUserAuth();

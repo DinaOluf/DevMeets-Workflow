@@ -1,6 +1,10 @@
 import { getPostToEdit } from "../posts/getPostToEdit.mjs";
 import { getPostToDelete } from "../posts/getPostToDelete.mjs";
 
+/**
+ * Returns the HTML for our page cogwheel
+ * @returns {string} returns HTML string for cogwheel
+ */
 export function createCog() {
   const cogHtml = `<div class="dropdown ms-auto">
     <div class="cog-dropdown pb-5">
@@ -29,6 +33,9 @@ export function createCog() {
   return cogHtml;
 }
 
+/**
+ * Selects the cogwheel icon and adds the event listeners for both the postEdit and postDelete functions
+ */
 export function addCogWheelEvent() {
   // Connect to the correct cogwheel
   const cogDrop = document.querySelectorAll(".cogwheel-icon");

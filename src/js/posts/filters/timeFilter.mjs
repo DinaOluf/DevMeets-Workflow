@@ -1,4 +1,13 @@
-// Sort passed in array by title, alphabetically, desc
+/**
+ * Sort passed in array by time, alphabetically, desc
+ * @param {array} array
+ * @returns a sorted array
+ * @example
+ * ```js
+ * const sortedArray = sortTimeDesc(resultsArray);
+ * // Expect array contents to be sorted by time posted, descending
+ * ```
+ */
 export function sortTimeDesc(array) {
   const sortedArray = array.sort(function (a, b) {
     const timeA = a.updated.toLowerCase();
@@ -14,7 +23,16 @@ export function sortTimeDesc(array) {
   return sortedArray;
 }
 
-// Sort passed in array by title, alphabetically, asc
+/**
+ * Sort passed in array by time, alphabetically, asc
+ * @param {array} array
+ * @returns a sorted array
+ * @example
+ * ```js
+ * const sortedArray = sortTimeDesc(resultsArray);
+ * // Expect array contents to be sorted by time posted, ascending
+ * ```
+ */
 export function sortTimeAsc(array) {
   const sortedArray = array.sort(function (a, b) {
     const timeA = a.updated.toLowerCase();

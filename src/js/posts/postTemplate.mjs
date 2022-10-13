@@ -7,6 +7,15 @@ import { getComments } from "./getComments.mjs";
 import { createComment } from "./createComment.mjs";
 import { addReaction } from "./createReactions.mjs";
 
+/**
+ * A function which creates the entire basis for a single post.
+ * @param {string} sortedData API data
+ * @example
+ * ```js
+ * postTemplate(results);
+ * // Expect the contents of results to be displayed in a container.
+ * ```
+ */
 export function postTemplate(sortedData) {
   getPostsContainer.innerHTML = "";
 
@@ -17,7 +26,6 @@ export function postTemplate(sortedData) {
     const dateFix = timeAgo(date);
 
     // Filtering out some annoying test posts by other users
-
     if (sortedData[i].author.name === "string") {
       continue;
     }
@@ -45,18 +53,14 @@ export function postTemplate(sortedData) {
     }
 
     // Check if user has profile image, if not add placeholder
-
     let userProfileImage = profileImageHandler(sortedData[i].author.avatar);
 
     // Get comments to display
-
     const commentsData = getComments(sortedData[i].comments);
     const commentId = sortedData[i].id;
 
     // React Counter
-
     const reactionsArray = sortedData[i].reactions;
-
     let reactCounter = 0;
 
     // Loops through all reaction arrays and summarizes each reaction count to get total

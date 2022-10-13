@@ -1,5 +1,15 @@
 import { timeAgo } from "../components/timeAgo.mjs";
 
+/**
+ * Takes in the array data, gets comment information from it and returns this as HTML to the postTemplate function
+ * @param {array} data
+ * @returns HTML for comments
+ * @example
+ * ```js
+ * getComments(resultsArray)
+ * // Expect returned HTML for each comment found in the resultsArray.
+ * ```
+ */
 export function getComments(data) {
   let html = "";
 
