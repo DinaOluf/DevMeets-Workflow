@@ -2,8 +2,17 @@ import { API_BASE_URL, errorContainer } from "../util/variables.mjs";
 import { errorMessage } from "../components/error.mjs";
 import { successMessage } from "../components/success.mjs";
 import { validateEmail } from "../components/validateEmail.mjs";
+import { timeout } from "../util/timeout.mjs";
 
-// Function which initiates what to do when submitting the form
+/**
+ * Function which initiates what to do when submitting the form
+ * @param {element} evt
+ * @example
+ * ```js
+ * handleRegister(registerForm);
+ * // Expect the input user information to be sent to the API for validation. If OK, the user will be registered. If not, an error will display.
+ * ```
+ */
 export async function handleRegister(evt) {
   evt.preventDefault();
 
@@ -54,7 +63,7 @@ export async function handleRegister(evt) {
 
       const json = await response.json();
 
-      if (json.error) {
+      if (json.message) {
         errorContainer.innerHTML = errorMessage(json.message);
       } else {
         errorContainer.innerHTML = successMessage("Registration");

@@ -2,6 +2,14 @@ import { getItem } from "../../user/getUserInfo.mjs";
 import { bannerImageHandler, profileImageHandler } from "/src/js/components/imageHandlers.mjs";
 import { buildFollowingList } from "./buildFollowingList.mjs";
 
+/**
+ * A function which uses data saved in localStorage to build profile information from the API
+ * @example
+ * ```js
+ * getUserPanelInfo();
+ * // Call the function and it will grab values from localStorage and use these to build the necessary profile components.
+ * ```
+ */
 export function getUserPanelInfo() {
   // Get user info and display it
 

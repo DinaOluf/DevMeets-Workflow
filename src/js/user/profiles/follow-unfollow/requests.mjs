@@ -1,4 +1,4 @@
-import { getUserAuth } from "../../userAuth.mjs";
+import { getItem } from "../../getUserInfo.mjs";
 import { API_BASE_URL, API_PROFILE_URL } from "../../../util/variables.mjs";
 import { errorContainer } from "../../../util/variables.mjs";
 import { errorMessage } from "../../../components/error.mjs";
@@ -19,7 +19,7 @@ export async function followUnfollowRequest(user, type) {
   let dataObj = {};
 
   // Get the auth token
-  const jwt = getUserAuth();
+  const jwt = getItem("jwt");
 
   // Send the data object to the API
   try {

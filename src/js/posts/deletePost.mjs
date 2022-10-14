@@ -1,7 +1,8 @@
 import { API_BASE_URL, API_POSTS_URL, errorContainer } from "../util/variables.mjs";
 import { errorMessage } from "../components/error.mjs";
 import { successMessage } from "../components/success.mjs";
-import { getUserAuth } from "../user/userAuth.mjs";
+import { getItem } from "../user/getUserInfo.mjs";
+import { timeout } from "../util/timeout.mjs";
 
 /**
  * Function which initiates what to do when submitting the form
@@ -12,25 +13,30 @@ import { getUserAuth } from "../user/userAuth.mjs";
  * // Expect post with ID matching "1234" to be deleted from the API
  * ```
  */
-export function deletePost(id) {
+export async function deletePost(id) {
   // Get the auth token
-  const jwt = getUserAuth();
+  const jwt = getItem("jwt");
 
   // Send the data object to the API
-  fetch(`${API_BASE_URL}${API_POSTS_URL}/${id}`, {
-    method: "DELETE",
-    headers: {
-      Authorization: `Bearer ${jwt}`,
-      "Content-Type": "application/json",
-    },
-  })
-    .then((response) => response.json())
-    .then((json) => {
-      if (json.message) {
-        errorContainer.innerHTML = errorMessage(json.message);
-      } else {
-        errorContainer.innerHTML = successMessage("Post deleted");
-      }
-    })
-    .catch((error) => console.log("error", error));
+  try {
+    const response = await fetch(`${API_BASE_URL}${API_POSTS_URL}/${id}`, {
+      method: "DELETE",
+      headers: {
+        Authorization: `Bearer ${jwt}`,
+        "Content-Type": "application/json; charset=utf-8",
+      },
+    });
+
+    const json = await response.json();
+
+    if (json.message) {
+      errorContainer.innerHTML = errorMessage(json.message);
+    } else {
+      errorContainer.innerHTML = successMessage("Post delete");
+      timeout(1000);
+    }
+  } catch (error) {
+    console.log(error);
+    errorContainer.innerHTML = errorMessage("An error occurred when calling the API, error: " + error);
+  }
 }
