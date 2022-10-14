@@ -39,6 +39,7 @@ export async function handleLogin(evt) {
       errorContainer.innerHTML = errorMessage(json.message);
     } else {
       errorContainer.style.display = "none";
+      errorContainer.innerHTML = successMessage("Login");
 
       // Save user info
       setItem("user", {
@@ -52,6 +53,7 @@ export async function handleLogin(evt) {
       setItem("jwt", authToken);
 
       // Redirect
+      timeout(1000);
       location.href = "/profile.html";
     }
   } catch (error) {
