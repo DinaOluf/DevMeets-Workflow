@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: posts/postTemplate.mjs</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: posts/postTemplate.mjs</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import { timeAgo } from "../components/timeAgo.mjs";
+import { profileImageHandler } from "../components/imageHandlers.mjs";
+import { getPostsContainer } from "../util/variables.mjs";
+import { getItem } from "../user/getUserInfo.mjs";
+import { addCogWheelEvent, createCog } from "../components/createCog.mjs";
+import { getComments } from "./getComments.mjs";
+import { createComment } from "./createComment.mjs";
+import { addReaction } from "./createReactions.mjs";
+
+/**
+ * A function which creates the entire basis for a single post.
+ * @param {string} sortedData API data
+ * @example
+ * ```js
+ * postTemplate(results);
+ * // Expect the contents of results to be displayed in a container.
+ * ```
+ */
+export function postTemplate(sortedData) {
+  getPostsContainer.innerHTML = "";
+
+  for (let i = 0; i &lt; sortedData.length; i++) {
+    // DEFAULT VALUES
+    // Display Date
+    const date = sortedData[i].updated;
+    const dateFix = timeAgo(date);
+
+    // Filtering out some annoying test posts by other users
+    if (sortedData[i].author.name === "string") {
+      continue;
+    }
+
+    if (sortedData[i].body === "string") {
+      continue;
+    }
+
+    // Add cogwheel to my posts
+    let cogContainer = "";
+    const userInfo = getItem("user");
+
+    if (sortedData[i].author.name === userInfo.name) {
+      cogContainer = createCog();
+    }
+
+    // Check if content image exists, if so add it
+    let postMedia;
+    if (!sortedData[i].media || sortedData[i].media === "string") {
+      postMedia = "";
+    } else {
+      postMedia = `&lt;p class="mt-3 mb-4 pb-2 post-media">
+      &lt;img class="w-100 post-image" src="${sortedData[i].media}" />
+      &lt;/p>`;
+    }
+
+    // Check if user has profile image, if not add placeholder
+    let userProfileImage = profileImageHandler(sortedData[i].author.avatar);
+
+    // Get comments to display
+    const commentsData = getComments(sortedData[i].comments);
+    const commentId = sortedData[i].id;
+
+    // React Counter
+    const reactionsArray = sortedData[i].reactions;
+    let reactCounter = 0;
+
+    // Loops through all reaction arrays and summarizes each reaction count to get total
+    for (let y = 0; y &lt; reactionsArray.length; y++) {
+      reactCounter += reactionsArray[y].count;
+    }
+
+    // DISPLAY POST
+    getPostsContainer.innerHTML += `
+        &lt;div class="card w-100">
+          &lt;div class="card-body">
+            &lt;div class="d-flex flex-start align-items-center">
+              &lt;a href="/profile.html?name=${sortedData[i].author.name}">
+                &lt;img class="rounded-circle shadow-1-strong me-3" src="${userProfileImage}" alt="${sortedData[i].author.name}'s avatar" width="60" height="60" />
+              &lt;/a>
+              &lt;div>
+              &lt;a href="/profile.html?name=${sortedData[i].author.name}">&lt;h6 class="fw-bold text-primary mb-1">${sortedData[i].author.name}&lt;/h6>&lt;/a>
+                &lt;p class="text-muted small mb-0">Shared publicly - ${dateFix}&lt;/p>
+              &lt;/div>
+              ${cogContainer}
+            &lt;/div>
+  
+            &lt;div class="d-none post-id">${sortedData[i].id}&lt;/div>
+
+            &lt;div class="d-none post-title">${sortedData[i].title}&lt;/div>
+
+            &lt;p class="mt-3 mb-4 pb-2 post-body">
+            ${sortedData[i].body}
+            &lt;/p>
+  
+            ${postMedia}
+
+            &lt;p class="mt-3 mb-4 pb-2 post-tags">
+            ${sortedData[i].tags}
+            &lt;/p>
+  
+            &lt;div class="small d-flex justify-content-start flex-wrap post-social-icons">
+              &lt;a href="#!" class="d-flex align-items-center me-3 reaction-list">
+                &lt;i class="far fa-thumbs-up me-2">&lt;/i>
+                &lt;p class="mb-0">Like (${reactCounter})&lt;/p>
+              &lt;/a>
+              &lt;a href="#!" class="d-flex align-items-center me-3">
+                &lt;i class="far fa-comment-dots me-2">&lt;/i>
+                &lt;p class="mb-0">Comment&lt;/p>
+              &lt;/a>
+              &lt;a href="#!" class="d-flex align-items-center me-3">
+                &lt;i class="fas fa-share me-2">&lt;/i>
+                &lt;p class="mb-0">Share&lt;/p>
+              &lt;/a>
+              &lt;a href="/post.html?id=${commentId}" class="d-flex align-items-center me-3">
+                &lt;p class="mb-0">&amp;#128172; View Comments (${sortedData[i].comments.length})&lt;/p>
+              &lt;/a>
+            &lt;/div>
+          &lt;/div>
+          &lt;form class="card-footer py-3 border-0 create-comment-form" style="background-color: #f8f9fa">
+            &lt;div class="d-flex flex-start w-100">
+              &lt;img class="rounded-circle shadow-1-strong me-3" src=${userInfo.avatar} alt="avatar" width="40" height="40" />
+              &lt;div class="form-outline w-100 d-none">
+                &lt;input class="form-control w-100" value=${sortedData[i].id} id="textAreaExample" rows="4" style="background: #fff">&lt;/input>
+              &lt;/div>
+              &lt;div class="form-outline w-100">
+                &lt;textarea class="form-control w-100" placeholder="Write a comment.." id="textAreaExample" rows="4" style="background: #fff">&lt;/textarea>
+              &lt;/div>
+            &lt;/div>
+            &lt;div class="float-end mt-2 pt-1">
+              &lt;button type="submit" class="btn btn-primary btn-sm post-comment">Post comment&lt;/button>
+              &lt;button type="button" class="btn btn-primary btn-sm">Cancel&lt;/button>
+            &lt;/div>
+          &lt;/form>
+          &lt;div class="comment-section-wrap">${commentsData}&lt;/div>
+        &lt;/div>`;
+  }
+
+  const reactionList = document.querySelectorAll(".reaction-list");
+
+  // Loops through all like buttons and passes ID to AddReaction function when sending API request.
+  reactionList.forEach((e) => {
+    e.addEventListener("click", (i) => {
+      const closestId = i.target.closest(".card-body");
+      const id = closestId.childNodes[3].innerText;
+
+      addReaction(id);
+    });
+  });
+
+  // Target form for comment-form and button
+
+  const commentForm = document.querySelectorAll(".create-comment-form");
+
+  // Loop through all the forms and add eventlistener to button
+  commentForm.forEach((commentButton) => {
+    // Trigger eventlistener for createComment on submit
+    commentButton.addEventListener("submit", createComment);
+  });
+
+  // Add Cogwheel Event Listeners
+  addCogWheelEvent();
+}
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#addCogWheelEvent">addCogWheelEvent</a></li><li><a href="global.html#addReaction">addReaction</a></li><li><a href="global.html#bannerImageHandler">bannerImageHandler</a></li><li><a href="global.html#buildEditForm">buildEditForm</a></li><li><a href="global.html#buildFollowingList">buildFollowingList</a></li><li><a href="global.html#buildProfile">buildProfile</a></li><li><a href="global.html#clearAll">clearAll</a></li><li><a href="global.html#cooldown">cooldown</a></li><li><a href="global.html#createCog">createCog</a></li><li><a href="global.html#createComment">createComment</a></li><li><a href="global.html#createPost">createPost</a></li><li><a href="global.html#deletePost">deletePost</a></li><li><a href="global.html#deleteStorage">deleteStorage</a></li><li><a href="global.html#displayPosts">displayPosts</a></li><li><a href="global.html#displayPostsFilter">displayPostsFilter</a></li><li><a href="global.html#editPost">editPost</a></li><li><a href="global.html#editProfileMediaFormTemplate">editProfileMediaFormTemplate</a></li><li><a href="global.html#errorMessage">errorMessage</a></li><li><a href="global.html#followHtml">followHtml</a></li><li><a href="global.html#followUnfollowRequest">followUnfollowRequest</a></li><li><a href="global.html#getAllPosts">getAllPosts</a></li><li><a href="global.html#getAProfile">getAProfile</a></li><li><a href="global.html#getComments">getComments</a></li><li><a href="global.html#getItem">getItem</a></li><li><a href="global.html#getNewInputs">getNewInputs</a></li><li><a href="global.html#getPosts">getPosts</a></li><li><a href="global.html#getPostToDelete">getPostToDelete</a></li><li><a href="global.html#getPostToEdit">getPostToEdit</a></li><li><a href="global.html#getProfile">getProfile</a></li><li><a href="global.html#getSinglePost">getSinglePost</a></li><li><a href="global.html#getUserPanelInfo">getUserPanelInfo</a></li><li><a href="global.html#handleFollow">handleFollow</a></li><li><a href="global.html#handleLogin">handleLogin</a></li><li><a href="global.html#handleRegister">handleRegister</a></li><li><a href="global.html#handleSearch">handleSearch</a></li><li><a href="global.html#isUserLoggedIn">isUserLoggedIn</a></li><li><a href="global.html#postTemplate">postTemplate</a></li><li><a href="global.html#profileImageHandler">profileImageHandler</a></li><li><a href="global.html#setClearAllListener">setClearAllListener</a></li><li><a href="global.html#setItem">setItem</a></li><li><a href="global.html#sortAuthorAsc">sortAuthorAsc</a></li><li><a href="global.html#sortAuthorDesc">sortAuthorDesc</a></li><li><a href="global.html#sortFollow">sortFollow</a></li><li><a href="global.html#sortMonth">sortMonth</a></li><li><a href="global.html#sortMyPosts">sortMyPosts</a></li><li><a href="global.html#sortTimeAsc">sortTimeAsc</a></li><li><a href="global.html#sortTimeDesc">sortTimeDesc</a></li><li><a href="global.html#sortTitleAsc">sortTitleAsc</a></li><li><a href="global.html#sortTitleDesc">sortTitleDesc</a></li><li><a href="global.html#sortToday">sortToday</a></li><li><a href="global.html#sortWeek">sortWeek</a></li><li><a href="global.html#successMessage">successMessage</a></li><li><a href="global.html#timeAgo">timeAgo</a></li><li><a href="global.html#timeout">timeout</a></li><li><a href="global.html#updateItem">updateItem</a></li><li><a href="global.html#updateProfileMedia">updateProfileMedia</a></li><li><a href="global.html#validateEmail">validateEmail</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.11</a> on Sat Oct 15 2022 07:57:16 GMT+0200 (Central European Summer Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
