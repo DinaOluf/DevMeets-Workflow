@@ -1,5 +1,12 @@
 import { editPost } from "../posts/editPost.mjs";
 
+/**
+ * Reads the post body and sends it for editing. Takes no arguments. Is used together with an event listener to fire on the respective post.
+ * @example
+ * ```js
+ * // Click icon which fires this function. The function runs and in turn changes the post body into a form which can be used to edit the post values. The edited post is then sent to the API.
+ * ```
+ */
 export function getPostToEdit() {
   const editPostButton = document.querySelectorAll(".edit-post");
 
@@ -64,7 +71,13 @@ export function getPostToEdit() {
 }
 
 // Target buttons and handle submit
-
+/**
+ * Reads the created post form elements and sends its contents to the API for editing.
+ * @example
+ * ```js
+ * // Click the editPostForm button to fire this function. It then grabs the form elements and uses them in the fetch.
+ * ```
+ */
 function getNewInputs(evt) {
   evt.preventDefault();
 

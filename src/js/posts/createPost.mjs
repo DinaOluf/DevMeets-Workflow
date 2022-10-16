@@ -1,10 +1,18 @@
 import { API_BASE_URL, API_POSTS_URL, errorContainer } from "../util/variables.mjs";
 import { errorMessage } from "../components/error.mjs";
 import { successMessage } from "../components/success.mjs";
-import { getUserAuth } from "../user/userAuth.mjs";
+import { getItem } from "../user/getUserInfo.mjs";
 import { timeout } from "../util/timeout.mjs";
 
-// Function which initiates what to do when submitting the form
+/**
+ * Function which initiates what to do when submitting the form
+ * @param {element} form
+ * @example
+ * ```js
+ * createPost(postForm);
+ * // Expect a post to be created using the form input fields provided in the postForm element, if it is a form.
+ * ```
+ */
 export async function createPost(evt) {
   evt.preventDefault();
 
@@ -27,7 +35,7 @@ export async function createPost(evt) {
   }
 
   // Get the auth token
-  const jwt = getUserAuth();
+  const jwt = getItem("jwt");
 
   // Send the data object to the API
   try {

@@ -1,4 +1,13 @@
-// Sort passed in array by author, alphabetically, desc
+/**
+ * Sort passed in array by author, alphabetically, desc
+ * @param {array} array
+ * @returns a sorted array
+ * @example
+ * ```js
+ * const sortedArray = sortAuthorDesc(resultsArray);
+ * // Expect array contents to be sorted alphabetically, descending
+ * ```
+ */
 export function sortAuthorDesc(array) {
   const sortedArray = array.sort(function (a, b) {
     const authorA = a.author.name.toLowerCase();
@@ -14,7 +23,16 @@ export function sortAuthorDesc(array) {
   return sortedArray;
 }
 
-// Sort passed in array by author, alphabetically, asc
+/**
+ * Sort passed in array by author, alphabetically, asc
+ * @param {array} array
+ * @returns a sorted array
+ * @example
+ * ```js
+ * const sortedArray = sortAuthorAsc(resultsArray);
+ * // Expect array contents to be sorted alphabetically, ascending
+ * ```
+ */
 export function sortAuthorAsc(array) {
   const sortedArray = array.sort(function (a, b) {
     const authorA = a.author.name.toLowerCase();

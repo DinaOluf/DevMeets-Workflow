@@ -4,6 +4,15 @@ import { buildEditForm } from "./buildEditForm.mjs";
 import { handleFollow } from "./follow-unfollow/follow.mjs";
 import { buildFollowingList } from "./buildFollowingList.mjs";
 
+/**
+ * A function which builds the HTML for the user profile
+ * @param {array} data the data for the specified user
+ * @example
+ * ```js
+ * buildProfile(data);
+ * // Expect the function to build a profile based on the API data
+ * ```
+ */
 export function buildProfile(data) {
   const profileImage = document.querySelector(".profile-image");
   const editProfileImg = document.querySelector(".editable-profile-image");

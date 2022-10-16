@@ -25,7 +25,22 @@ import { sortMyPosts } from "./filters/myPostsFilter.mjs";
 import { postTemplate } from "./postTemplate.mjs";
 import { sortFollow } from "./filters/followFilter.mjs";
 
-// Simple API fetch which returns the fetched data
+/**
+ * Simple API fetch which returns the fetched data
+ * @param {string} url url to fetch from
+ * @param {object} opt options to append to the fetch, such as auth token, headers etc.
+ * @returns data from API
+ * @example
+ * ```js
+ * getPosts("https://nf-api.onrender.com/api/v1/social/posts", {
+ *    method: "GET",
+ *    headers: {
+ *      Authorization: `Bearer ${jwt}`,
+ *    },
+ * };)
+ * // Expect returned array with data from API
+ * ```
+ */
 export async function getPosts(url, opt) {
   // GET API DATA
   const response = await fetch(url, opt);
@@ -33,7 +48,23 @@ export async function getPosts(url, opt) {
   return data;
 }
 
-// Simple function to quickly display any data returned from the API. Pass in endpoint, parameters and options.
+/**
+ * Function to quickly display any data returned from the API. Pass in endpoint, parameters and options.
+ * @param {string} endpoint specific API endpoint
+ * @param {string} params additional query string parameters to use in the fetch
+ * @param {object} opt options to append to the fetch, such as auth token, headers etc.
+ * @returns displayed data in HTML form using the postTemplate function
+ * @example
+ * ```js
+ * displayPosts("https://nf-api.onrender.com", "/api/v1/social/posts", {
+ *    method: "GET",
+ *    headers: {
+ *      Authorization: `Bearer ${jwt}`,
+ *    },
+ * };)
+ * // Expect returned HTML usable in containers in the DOM
+ * ```
+ */
 export async function displayPosts(endpoint, params, opt) {
   try {
     const data = await getPosts(`${API_BASE_URL}${endpoint}${params}`, opt);
@@ -44,7 +75,16 @@ export async function displayPosts(endpoint, params, opt) {
   }
 }
 
-// Get all posts (or at least the first 1000) and push them to a new array which can be used
+/**
+ * Get all posts (or at least the first 1000) and push them to a new array which can be used. Takes in no arguments.
+ * @returns displayed data in HTML form using the postTemplate function
+ * @example
+ * ```js
+ *  const allPosts = getAllPosts();
+ *  container.innerHTML = postTemplate(allPosts);
+ * // Expect returned array with every single post (up to 1000) from the API.
+ * ```
+ */
 export async function getAllPosts() {
   try {
     // Initialize an empty array to push to
@@ -72,7 +112,15 @@ export async function getAllPosts() {
   }
 }
 
-// Function to display data together with the filters used on index page
+/**
+ * Function to display data together with the filters used on index page
+ * @returns displayed data in HTML form using the postTemplate function and filtered based on user input
+ * @example
+ * ```js
+ *  displayPostsFilter();
+ * // Expect function to now be initialized and connected to HTML dropdown which displays filters.
+ * ```
+ */
 export async function displayPostsFilter() {
   const filterFeedback = document.querySelector("#book-dropdown");
 

@@ -1,12 +1,20 @@
 import { API_BASE_URL, API_POSTS_URL, errorContainer } from "../util/variables.mjs";
 import { errorMessage } from "../components/error.mjs";
 import { successMessage } from "../components/success.mjs";
-import { getUserAuth } from "../user/userAuth.mjs";
+import { getItem } from "../user/getUserInfo.mjs";
 
-// Function which initiates what to do when submitting the form
+/**
+ * Function which initiates what to do when submitting the form
+ * @param {number} id the post ID to add reaction to
+ * @example
+ * ```js
+ * addReaction("1234");
+ * // Expect a reaction to be added to the post which matches id "1234"
+ * ```
+ */
 export async function addReaction(id) {
   // Get the auth token
-  const jwt = getUserAuth();
+  const jwt = getItem("jwt");
 
   // Send the data object to the API
   try {

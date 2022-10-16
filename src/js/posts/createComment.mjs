@@ -1,9 +1,17 @@
 import { API_BASE_URL, API_POSTS_URL, errorContainer } from "../util/variables.mjs";
 import { errorMessage } from "../components/error.mjs";
 import { successMessage } from "../components/success.mjs";
-import { getUserAuth } from "../user/userAuth.mjs";
+import { getItem } from "../user/getUserInfo.mjs";
 
-// Function which initiates what to do when submitting the form
+/**
+ * Function which initiates what to do when submitting the form
+ * @param {element} form
+ * @example
+ * ```js
+ * createComment(commentsForm);
+ * // Expect a comment to be created using the form input fields provided in the commentsForm element, if it is a form.
+ * ```
+ */
 export async function createComment(evt) {
   evt.preventDefault();
   // Assign the inputs from the form to variables
@@ -15,7 +23,7 @@ export async function createComment(evt) {
   };
 
   // Get the auth token
-  const jwt = getUserAuth();
+  const jwt = getItem("jwt");
 
   // Send the data object to the API
   try {

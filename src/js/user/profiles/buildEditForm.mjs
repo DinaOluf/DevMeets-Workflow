@@ -2,6 +2,15 @@ import { profileHeader } from "../../util/variables.mjs";
 import { editProfileMediaFormTemplate } from "./profileFormTemplate.mjs";
 import { updateProfileMedia } from "./updateProfile.mjs";
 
+/**
+ * A function which builds the desired edit form, wether its avatar or media, for the profile
+ * @param {string} type the type of form to create
+ * @example
+ * ```js
+ * buildEditForm("avatar");
+ * // Expect the built form to display in the DOM
+ * ```
+ */
 export function buildEditForm(type) {
   const container = document.createElement("div");
   container.classList = "container d-flex justify-content-center align-items-center pt-3";

@@ -1,6 +1,6 @@
-import { getUserAuth } from "../user/userAuth.mjs";
+import { getItem } from "../user/getUserInfo.mjs";
 
-const jwt = getUserAuth();
+const jwt = getItem("jwt");
 
 export const options = {
   headers: {

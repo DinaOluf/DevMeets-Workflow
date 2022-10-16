@@ -1,6 +1,20 @@
 import { followUnfollowRequest } from "./requests.mjs";
 import { getItem, setItem } from "../../getUserInfo.mjs";
 
+/**
+ * A function which handles following/unfollowing a user in the API
+ * @param {element} target the clicked button
+ * @param {string} user API data, in this case a single user
+ * @example
+ * ```js
+ * follow.addEventListener("click", (e) => {
+ *   handleFollow(e.target, {
+ *   name: data.name,
+ *   avatar: data.avatar,
+ *  });
+ * });
+ * ```
+ */
 export function handleFollow(target, user) {
   // Set button innerHTML based on which state is clicked
   if (target.innerHTML === "Follow") {
@@ -13,7 +27,7 @@ export function handleFollow(target, user) {
   const followList = JSON.parse(getItem("follow"));
 
   // Check if the profile being viewed is already being followed
-  const followExists = followList.find(function (fol) {
+  const followExists = followList.find((fol) => {
     return fol.name === user.name;
   });
 

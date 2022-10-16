@@ -1,4 +1,13 @@
-// Sort passed in array by title, alphabetically, desc
+/**
+ * Sort passed in array by title, alphabetically, desc
+ * @param {array} array
+ * @returns a sorted array
+ * @example
+ * ```js
+ * const sortedArray = sortTitleDesc(resultsArray);
+ * // Expect array contents to be sorted by title posted, descending
+ * ```
+ */
 export function sortTitleDesc(array) {
   const sortedArray = array.sort(function (a, b) {
     const titleA = a.title.toLowerCase();
@@ -14,7 +23,16 @@ export function sortTitleDesc(array) {
   return sortedArray;
 }
 
-// Sort passed in array by title, alphabetically, asc
+/**
+ * Sort passed in array by title, alphabetically, asc
+ * @param {array} array
+ * @returns a sorted array
+ * @example
+ * ```js
+ * const sortedArray = sortTitleAsc(resultsArray);
+ * // Expect array contents to be sorted by title posted, ascending
+ * ```
+ */
 export function sortTitleAsc(array) {
   const sortedArray = array.sort(function (a, b) {
     const titleA = a.title.toLowerCase();

@@ -1,6 +1,13 @@
 import { timeout } from "../util/timeout.mjs";
 import { deletePost } from "./deletePost.mjs";
 
+/**
+ * Reads the post body and sends it to deletion. Takes no arguments. Is used together with an event listener to fire on the respective post.
+ * @example
+ * ```js
+ * // Click icon which fires this function. The function runs and in turn fires the deletePost(id) function.
+ * ```
+ */
 export function getPostToDelete() {
   const deletePostButton = document.querySelectorAll(".delete-post");
 

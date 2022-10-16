@@ -1,6 +1,15 @@
 import { profileImageHandler } from "../../components/imageHandlers.mjs";
 import { getAProfile } from "./getProfile.mjs";
 
+/**
+ * A function which starts building the following panel.
+ * @param {array} data the data for building followers from, typically a user
+ * @example
+ * ```js
+ * buildFollowingList(user.name)
+ * // Expect the function to use the provided API user when building the panel
+ * ```
+ */
 export async function buildFollowingList(data) {
   const followTitle = document.querySelector(".following-list-title");
   const followContent = document.querySelector(".following-list-content");
@@ -20,6 +29,15 @@ export async function buildFollowingList(data) {
   followingCount.innerHTML = `${user.following.length}`;
 }
 
+/**
+ * A function which builds the HTML for followers display
+ * @param {array} array the list of followers to build the followers panel from
+ * @example
+ * ```js
+ * followHtml(data);
+ * // Expect the function to loop the provided array and display HTML
+ * ```
+ */
 function followHtml(array) {
   let html = "";
 
