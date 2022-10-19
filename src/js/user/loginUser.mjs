@@ -1,6 +1,8 @@
 import { API_BASE_URL, errorContainer } from "../util/variables.mjs";
 import { errorMessage } from "../components/error.mjs";
+import { successMessage } from "../components/success.mjs";
 import { setItem } from "./getUserInfo.mjs";
+import { timeout } from "../util/timeout.mjs";
 
 /**
  * Function which initiates what to do when submitting the form
