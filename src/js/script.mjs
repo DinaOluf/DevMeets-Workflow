@@ -1,6 +1,6 @@
 import { deleteStorage } from "./util/deleteStorage.mjs";
 import { getItem } from "./user/getUserInfo.mjs";
-import { searchbarForm, searchbarInput } from "./util/variables.mjs";
+import { searchbarForm } from "./util/variables.mjs";
 
 const logOut = document.querySelector(".log-out-button");
 
@@ -21,8 +21,10 @@ if (navLink) {
 
 function validateSearch(form) {
   form.preventDefault();
-
-  location.href = "/search.html?search=" + searchbarInput.value;
+  const [input] = form.target.elements;
+  location.href = `/search.html?search=${input.value}`;
 }
 
-searchbarForm.addEventListener("submit", validateSearch);
+searchbarForm.forEach((e) => {
+  e.addEventListener("submit", validateSearch);
+});
