@@ -3,6 +3,7 @@ import { API_BASE_URL, API_PROFILE_URL } from "../../../util/variables.mjs";
 import { errorContainer } from "../../../util/variables.mjs";
 import { errorMessage } from "../../../components/error.mjs";
 import { successMessage } from "../../../components/success.mjs";
+import { timeout } from "../../../util/timeout.mjs";
 
 /**
  * A request which handles following/unfollowing a user in the API
@@ -37,7 +38,7 @@ export async function followUnfollowRequest(user, type) {
     if (json.message) {
       errorContainer.innerHTML = errorMessage(json.message);
     } else {
-      errorContainer.innerHTML = successMessage("Post creation");
+      errorContainer.innerHTML = successMessage("Follow");
       timeout(1000);
     }
   } catch (error) {
