@@ -76,6 +76,28 @@ export async function displayPosts(endpoint, params, opt) {
 }
 
 /**
+ * Get all posts for the passed in user and display them on the profile. Takes several arguments
+ * @returns displayed data in HTML form using the postTemplate function
+ * @example
+ * ```js
+ *  const myPosts = getMyPosts();
+ * // Expect returned array with every post a user has posted.
+ * ```
+ */
+export async function getMyPosts(endpoint, params, name, opt) {
+  try {
+    const data = await getPosts(`${API_BASE_URL}${endpoint}${name}/posts${params}`, opt);
+    postTemplate(data);
+    if (data.length === 0) {
+      getPostsContainer.innerHTML = `<div class="error">You have no posts!</div>`;
+    }
+  } catch (error) {
+    console.log(error);
+    errorContainer.innerHTML = errorMessage("An error occurred when calling the API, error: " + error);
+  }
+}
+
+/**
  * Get all posts (or at least the first 1000) and push them to a new array which can be used. Takes in no arguments.
  * @returns displayed data in HTML form using the postTemplate function
  * @example
