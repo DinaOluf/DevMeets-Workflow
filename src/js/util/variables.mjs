@@ -19,5 +19,4 @@ export const filterMyPosts = document.querySelector(".filter-my-posts");
 export const getPostsContainer = document.querySelector(".get-posts-container");
 export const profileHeader = document.querySelector(".profile-header");
 
-export const searchbarForm = document.querySelector(".search-bar-form");
-export const searchbarInput = document.querySelector(".search-bar-input");
+export const searchbarForm = document.querySelectorAll(".search-bar-form");
