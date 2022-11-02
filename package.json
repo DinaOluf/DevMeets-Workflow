@@ -2,12 +2,17 @@
   "name": "devmeets",
   "version": "1.0.0",
   "description": "",
+  "type": "module",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "sass src/scss:dist/css",
     "watch": "sass --watch src/scss:dist/css & live-server",
-    "docs": "jsdoc -c ./conf.json -r"
+    "docs": "jsdoc -c ./conf.json -r",
+    "format": "prettier -w .",
+    "lint": "eslint src/**/*.mjs",
+    "lint-fix": "eslint src/**/*.mjs --fix",
+    "prepare": "husky install"
   },
   "repository": {
     "type": "git",
@@ -25,8 +30,11 @@
     "dayjs": "^1.11.5"
   },
   "devDependencies": {
+    "eslint": "^8.26.0",
     "jsdoc": "^3.6.11",
+    "lint-staged": "^13.0.3",
     "live-server": "^1.2.2",
+    "prettier": "^2.7.1",
     "sass": "^1.55.0"
   }
 }
