@@ -21,8 +21,17 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  # Single deploy job since we're just deploying
+  styling:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install Bootstrap
+        run: npm i bootstrap@5.2.2
+      - name: Install dayjs
+        run: npm i dayjs@1.11.5
+      - name: Build CSS
+        run: npm run build
   deploy:
+    needs: styling
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
