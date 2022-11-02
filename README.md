@@ -2,7 +2,6 @@
 
 ![devmeetspic](https://user-images.githubusercontent.com/30121693/196055172-70493a8c-a4ed-4cce-8978-b7fa75cb723b.png)
 
-
 [DevMeets](devmeets.netlify.app) is a social networking site created for the JavaScript 2 Course Assignment.
 
 ## Description
@@ -46,10 +45,13 @@ This is usually done through the hosting's own file manager or via FTP. Check wh
 ### Running
 
 Use npm commands
+
 ```bash
 npm i
 ```
+
 and
+
 ```bash
 npm run build
 ```
