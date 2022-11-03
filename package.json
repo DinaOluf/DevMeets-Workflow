@@ -44,6 +44,9 @@
   },
   "lint-staged": {
     "*.{mjs,html,scss}": "prettier --write",
-    "*.mjs": "jest && eslint --fix"
+    "*.mjs": [
+      "jest",
+      " eslint --fix"
+    ]
   }
 }
