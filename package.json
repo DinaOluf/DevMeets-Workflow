@@ -12,7 +12,8 @@
     "format": "prettier -w .",
     "lint": "eslint src/**/*.mjs",
     "lint-fix": "eslint src/**/*.mjs --fix",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "test-unit": "jest"
   },
   "repository": {
     "type": "git",
@@ -30,8 +31,11 @@
     "dayjs": "^1.11.5"
   },
   "devDependencies": {
+    "@babel/core": "^7.19.3",
+    "@babel/preset-env": "^7.19.4",
     "eslint": "^8.26.0",
     "husky": "^8.0.1",
+    "jest": "^29.2.0",
     "jsdoc": "^3.6.11",
     "lint-staged": "^13.0.3",
     "live-server": "^1.2.2",
@@ -40,6 +44,6 @@
   },
   "lint-staged": {
     "*.{mjs,html,scss}": "prettier --write",
-    "*.mjs": "eslint --fix"
+    "*.mjs": "jest && eslint --fix"
   }
 }
