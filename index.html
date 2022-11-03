@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DevMeets | Homepage</title>
+    <meta name="keywords" content="DevMeets, Social Media, Bootstrap, SASS, Noroff" />
+    <meta name="description" content="Come share your work!" />
+    <script src="https://kit.fontawesome.com/7b67c1dabd.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <link rel="stylesheet" href="https://fonts.sandbox.google.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,400;0,500;0,600;1,100&display=swap" rel="stylesheet" />
+    <script defer src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="/dist/css/myFancyStyles.css" />
+    <script defer src="/src/js/pages/index.mjs" type="module"></script>
+    <script defer src="/src/js/script.mjs" type="module"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1/plugin/relativeTime.js"></script>
+  </head>
+  <body>
+    <nav class="navwrap navbar navbar-expand-lg navbar-light">
+      <div>
+        <a href="index.html"> <i class="fa-solid fa-laptop-code ms-2"></i><a href="index.html">DevMeets</a></a>
+      </div>
+      <div class="dropdown d-lg-none">
+        <button class="btn btn-secondary" type="button" data-bs-toggle="dropdown" aria-expanded="false">&#9776;</button>
+        <ul class="dropdown-menu dropdown-menu-center w-auto">
+          <li>
+            <form class="form-inline my-2 d-flex search-bar-form dropdown-item">
+              <input class="form-control mr-sm-2 search-bar-input w-auto" type="search" placeholder="Search" aria-label="Search" />
+              <button class="btn btn-outline-success my-2 my-sm-0 ms-2" type="submit">Search</button>
+            </form>
+          </li>
+          <hr />
+          <li>
+            <button class="dropdown-item" type="button"><a href="index.html">Home</a></button>
+          </li>
+          <hr />
+          <li>
+            <button class="dropdown-item" type="button"><a href="profile.html">My Profile</a></button>
+          </li>
+          <hr />
+        </ul>
+      </div>
+      <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link nav-active" href="index.html" style="color: #71a596">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link profile-nav-link" href="profile.html">My Profile</a>
+          </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0 d-flex px-5 search-bar-form">
+          <input class="form-control mr-sm-2 search-bar-input" type="search" placeholder="Search" aria-label="Search" />
+          <button class="btn btn-outline-success my-2 my-sm-0 ms-2" type="submit">Search</button>
+        </form>
+      </div>
+      <div class="dropdown">
+        <div class="settings-dropdown">
+          <svg
+            type="button"
+            id="settings-dropdown"
+            data-bs-toggle="dropdown"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+            xmlns="http://www.w3.org/2000/svg"
+            width="25"
+            height="25"
+            fill="currentColor"
+            class="bi bi-gear-fill me-3 ms-3"
+            viewBox="0 0 16 16"
+          >
+            <path
+              d="M9.405 1.05c-.413-1.4-2.397-1.4-2.81 0l-.1.34a1.464 1.464 0 0 1-2.105.872l-.31-.17c-1.283-.698-2.686.705-1.987 1.987l.169.311c.446.82.023 1.841-.872 2.105l-.34.1c-1.4.413-1.4 2.397 0 2.81l.34.1a1.464 1.464 0 0 1 .872 2.105l-.17.31c-.698 1.283.705 2.686 1.987 1.987l.311-.169a1.464 1.464 0 0 1 2.105.872l.1.34c.413 1.4 2.397 1.4 2.81 0l.1-.34a1.464 1.464 0 0 1 2.105-.872l.31.17c1.283.698 2.686-.705 1.987-1.987l-.169-.311a1.464 1.464 0 0 1 .872-2.105l.34-.1c1.4-.413 1.4-2.397 0-2.81l-.34-.1a1.464 1.464 0 0 1-.872-2.105l.17-.31c.698-1.283-.705-2.686-1.987-1.987l-.311.169a1.464 1.464 0 0 1-2.105-.872l-.1-.34zM8 10.93a2.929 2.929 0 1 1 0-5.86 2.929 2.929 0 0 1 0 5.858z"
+            />
+          </svg>
+          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="settings-dropdown">
+            <li class="dropdown-item">Settings</li>
+            <li class="dropdown-item">Help & Support</li>
+            <li class="dropdown-item">About</li>
+            <hr />
+            <li class="dropdown-item log-out-button">Log out</li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <hr class="separation-line solid mt-0 mb-0" />
+    <section class="min-vh-100">
+      <div class="container">
+        <div class="row">
+          <div class="content-wrap col-md-12 col-lg-4">
+            <div class="left rounded mt-3 me-3 ms-3">
+              <div class="profile-wrap d-flex align-items-center justify-content-center px-3 pt-3">
+                <div class="profile-image">
+                  <div class="profile-image-attributes rounded-circle skeleton"></div>
+                </div>
+                <div class="profile-information px-2">
+                  <p class="mb-0 profile-info-username"></p>
+                  <p class="mb-0">Developer</p>
+                </div>
+              </div>
+              <div class="profile-posts d-flex justify-content-center pt-2 pb-2 mt-3">
+                <div class="px-3">
+                  <p class="mb-0">Posts</p>
+                  <p class="mb-1 post-count"></p>
+                </div>
+                <div class="px-3">
+                  <p class="mb-0">Following</p>
+                  <p class="mb-1 following-count"></p>
+                </div>
+                <div class="px-3">
+                  <p class="mb-0">Followers</p>
+                  <p class="mb-1 follower-count"></p>
+                </div>
+              </div>
+              <p class="px-2 d-flex justify-content-center mt-2">
+                Following<a href="profile.html" class="following-list-title"><span class="skeleton skeleton-text-half"></span></a>
+              </p>
+              <div class="friends d-flex pb-2 flex-column following-list-content">
+                <div class="px-3 d-flex flex-row align-items-center pb-3 w-100">
+                  <div class="friends-image-attributes rounded-circle skeleton mb-1"></div>
+                  <div class="px-2 w-25">
+                    <p class="skeleton skeleton-text-long"></p>
+                    <p class="skeleton skeleton-text-short"></p>
+                  </div>
+                </div>
+                <div class="px-3 d-flex flex-row align-items-center pb-3 w-100">
+                  <div class="friends-image-attributes rounded-circle skeleton mb-1"></div>
+                  <div class="px-2 w-25">
+                    <p class="skeleton skeleton-text-long"></p>
+                    <p class="skeleton skeleton-text-short"></p>
+                  </div>
+                </div>
+                <div class="px-3 d-flex flex-row align-items-center pb-3 w-100">
+                  <div class="friends-image-attributes rounded-circle skeleton mb-1"></div>
+                  <div class="px-2 w-25">
+                    <p class="skeleton skeleton-text-long"></p>
+                    <p class="skeleton skeleton-text-short"></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-12 col-lg-8">
+            <div class="right rounded mt-3 mb-3">
+              <div class="content-right-wrap p-3">
+                <div class="card mb-3">
+                  <div class="card-body">
+                    <div class="d-flex flex-start align-items-center justify-content-between">
+                      <div class="d-flex align-items-center">
+                        <div class="profile-image me-1">
+                          <div class="rounded-circle shadow-1-strong me-3 skeleton skeleton-image-icon"></div>
+                        </div>
+                        <div class="w-100">
+                          <h6 class="fw-bold text-primary mb-1 profile-info-username"><span class="skeleton skeleton-text-long"></span></h6>
+                          <p class="text-muted small mb-0">Public</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <form class="card-footer py-2 border-0 create-post-form" style="background-color: #f8f9fa">
+                    <div class="form-group mt-1 mb-2">
+                      <input type="text" class="form-control w-100" id="post-title" aria-describedby="titleHelp" placeholder="Enter a title" required minlength="3" />
+                    </div>
+                    <div class="textarea">
+                      <textarea class="w-100 rounded px-2" placeholder="Share your thoughts, ideas or anything that comes to mind" id="post-content" rows="4"></textarea>
+                    </div>
+                    <div class="form-group mt-1 mb-1">
+                      <input type="text" class="form-control w-100" id="post-tags" aria-describedby="tagsHelp" placeholder="Enter tags, separate by comma" required minlength="3" />
+                    </div>
+                    <div class="mt-2 pt-1">
+                      <input type="text" class="form-control w-50" id="post-url" placeholder="Enter a image url" />
+                    </div>
+                    <div class="button-wrap d-flex justify-content-between align-items-center">
+                      <div class="mt-2 pt-1 float-end">
+                        <button type="submit" class="btn btn-primary btn-sm">Create Post</button>
+                        <button type="button" id="clearInput" class="btn btn-primary btn-sm">Clear</button>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+                <div class="dropdown mt-3 mb-3">
+                  <button class="btn btn-secondary dropdown-toggle" type="button" id="book-dropdown" data-bs-toggle="dropdown">Sort by:</button>
+                  <ul class="dropdown-menu" aria-labelledby="book-dropdown">
+                    <li class="dropdown-item filter-title d-flex align-items-center justify-content-between">
+                      Title
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z" />
+                      </svg>
+                    </li>
+                    <li class="dropdown-item filter-author d-flex align-items-center justify-content-between">
+                      Author
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z" />
+                      </svg>
+                    </li>
+                    <li class="dropdown-item filter-time d-flex align-items-center justify-content-between">
+                      Time
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z" />
+                      </svg>
+                    </li>
+                    <li class="dropdown-item filter-today">Today</li>
+                    <li class="dropdown-item filter-this-week">This week</li>
+                    <li class="dropdown-item filter-this-month">This month</li>
+                    <li class="dropdown-item filter-following">Following</li>
+                    <li class="dropdown-item filter-my-posts">My Posts</li>
+                  </ul>
+                </div>
+                <div class="error-container"></div>
+                <div class="get-posts-container d-flex flex-column gap-3">
+                  <div class="card w-100">
+                    <div class="card-body">
+                      <div class="d-flex flex-start align-items-center">
+                        <div class="rounded-circle shadow-1-strong me-3 skeleton skeleton-image-icon"></div>
+                        <div class="w-100">
+                          <p class="mb-1 skeleton skeleton-text-half"></p>
+                          <p class="mb-0 skeleton skeleton-text-short"></p>
+                        </div>
+                      </div>
+
+                      <p class="my-1 skeleton skeleton-text-long"></p>
+
+                      <div class="skeleton skeleton-media"></div>
+
+                      <p class="mt-1 pb-2 skeleton skeleton-text-half"></p>
+                      <p class="mt-1 pb-2 skeleton skeleton-text-short"></p>
+
+                      <div class="small d-flex justify-content-start skeleton w-60"></div>
+                    </div>
+                    <form class="card-footer py-3 border-0 create-comment-form" style="background-color: #f8f9fa">
+                      <div class="d-flex flex-start w-100">
+                        <div class="rounded-circle shadow-1-strong me-3 skeleton skeleton-image-icon"></div>
+                        <div class="form-outline w-100">
+                          <div class="skeleton skeleton-text-long"></div>
+                        </div>
+                      </div>
+                      <div class="d-flex float-end mt-2 pt-1 gap-3">
+                        <div class="skeleton skeleton-btn"></div>
+                        <div class="skeleton skeleton-btn"></div>
+                      </div>
+                    </form>
+                  </div>
+                  <div class="card w-100">
+                    <div class="card-body">
+                      <div class="d-flex flex-start align-items-center">
+                        <div class="rounded-circle shadow-1-strong me-3 skeleton skeleton-image-icon"></div>
+                        <div class="w-100">
+                          <p class="mb-1 skeleton skeleton-text-half"></p>
+                          <p class="mb-0 skeleton skeleton-text-short"></p>
+                        </div>
+                      </div>
+
+                      <p class="my-1 skeleton skeleton-text-long"></p>
+
+                      <div class="skeleton skeleton-media"></div>
+
+                      <p class="mt-1 pb-2 skeleton skeleton-text-half"></p>
+                      <p class="mt-1 pb-2 skeleton skeleton-text-short"></p>
+
+                      <div class="small d-flex justify-content-start skeleton w-60"></div>
+                    </div>
+                    <form class="card-footer py-3 border-0 create-comment-form" style="background-color: #f8f9fa">
+                      <div class="d-flex flex-start w-100">
+                        <div class="rounded-circle shadow-1-strong me-3 skeleton skeleton-image-icon"></div>
+                        <div class="form-outline w-100">
+                          <div class="skeleton skeleton-text-long"></div>
+                        </div>
+                      </div>
+                      <div class="d-flex float-end mt-2 pt-1 gap-3">
+                        <div class="skeleton skeleton-btn"></div>
+                        <div class="skeleton skeleton-btn"></div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div class="footer-wrap">
+      <footer class="py-3">
+        <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+          <li class="nav-item"><a href="#" class="nav-link px-2">Home</a></li>
+          <li class="nav-item"><a href="#" class="nav-link px-2">My Profile</a></li>
+          <li class="nav-item"><a href="#" class="nav-link px-2">FAQs</a></li>
+          <li class="nav-item"><a href="#" class="nav-link px-2">About</a></li>
+        </ul>
+        <p class="copyright text-center">&copy; 2022 Company, Inc</p>
+      </footer>
+    </div>
+  </body>
+</html>

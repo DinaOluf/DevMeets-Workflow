@@ -1,0 +1,268 @@
+@import "variable";
+@import "../../node_modules/bootstrap/scss/bootstrap.scss";
+@import "profile.scss";
+@import "custom.scss";
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Raleway", sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  background-color: #fff;
+  color: #333;
+  scrollbar-color: $break-color green;
+  scrollbar-width: thin;
+}
+
+section {
+  background: $backgroundBody-color;
+}
+
+a {
+  text-decoration: none;
+  color: $success-color;
+}
+
+ul {
+  list-style: none;
+}
+
+.separation-line {
+  border: 1px solid $break-color;
+  opacity: 100%;
+}
+
+// Post Media //
+.post-image {
+  object-fit: contain;
+  max-height: 400px;
+}
+
+// Navigation Bar //
+
+.navwrap {
+  background-color: $primary-color;
+  color: $white-color;
+
+  & a {
+    color: $link-color;
+  }
+
+  & a:hover {
+    color: $button-color-dark;
+  }
+}
+
+#book-dropdown {
+  width: auto;
+}
+
+.dropdown-menu {
+  & li:hover {
+    cursor: pointer;
+  }
+}
+
+.dropdown-item {
+  & a {
+    color: black;
+  }
+}
+
+.dropdown-menu-center {
+  right: auto !important;
+  text-align: center !important;
+  transform: translate(-50%, 0) !important;
+}
+
+.navbar-toggler {
+  background: $link-color;
+}
+
+// Main Content //
+
+.landing {
+  background: url(../../dist/img/background-login-ps.jpg) no-repeat center center/cover;
+  height: 100vh;
+
+  & h1 {
+    color: $white-color;
+  }
+
+  & p {
+    color: $white-color;
+  }
+}
+
+// Home Page/Profile Page - Left //
+
+.profile-stats {
+  & h6 {
+    color: #fff;
+  }
+
+  & h4 {
+    color: #fff;
+  }
+
+  & span {
+    color: $link-color;
+  }
+}
+
+.left {
+  width: auto;
+  height: auto;
+  background-color: $primary-color;
+  border: 2px solid $break-color;
+
+  & p {
+    color: $white-color;
+  }
+}
+
+.left-profile {
+  width: 600px;
+  height: 400px;
+  background-color: $primary-color;
+  border: 2px solid $break-color;
+
+  & p {
+    color: $white-color;
+  }
+}
+
+.left-profile-specific {
+  width: auto;
+  min-width: 200px;
+  height: fit-content;
+  background-color: $primary-color;
+  border: 2px solid $break-color;
+
+  & p {
+    color: $white-color;
+  }
+}
+
+.my-profile-image {
+  height: 150px;
+  width: 150px;
+}
+
+.profile-image-attributes {
+  height: 100px;
+  width: 100px;
+}
+
+.profile-image-comment {
+  height: 50px;
+  width: 50px;
+}
+
+.friends-image-attributes {
+  height: 100px;
+  width: 100px;
+}
+
+// Home Page - Right //
+
+.right {
+  background-color: $primary-color;
+  border: 2px solid $break-color;
+}
+// Footer //
+
+.footer-wrap {
+  background-color: $primary-color;
+
+  &li {
+    color: $button-color;
+  }
+}
+
+.copyright {
+  color: white;
+}
+
+// Form //
+
+.form-control {
+  width: 22rem;
+}
+
+.login-form-wrap {
+  background: rgba($color: #1a1d20, $alpha: 0.8);
+}
+
+.skeleton {
+  animation: skeleton-loading 1s linear infinite alternate;
+}
+
+.skeleton-image-icon {
+  width: 60px;
+  height: 60px;
+}
+
+.skeleton-image-large {
+  width: 100px;
+  height: 100px;
+}
+
+.skeleton-image-medium {
+  width: 80px;
+  height: 80px;
+}
+
+.skeleton-text-long {
+  width: 100%;
+  height: 14px;
+}
+
+.skeleton-text-half {
+  width: 50%;
+  height: 14px;
+}
+
+.skeleton-text-short {
+  width: 20%;
+  height: 10px;
+}
+
+.skeleton-media {
+  width: 90%;
+  height: 250px;
+}
+
+.skeleton-btn {
+  width: 100px;
+  height: 35px;
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background-color: hsl(200, 20%, 70%);
+  }
+
+  100% {
+    background-color: hsl(200, 20%, 95%);
+  }
+}
+
+::-webkit-scrollbar {
+  width: 15px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: white;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: $break-color;
+  border-radius: 10px;
+}
