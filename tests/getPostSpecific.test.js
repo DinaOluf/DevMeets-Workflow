@@ -17,7 +17,7 @@ function fetchSuccess() {
   });
 }
 
-//Will not run due to "import statement outside of module" ------- HELP
+//Will not run due to "import statement outside of module" (doesn't recognize "global") ------- HELP
 describe("getSiglePost", () => {
   it("Returns valid object when successful", async () => {
     global.fetch = jest.fn(() => fetchSuccess());
