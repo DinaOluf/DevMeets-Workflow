@@ -1,3 +1,7 @@
+/**
+ * @jest-environment jsdom
+ */
+
 import { getSinglePost } from "../src/js/posts/getPostSpecific.mjs";
 
 const TEST_OBJECT = { id: 1, name: "Testing" };
@@ -17,7 +21,6 @@ function fetchSuccess() {
   });
 }
 
-//Will not run due to "import statement outside of module" (doesn't recognize "global") ------- HELP
 describe("getSiglePost", () => {
   it("Returns valid object when successful", async () => {
     global.fetch = jest.fn(() => fetchSuccess());
