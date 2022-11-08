@@ -6,31 +6,14 @@ import { getItem } from "../src/js/user/getUserInfo.mjs";
 import { setItem } from "../src/js/user/getUserInfo.mjs";
 import { deleteStorage } from "../src/js/util/deleteStorage.mjs";
 
-class localStorageMock {
-  constructor() {
-    this.store = {};
-  }
+describe("localStorage", () => {
+  it("Adds array to and gets it from localStorage", () => {
+    const key = "Greeting";
+    const value = "Hello!";
+    setItem(key, value);
+    expect(getItem(key)).toEqual(value);
+  });
 
-  clearMock() {
-    this.store = {};
-  }
-
-  getMockItem(key) {
-    return this.store[key] || null;
-  }
-
-  setMockItem(key, value) {
-    this.store[key] = String(value);
-  }
-
-  removeMockItem(key) {
-    delete this.store[key];
-  }
-}
-
-global.localStorage = new localStorageMock();
-
-describe("deleteStorage", () => {
   it("Removes array from localStorage", () => {
     const key = "token";
     const value = "111111111111111";
