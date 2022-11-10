@@ -1,5 +1,5 @@
 import { getItem } from "../../user/getUserInfo.mjs";
-import { bannerImageHandler, profileImageHandler } from "../../components/imageHandlers.mjs";
+import { bannerImageHandler, profileImageHandler } from "./src/js/components/imageHandlers.mjs";
 import { buildFollowingList } from "./buildFollowingList.mjs";
 
 /**
