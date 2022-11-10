@@ -1,4 +1,4 @@
-import { bannerImageHandler, profileImageHandler } from "../../components/imageHandlers.mjs";
+import { bannerImageHandler, profileImageHandler } from "./src/js/components/imageHandlers.mjs";
 import { setItem, getItem } from "../getUserInfo.mjs";
 import { buildEditForm } from "./buildEditForm.mjs";
 import { handleFollow } from "./follow-unfollow/follow.mjs";
