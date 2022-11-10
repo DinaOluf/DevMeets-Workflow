@@ -29,7 +29,7 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - name: Install Dependancies
+      - name: Install Dependencies
         run:  npm ci
       - name: Build SASS
         run:  npm run build
