@@ -1,4 +1,4 @@
-[![Automated E2E Testing](https://github.com/DinaOluf/DevMeets-Workflow/actions/workflows/E2eTesting.yml/badge.svg)](https://github.com/DinaOluf/DevMeets-Workflow/actions/workflows/E2eTesting.yml) [![Automated Unit Testing](https://github.com/DinaOluf/DevMeets-Workflow/actions/workflows/UnitTesting.yml/badge.svg)](https://github.com/DinaOluf/DevMeets-Workflow/actions/workflows/UnitTesting.yml) (Because of function with too much responsibility.) 
+[![Automated E2E Testing](https://github.com/DinaOluf/DevMeets-Workflow/actions/workflows/E2eTesting.yml/badge.svg)](https://github.com/DinaOluf/DevMeets-Workflow/actions/workflows/E2eTesting.yml) [![Automated Unit Testing](https://github.com/DinaOluf/DevMeets-Workflow/actions/workflows/UnitTesting.yml/badge.svg)](https://github.com/DinaOluf/DevMeets-Workflow/actions/workflows/UnitTesting.yml) (Because of a function with too much responsibility.) 
 # DevMeets
 
 ![devmeetspic](https://user-images.githubusercontent.com/30121693/196055172-70493a8c-a4ed-4cce-8978-b7fa75cb723b.png)
