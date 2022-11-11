@@ -36,7 +36,7 @@ getMyPosts(API_PROFILE_URL, getPostUrlParams, name, options);
 
 // if the id is null, then redirect to the home page. If not, create the profile.
 if (!name) {
-  location.href = `/profile.html?name=${userInfo.name}`;
+  location.href = `./profile.html?name=${userInfo.name}`;
 } else {
   getProfile(name);
 }
