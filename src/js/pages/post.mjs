@@ -10,7 +10,7 @@ const id = params.get("id");
 
 // if the id is null, then redirect to the home page. If not, create the profile.
 if (!id) {
-  location.href = "/";
+  location.href = "./index.html";
 } else {
   getSinglePost(id);
 }

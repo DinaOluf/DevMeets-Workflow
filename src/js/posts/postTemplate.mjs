@@ -73,11 +73,11 @@ export function postTemplate(sortedData) {
         <div class="card w-100">
           <div class="card-body">
             <div class="d-flex flex-start align-items-center">
-              <a href="/profile.html?name=${sortedData[i].author.name}">
+              <a href="./profile.html?name=${sortedData[i].author.name}">
                 <img class="rounded-circle shadow-1-strong me-3" src="${userProfileImage}" alt="${sortedData[i].author.name}'s avatar" width="60" height="60" />
               </a>
               <div>
-              <a href="/profile.html?name=${sortedData[i].author.name}"><h6 class="fw-bold text-primary mb-1">${sortedData[i].author.name}</h6></a>
+              <a href="./profile.html?name=${sortedData[i].author.name}"><h6 class="fw-bold text-primary mb-1">${sortedData[i].author.name}</h6></a>
                 <p class="text-muted small mb-0">Shared publicly - ${dateFix}</p>
               </div>
               ${cogContainer}
@@ -110,7 +110,7 @@ export function postTemplate(sortedData) {
                 <i class="fas fa-share me-2"></i>
                 <p class="mb-0">Share</p>
               </a>
-              <a href="/post.html?id=${commentId}" class="d-flex align-items-center me-3">
+              <a href="./post.html?id=${commentId}" class="d-flex align-items-center me-3">
                 <p class="mb-0">&#128172; View Comments (${sortedData[i].comments.length})</p>
               </a>
             </div>
