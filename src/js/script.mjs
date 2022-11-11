@@ -14,7 +14,7 @@ const navLink = document.querySelector(".profile-nav-link");
 const userInfo = getItem("user");
 
 if (navLink) {
-  navLink.href = `/profile.html?name=${userInfo.name}`;
+  navLink.href = `./profile.html?name=${userInfo.name}`;
 }
 
 // Searchbar handling
