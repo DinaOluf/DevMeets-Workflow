@@ -6,6 +6,7 @@ describe("DevMeets", () => {
   });
 
   beforeEach(() => {
+    cy.visit("https://dinaoluf.github.io/DevMeets-Workflow/");
     cy.restoreLocalStorage();
   });
 
