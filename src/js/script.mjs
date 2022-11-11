@@ -22,7 +22,7 @@ if (navLink) {
 function validateSearch(form) {
   form.preventDefault();
   const [input] = form.target.elements;
-  location.href = `/search.html?search=${input.value}`;
+  location.href = `./search.html?search=${input.value}`;
 }
 
 searchbarForm.forEach((e) => {
