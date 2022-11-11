@@ -1,7 +1,9 @@
+[![Automated E2E Testing](https://github.com/DinaOluf/DevMeets-Workflow/actions/workflows/E2eTesting.yml/badge.svg)](https://github.com/DinaOluf/DevMeets-Workflow/actions/workflows/E2eTesting.yml) [![Automated Unit Testing](https://github.com/DinaOluf/DevMeets-Workflow/actions/workflows/UnitTesting.yml/badge.svg)](https://github.com/DinaOluf/DevMeets-Workflow/actions/workflows/UnitTesting.yml)
 # DevMeets
 
 ![devmeetspic](https://user-images.githubusercontent.com/30121693/196055172-70493a8c-a4ed-4cce-8978-b7fa75cb723b.png)
 
+[DevMeets on GitHub Pages](https://dinaoluf.github.io/DevMeets-Workflow/)
 [DevMeets](devmeets.netlify.app) is a social networking site created for the JavaScript 2 Course Assignment.
 
 ## Description
@@ -55,6 +57,19 @@ and
 ```bash
 npm run build
 ```
+
+### Testing
+
+Unit Testing with Jest
+```bash
+npm run test-unit
+```
+
+End-to-end Testing with Cypress
+```bash
+npm run test-e2e
+```
+
 
 ## Contributing
 
