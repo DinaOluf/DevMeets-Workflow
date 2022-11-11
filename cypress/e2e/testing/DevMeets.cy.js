@@ -59,6 +59,7 @@ describe("DevMeets", () => {
   it("can log out", () => {
     cy.visit("https://dinaoluf.github.io/DevMeets-Workflow/index.html");
     cy.url().should("include", "index");
+    cy.wait(1000);
     cy.get("svg[id='settings-dropdown']").should("exist").click();
     cy.get("li[class='dropdown-item log-out-button']").should("exist").click();
     cy.url().should("include", "login");
