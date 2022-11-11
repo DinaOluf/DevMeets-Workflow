@@ -68,7 +68,7 @@ export async function handleRegister(evt) {
       } else {
         errorContainer.innerHTML = successMessage("Registration");
         timeout(1000);
-        location.href = "/login.html";
+        location.href = "./login.html";
       }
     } catch (error) {
       console.log(error);

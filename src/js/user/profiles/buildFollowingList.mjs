@@ -50,7 +50,7 @@ function followHtml(array) {
                 <img class="friends-image-attributes rounded-circle" src="${userImage}" alt="${array[i].name}'s avatar" />
                 <div class="px-2">
                 <p class="mb-0">${array[i].name}</p>
-                <a href="profile.html?name=${array[i].name}">View profile</a>
+                <a href="./profile.html?name=${array[i].name}">View profile</a>
                 </div>
             </div>`;
   }

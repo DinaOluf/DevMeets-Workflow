@@ -12,7 +12,7 @@ export function isUserLoggedIn() {
   const checkAuth = getItem("jwt");
 
   if (checkAuth.length === 0) {
-    location.href = "/login.html";
+    location.href = "./login.html";
   } else {
     return;
   }

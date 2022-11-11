@@ -14,7 +14,7 @@ const navLink = document.querySelector(".profile-nav-link");
 const userInfo = getItem("user");
 
 if (navLink) {
-  navLink.href = `/profile.html?name=${userInfo.name}`;
+  navLink.href = `./profile.html?name=${userInfo.name}`;
 }
 
 // Searchbar handling
@@ -22,7 +22,7 @@ if (navLink) {
 function validateSearch(form) {
   form.preventDefault();
   const [input] = form.target.elements;
-  location.href = `/search.html?search=${input.value}`;
+  location.href = `./search.html?search=${input.value}`;
 }
 
 searchbarForm.forEach((e) => {
