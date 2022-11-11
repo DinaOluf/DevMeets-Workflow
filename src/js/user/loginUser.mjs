@@ -56,7 +56,7 @@ export async function handleLogin(evt) {
 
       // Redirect
       timeout(1000);
-      location.href = "/profile.html";
+      location.href = "./profile.html";
     }
   } catch (error) {
     console.log(error);
