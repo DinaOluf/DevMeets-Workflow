@@ -44,6 +44,7 @@ describe("DevMeets", () => {
   it("can delete a post from the API", () => {
     cy.visit("https://dinaoluf.github.io/DevMeets-Workflow/index.html");
     cy.url().should("include", "index");
+    cy.wait(1000);
     cy.get("svg[id='cog-dropdown']").should("exist").eq(0).click();
     cy.get("li[class='dropdown-item delete-post']")
       .should("exist")
