@@ -17,6 +17,7 @@ const loginSuccess = {
 };
 
 // Oliver and I looked at this together - issue raised to developers.
+// Too much responsibility in one function.
 describe("handleLogin", () => {
   it("returns valid token when valid input", async () => {
     expect(localStorage.getItem("jwt")).toEqual(null);

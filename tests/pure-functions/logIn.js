@@ -1,3 +1,6 @@
+// Could not find any functions without too many things happening in the same code, as we talked about.
+// Made this to compensate. It's part of their code, but I removed excessive code so that it only does one thing; Logs In.
+
 import { setItem } from "../../src/js/user/getUserInfo.mjs";
 
 export async function logIn(email, password) {
